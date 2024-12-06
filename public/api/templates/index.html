@@ -1,1 +1,1051 @@
-<transition><main class="t-main t-container"><div class="t-page-padding-big t-page-main__promo"><div class="t-page-main__promo-top"><div class="t-page-main__promo-description"><div class="t-title-big"><h1 class="t-title t-page-main__title">Настоящие Корабли</h1></div><div class="t-page-main__promo-offer_container"><span class="t-page-main__promo-offer">Российские яхты голландского качества</span></div></div><div @click="toNextBlock" class="t-page-main__promo-icon"><svg class="circle-svg" width="264" height="264" viewBox="0 0 264 264" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="132" cy="132" r="131" transform="rotate(-90, 132, 132)" stroke-dasharray="823" stroke="#A7B5C5" stroke-width="2"></circle><g><path d="M159.594 132.974L134.828 157.74C133.266 159.302 130.734 159.302 129.172 157.74L104.406 132.974" stroke="#022855" stroke-width="3"/><path d="M132 159.189V104" stroke="#022855" stroke-width="3"/></g></svg></div></div><div class="t-page-main__promo-video"><video-cmp id="main" autoplay="autoplay" mute="mute" :video="{'mark':'video','type':'file','src':'/uploads/video/landscape_757_61fb9d4b3acd6_620099638f50e_1_622afc7daf1ef.mp4'}"></video-cmp></div></div><div class="t-page-main__models t-margin-top"><div class="t-page-main__models-wrapper"><div class="t-page-main__models-wrapper-left"><h2 class="t-title t-title-small">Модельный ряд</h2><button-link-cmp inline-template><a v-link href="/models" class="t-button-link t-button-link_border"><div class="t-button-link__content"><div class="t-button-link__text"><span></span> <span></span></div></div><div class="t-button-link__icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/><path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/></svg></div></a></button-link-cmp></div><div class="t-page-main__models-wrapper-right"><div v-if="screenSize" class="t-page-main__models-tabs"><tabs-original-cmp @tabs-active="getTabsActive" inline-template><div class="t-tabs-original"><ul class="t-tabs-original__list"><li class="t-tabs-original__item" :class="{'t-tabs-original__item-active': 0 == activeItemId}" @click="onActiveTabs('0')"><span>Частные</span></li><li class="t-tabs-original__item" :class="{'t-tabs-original__item-active': 1 == activeItemId}" @click="onActiveTabs('1')"><span>Коммерческие</span></li></ul></div></tabs-original-cmp></div><div v-if="!screenSize" class="t-page-main__models-tabs"><tabs-original-cmp @tabs-active="getTabsActive" inline-template><div class="t-tabs-original"><ul class="t-tabs-original__list"><li class="t-tabs-original__item" :class="{'t-tabs-original__item-active': 0 == activeItemId}" @click="onActiveTabs('0')"><span>ЧАСТНЫЕ СУДА</span></li><li class="t-tabs-original__item" :class="{'t-tabs-original__item-active': 1 == activeItemId}" @click="onActiveTabs('1')"><span>коммерческие суда</span></li></ul></div></tabs-original-cmp></div><div class="t-page-main__models-link"><link-page-cmp inline-template><div class="t-link-page"><a href="/models" v-link class="t-link-page__text"><span>Все модели</span> <span>Все модели</span></a></div></link-page-cmp></div></div></div><transition name="tabs" mode="out-in"><div v-if="activeModels === 0" key="0"><div class="t-page-main__models-content"><div v-if="!isMobile" class="t-page-main__models-content-top"><transition name="fade" mode="out-in"><div v-if="0 === idBoat" key="0" class="t-page-main__models-boat"><div class="t-page-main__models-boat-info"><div class="t-page-main__models-boat-info-top"><h2 class="t-title t-subtitle">Название 1</h2><div v-if="'/models/id'"><button-link-vue-cmp type="link" border="true" :link="'/models/id'" text="Подробнее"></button-link-vue-cmp></div></div><div class="t-page-main__models-boat-info-bottom"><div class="t-page-main__models-boat-info-icon"><img src="/uploads/img/available-boat.png" alt="Название 1"/></div><p class="t-page-main__models-boat-info-text">Это прогулочная яхта с открытым кокпитом спроектирована для длительного нахождения на борту от 4-х до 8 человек. Прогулка выходного дня с друзьями, увлекательное путешествие с семьей, сложный морской переход – все эти возможности дарит яхта RESPECT ОК.</p></div></div><div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img"><a :class="{'_cursor-none': !isMobile}" href="/models/id" v-link><img src="/uploads/img/commercial-boat.png" alt="Название 1" loading="lazy"/></a></div></div><div v-if="1 === idBoat" key="1" class="t-page-main__models-boat"><div class="t-page-main__models-boat-info"><div class="t-page-main__models-boat-info-top"><h2 class="t-title t-subtitle">Название 1</h2><div v-if="'/models/test3'"><button-link-vue-cmp type="link" border="true" :link="'/models/test3'" text="Подробнее"></button-link-vue-cmp></div></div><div class="t-page-main__models-boat-info-bottom"><div class="t-page-main__models-boat-info-icon"><img src="/uploads/img/commercial-boat.png" alt="Название 1"/></div><p class="t-page-main__models-boat-info-text">Краткое описание</p></div></div><div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img"><a :class="{'_cursor-none': !isMobile}" href="/models/test3" v-link><img src="/uploads/img/available-boat.png" alt="Название 1" loading="lazy"/></a></div></div></transition></div><div class="t-page-main__models-items t-boats js-boat-count"><swiper class="t-page-main__models-slider" :options="swiperOptionsPrivateBoats"><swiper-slide class="t-page-main__models-slider-item"><div class="t-page-main__models-item t-boats__item" :class="{'t-boats__item-active': idBoat === 0}" @click="openInfoBoat(0)"><div v-if="isMobile" v-link href="/models/id" class="t-page-main__models-boat-img"><img src="/uploads/img/commercial-boat.png" alt="Название 1"/></div><div class="t-boats__item-img"><img src="/uploads/img/available-boat.png" alt="Название 1"/></div><span class="t-boats__item-title">Название 1</span><p v-if="isMobile" class="t-page-main__models-boat-info-text">Это прогулочная яхта с открытым кокпитом спроектирована для длительного нахождения на борту от 4-х до 8 человек. Прогулка выходного дня с друзьями, увлекательное путешествие с семьей, сложный морской переход – все эти возможности дарит яхта RESPECT ОК.</p></div><div v-if="isMobile" v-link href="/models/id" class="t-page-main__models-boat-link"></div></swiper-slide><swiper-slide class="t-page-main__models-slider-item"><div class="t-page-main__models-item t-boats__item" :class="{'t-boats__item-active': idBoat === 1}" @click="openInfoBoat(1)"><div v-if="isMobile" v-link href="/models/test3" class="t-page-main__models-boat-img"><img src="/uploads/img/available-boat.png" alt="Название 1"/></div><div class="t-boats__item-img"><img src="/uploads/img/commercial-boat.png" alt="Название 1"/></div><span class="t-boats__item-title">Название 1</span><p v-if="isMobile" class="t-page-main__models-boat-info-text">Краткое описание</p></div><div v-if="isMobile" v-link href="/models/test3" class="t-page-main__models-boat-link"></div></swiper-slide><div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev"><div class="t-slider-img__button-prev-icon t-button-prev__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next"><div class="t-slider-img__button-next-icon t-button-next__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-private t-pagination" slot="pagination"></div></swiper></div></div></div><div v-else-if="activeModels === 1" key="1"><div class="t-page-main__models-content"><div v-if="!isMobile" class="t-page-main__models-content-top"><transition name="fade" mode="out-in"><div v-if="0 === idBoat" class="t-page-main__models-boat"><div class="t-page-main__models-boat-info"><div class="t-page-main__models-boat-info-top"><h2 class="t-title t-subtitle">Название один два три</h2><div v-if="'/models/nazvaniye_odin_dva_tri'"><button-link-vue-cmp type="link" border="true" :link="'/models/nazvaniye_odin_dva_tri'" text="Подробнее"></button-link-vue-cmp></div></div><div class="t-page-main__models-boat-info-bottom"><div class="t-page-main__models-boat-info-icon"></div><p class="t-page-main__models-boat-info-text">Краткое описание</p></div></div><div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img"><a :class="{'_cursor-none': !isMobile}" href="/models/nazvaniye_odin_dva_tri" v-link><img src="/uploads/img/commercial-boat.png" alt="Название один два три" loading="lazy"/></a></div></div><div v-if="1 === idBoat" class="t-page-main__models-boat"><div class="t-page-main__models-boat-info"><div class="t-page-main__models-boat-info-top"><h2 class="t-title t-subtitle">Название 2</h2><div v-if="'/models/_id'"><button-link-vue-cmp type="link" border="true" :link="'/models/_id'" text="Подробнее"></button-link-vue-cmp></div></div><div class="t-page-main__models-boat-info-bottom"><div class="t-page-main__models-boat-info-icon"></div><p class="t-page-main__models-boat-info-text"></p></div></div></div></transition></div><div class="t-page-main__models-items t-boats js-boat-count"><swiper class="t-page-main__models-slider" :options="swiperOptionsCommercialBoats"><swiper-slide class="t-page-main__models-slider-item"><div class="t-page-main__models-item t-boats__item" :class="{'t-boats__item-active': idBoat === 0}" @click="openInfoBoat(0)"><div v-if="isMobile" v-link href="/models/nazvaniye_odin_dva_tri" class="t-page-main__models-boat-img"><img src="/uploads/img/commercial-boat.png" alt="Название один два три"/></div><div class="t-boats__item-img"></div><span class="t-boats__item-title">Название один два три</span><p v-if="isMobile" class="t-page-main__models-boat-info-text">Краткое описание</p></div></swiper-slide><swiper-slide class="t-page-main__models-slider-item"><div class="t-page-main__models-item t-boats__item" :class="{'t-boats__item-active': idBoat === 1}" @click="openInfoBoat(1)"><div v-if="isMobile" v-link href="/models/_id" class="t-page-main__models-boat-img"><img src="" alt="Название 2"/></div><div class="t-boats__item-img"></div><span class="t-boats__item-title">Название 2</span><p v-if="isMobile" class="t-page-main__models-boat-info-text"></p></div></swiper-slide><div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev"><div class="t-slider-img__button-prev-icon t-button-prev__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next"><div class="t-slider-img__button-next-icon t-button-next__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-commercial t-pagination" slot="pagination"></div></swiper></div></div></div><div v-else-if="activeModels === 2" key="2"><div class="t-page-main__models-content"><div v-if="!isMobile" class="t-page-main__models-content-top"><transition name="fade" mode="out-in"></transition></div><div class="t-page-main__models-items t-boats js-boat-count"><swiper class="t-page-main__models-slider" :options="swiperOptionsAvailableBoats"><div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev"><div class="t-slider-img__button-prev-icon t-button-prev__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next"><div class="t-slider-img__button-next-icon t-button-next__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-available t-pagination" slot="pagination"></div></swiper></div></div></div></transition></div><div class="t-page-main__production t-margin-top"><h2 class="t-title t-title-small">О нашем Производстве</h2><div class="t-page-main__production-shipyard"><span class="t-page-main__production-shipyard-thesis t-thesis">о нашей верфи</span><div class="t-page-main__production-shipyard-media"><video-cmp preload="none" id="shipyard" autoplay="" mute="" :video="{'mark':'video','type':'youtube','src':'https://www.youtube.com/watch?v=E0hnI4_egl8'}"></video-cmp></div></div><div class="t-page-main__production-approach"><span class="t-page-main__production-approach-thesis t-thesis">наш подход</span><p class="t-page-main__production-approach-description">квалифицированная команда специалистов с ответственным отношением к любимому делу</p></div><div class="t-page-main__production-about"><div class="t-page-main__production-about-left"><span class="t-page-main__production-about-thesis t-thesis">о нас</span><div class="t-page-main__production-about-slider-btns"><div class="t-button-prev swiper-button-prev js-button-prev" slot="button-prev"><div class="t-button-prev__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-button-next swiper-button-next js-button-next" slot="button-next"><div class="t-button-next__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div></div></div><div class="t-page-main__production-about-right"><swiper class="t-page-main__production-about-slider" ref="aboutSlider" :options="aboutSwiperOptions"><swiper-slide><h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Современное производство</h5><p class="t-page-main__production-about-slider-description t-page-main__production-about-description">Построенно по всем правилам и канонам голландского яхтостроения в 2012 году на территории Калининградской области</p></swiper-slide><swiper-slide><h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Гарантия качества</h5><p class="t-page-main__production-about-slider-description t-page-main__production-about-description">В процессе судостроения используется только самое передовое оборудование и проектные решения. Специалисты верфи прошли полное обучение и стажировки в Голландии, что гарантирует качество исполнения наших яхт</p></swiper-slide><swiper-slide><h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Полная кастомизация</h5><p class="t-page-main__production-about-slider-description t-page-main__production-about-description">Благодаря нашим проектным и конструкторским компетенциям мы имеем уникальную возможность строить не только модели базовой комплектации, но и воплощать в жизнь желания самых требовательных клиентов</p></swiper-slide></swiper></div></div></div><div class="t-page-main__benefits t-margin-top"><h2 class="t-title t-title-small">Почему клиенты выбирают нас?</h2><div class="t-page-main__benefits-items"><div class="t-page-main__benefits-item" :class="{ _open: 0 === idOpenBenefits }" @click="openBenefits(0)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">Современный дизайн</h4><div class="t-page-main__benefits-item-icon"><span>01</span></div></div><template name="fade"><div v-if="idOpenBenefits === 0" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">Современный дизайн</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">01 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 1 === idOpenBenefits }" @click="openBenefits(1)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">сталь марки KRUPP</h4><div class="t-page-main__benefits-item-icon"><span>02</span></div></div><template name="fade"><div v-if="idOpenBenefits === 1" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">сталь марки KRUPP</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">02 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 2 === idOpenBenefits }" @click="openBenefits(2)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">Полный контроль процесса производства</h4><div class="t-page-main__benefits-item-icon"><span>03</span></div></div><template name="fade"><div v-if="idOpenBenefits === 2" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">Полный контроль процесса производства</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">03 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 3 === idOpenBenefits }" @click="openBenefits(3)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">Full Custom</h4><div class="t-page-main__benefits-item-icon"><span>04</span></div></div><template name="fade"><div v-if="idOpenBenefits === 3" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">Full Custom</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">04 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 4 === idOpenBenefits }" @click="openBenefits(4)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">Привлекательная стоимость</h4><div class="t-page-main__benefits-item-icon"><span>05</span></div></div><template name="fade"><div v-if="idOpenBenefits === 4" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">Привлекательная стоимость</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">05 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 5 === idOpenBenefits }" @click="openBenefits(5)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">суда класса люкс</h4><div class="t-page-main__benefits-item-icon"><span>06</span></div></div><template name="fade"><div v-if="idOpenBenefits === 5" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">суда класса люкс</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">06 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div><div class="t-page-main__benefits-item" :class="{ _open: 6 === idOpenBenefits }" @click="openBenefits(6)"><div class="t-page-main__benefits-item-inner"><h4 class="t-page-main__benefits-item-title">сертификат СЕ и номер СIN</h4><div class="t-page-main__benefits-item-icon"><span>07</span></div></div><template name="fade"><div v-if="idOpenBenefits === 6" class="t-page-main__benefits-item-content"><div class="t-page-main__benefits-item-content-left"><h4 class="t-page-main__benefits-item-title">сертификат СЕ и номер СIN</h4><p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p><div class="t-page-main__benefits-item-pagination"><span class="t-page-main__benefits-item-pagination-current">07 </span><span class="t-page-main__benefits-item-pagination-total">07</span></div></div><div class="t-page-main__benefits-item-content-right"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></div></template></div></div></div><div class="t-page-main__media t-margin-top"><div class="t-page-main__media-wrapper"><div class="t-page-main__media-wrapper-left"><h2 class="t-title t-title-small">Медиа</h2><button-link-cmp inline-template><a v-link href="/media" class="t-button-link t-button-link_border"><div class="t-button-link__content"><div class="t-button-link__text"><span></span> <span></span></div></div><div class="t-button-link__icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/><path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/></svg></div></a></button-link-cmp></div><div class="t-page-main__media-wrapper-right"><div class="t-page-main__media-tabs"><tabs-cmp inline-template><div class="t-tabs"><ul class="t-tabs__list"><li class="t-tabs__item" :id="9" :class="{'t-tabs__item-active': 0 == loopId}" @click="setActiveClassMainPage('0', 'Пресса')"><span>Пресса</span></li><li class="t-tabs__item" :id="10" :class="{'t-tabs__item-active': 1 == loopId}" @click="setActiveClassMainPage('1', 'Кейсы')"><span>Кейсы</span></li><li class="t-tabs__item" :id="12" :class="{'t-tabs__item-active': 2 == loopId}" @click="setActiveClassMainPage('2', 'Пресса о нас')"><span>Пресса о нас</span></li></ul></div></tabs-cmp></div><div v-if="!isMobile" class="t-page-main__media-link"><link-page-cmp inline-template><div class="t-link-page"><a href="/media" v-link class="t-link-page__text"><span>Все медиа</span> <span>Все медиа</span></a></div></link-page-cmp></div></div></div><div class="t-page-main__media-content"><div class="t-page-main__media-content-left"><transition name="fade" mode="out-in"><div v-if="`Пресса` === this.$root.activeTabNameMainPage" key="one"><transition name="fade" mode="out-in"><div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div><div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div><div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></transition></div><div v-if="`Кейсы` === this.$root.activeTabNameMainPage" key="two"><transition name="fade" mode="out-in"><div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img"><img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/></div><div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img"><img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/></div><div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></transition></div><div v-if="`Пресса о нас` === this.$root.activeTabNameMainPage" key="three"><transition name="fade" mode="out-in"><div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img"><img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/></div><div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img"><img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/></div><div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img"><img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/></div></transition></div></transition></div><div class="t-page-main__media-content-right"><div v-if="`Пресса` === this.$root.activeTabNameMainPage"><div :key="0" :id="0" class="t-page-main__media-content-item" :class="{'_active': 0 === idOpenMedia}" @click="click(0)"><h5 class="t-page-main__media-content-item-name">Пресса1</h5><a v-if="0 === idOpenMedia" :key="0" v-link href="/media/zagolovok_3" class="t-page-main__media-content-item-description"><p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p><button-link-vue-cmp type="link" border="true" :link="'/media/zagolovok_3'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="1" :id="1" class="t-page-main__media-content-item" :class="{'_active': 1 === idOpenMedia}" @click="click(1)"><h5 class="t-page-main__media-content-item-name">Пресса2</h5><a v-if="1 === idOpenMedia" :key="1" v-link href="/media/456" class="t-page-main__media-content-item-description"><p></p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="2" :id="2" class="t-page-main__media-content-item" :class="{'_active': 2 === idOpenMedia}" @click="click(2)"><h5 class="t-page-main__media-content-item-name">Пресса3</h5><a v-if="2 === idOpenMedia" :key="2" v-link href="/media/456" class="t-page-main__media-content-item-description"><p></p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div></div><div v-if="`Кейсы` === this.$root.activeTabNameMainPage"><div :key="0" :id="0" class="t-page-main__media-content-item" :class="{'_active': 0 === idOpenMedia}" @click="click(0)"><h5 class="t-page-main__media-content-item-name">Кейс1</h5><a v-if="0 === idOpenMedia" :key="0" v-link href="/media/zagolovok_3" class="t-page-main__media-content-item-description"><p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p><button-link-vue-cmp type="link" border="true" :link="'/media/zagolovok_3'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="1" :id="1" class="t-page-main__media-content-item" :class="{'_active': 1 === idOpenMedia}" @click="click(1)"><h5 class="t-page-main__media-content-item-name">кейс2</h5><a v-if="1 === idOpenMedia" :key="1" v-link href="/media/456" class="t-page-main__media-content-item-description"><p>123123123</p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="2" :id="2" class="t-page-main__media-content-item" :class="{'_active': 2 === idOpenMedia}" @click="click(2)"><h5 class="t-page-main__media-content-item-name">кейс3</h5><a v-if="2 === idOpenMedia" :key="2" v-link href="/media/456" class="t-page-main__media-content-item-description"><p></p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div></div><div v-if="`Пресса о нас` === this.$root.activeTabNameMainPage"><div :key="0" :id="0" class="t-page-main__media-content-item" :class="{'_active': 0 === idOpenMedia}" @click="click(0)"><h5 class="t-page-main__media-content-item-name">111</h5><a v-if="0 === idOpenMedia" :key="0" v-link href="/media/zagolovok_3" class="t-page-main__media-content-item-description"><p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p><button-link-vue-cmp type="link" border="true" :link="'/media/zagolovok_3'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="1" :id="1" class="t-page-main__media-content-item" :class="{'_active': 1 === idOpenMedia}" @click="click(1)"><h5 class="t-page-main__media-content-item-name">222</h5><a v-if="1 === idOpenMedia" :key="1" v-link href="/media/456" class="t-page-main__media-content-item-description"><p>222</p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div><div :key="2" :id="2" class="t-page-main__media-content-item" :class="{'_active': 2 === idOpenMedia}" @click="click(2)"><h5 class="t-page-main__media-content-item-name">333</h5><a v-if="2 === idOpenMedia" :key="2" v-link href="/media/456" class="t-page-main__media-content-item-description"><p></p><button-link-vue-cmp type="link" border="true" :link="'/media/456'" text="Подробнее"></button-link-vue-cmp></a></div></div></div></div></div><div class="t-page-main__form t-margin-top"><h2 class="t-title t-title-small">Свяжитесь с нами</h2><form-contacts-cmp action="contact" :referer="routeName" formname="Свяжитесь с нами"></form-contacts-cmp></div><cursor-cmp inline-template><div class="t-cursor js-cursor"><span class="t-cursor__text">Смотреть</span></div></cursor-cmp></main></transition>
+<transition>
+        <main class=" t-main t-container">
+        <div class="t-page-padding-big t-page-main__promo">
+            <div class="t-page-main__promo-top">
+                <div class="t-page-main__promo-description">
+                    <div class="t-title-big"><h1 class="t-title  t-page-main__title">Настоящие Корабли</h1></div>
+                    <div class="t-page-main__promo-offer_container"><span class="t-page-main__promo-offer">Российские яхты голландского качества</span></div>
+                </div>
+                <div @click="toNextBlock" class="t-page-main__promo-icon">
+                    <svg class="circle-svg" width="264" height="264" viewBox="0 0 264 264" fill="none" xmlns="http://www.w3.org/2000/svg">                        
+                        <circle cx="132" cy="132" r="131" transform="rotate(-90, 132, 132)" stroke-dasharray="823" stroke="#A7B5C5" stroke-width="2">                         
+                        
+                        </circle>
+                        <g>
+                            <path d="M159.594 132.974L134.828 157.74C133.266 159.302 130.734 159.302 129.172 157.74L104.406 132.974" stroke="#022855" stroke-width="3"/>
+                            <path d="M132 159.189V104" stroke="#022855" stroke-width="3"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="t-page-main__promo-video">
+                                    <video-cmp 
+                        id="main"
+                        autoplay="autoplay"
+                        mute="mute"
+                        :video="{'mark':'video','type':'file','src':'/uploads/video/landscape_757_61fb9d4b3acd6_620099638f50e_1_622afc7daf1ef.mp4'}"
+                    >
+                    </video-cmp>
+                            </div>
+        </div>
+
+        <div class="t-page-main__models t-margin-top">
+            <div class="t-page-main__models-wrapper">
+                <div class="t-page-main__models-wrapper-left">
+                    <h2 class="t-title t-title-small">Модельный ряд</h2>
+                    <button-link-cmp inline-template>
+    
+            <a v-link href="/models" class="t-button-link t-button-link_border">
+            <div class="t-button-link__content">
+                <div class="t-button-link__text">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="t-button-link__icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/>
+                    <path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/>
+                </svg>
+            </div>
+        </a>
+    </button-link-cmp>                </div>
+                <div class="t-page-main__models-wrapper-right">
+                    <div v-if="screenSize" class="t-page-main__models-tabs">
+                                                
+                         
+                                                                             
+                                                                                                    
+                        <tabs-original-cmp @tabs-active="getTabsActive" inline-template>
+    <div class="t-tabs-original">
+        <ul class="t-tabs-original__list">
+                                                                <li class="t-tabs-original__item" 
+                        :class="{'t-tabs-original__item-active': 0 == activeItemId}" 
+                        @click="onActiveTabs('0')" 
+                    >
+                        <span>Частные</span>
+                    </li>
+                                                                                <li class="t-tabs-original__item" 
+                        :class="{'t-tabs-original__item-active': 1 == activeItemId}" 
+                        @click="onActiveTabs('1')" 
+                    >
+                        <span>Коммерческие</span>
+                    </li>
+                                    </ul>
+    </div>
+</tabs-original-cmp>
+                    </div>
+                    <div v-if="!screenSize" class="t-page-main__models-tabs">
+                        <tabs-original-cmp @tabs-active="getTabsActive" inline-template>
+    <div class="t-tabs-original">
+        <ul class="t-tabs-original__list">
+                                                                <li class="t-tabs-original__item" 
+                        :class="{'t-tabs-original__item-active': 0 == activeItemId}" 
+                        @click="onActiveTabs('0')" 
+                    >
+                        <span>ЧАСТНЫЕ СУДА</span>
+                    </li>
+                                                                                <li class="t-tabs-original__item" 
+                        :class="{'t-tabs-original__item-active': 1 == activeItemId}" 
+                        @click="onActiveTabs('1')" 
+                    >
+                        <span>коммерческие суда</span>
+                    </li>
+                                    </ul>
+    </div>
+</tabs-original-cmp>
+                        
+                    </div>
+                    <div class="t-page-main__models-link">
+                        <link-page-cmp inline-template>
+<div class="t-link-page">
+    <a href="/models" v-link class="t-link-page__text">
+        <span>Все модели</span>
+        <span>Все модели</span>
+    </a>
+</div>
+
+</link-page-cmp>
+                    </div>
+                    
+                </div>
+            </div>
+            <transition name="tabs" mode="out-in">
+                <div v-if="activeModels === 0" key="0">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile" class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                                                    <div v-if="0 === idBoat" key="0" class="t-page-main__models-boat" >
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">Название 1</h2>
+                                                <div v-if="'/models/id'">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="'/models/id'"
+                                                        text="Подробнее"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                                                                            <img src="/uploads/img/available-boat.png" alt="Название 1" />
+                                                                                                    </div>
+                                                <p class="t-page-main__models-boat-info-text">Это прогулочная яхта с открытым кокпитом спроектирована для длительного нахождения на борту от 4-х до 8 человек. Прогулка выходного дня с друзьями, увлекательное путешествие с семьей, сложный морской переход – все эти возможности дарит яхта RESPECT ОК.</p>
+                                            </div>
+                                        </div>
+                                                                                    <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="/models/id" v-link>
+                                                    <img src="/uploads/img/commercial-boat.png" alt="Название 1" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                                                            </div>  
+                                                                    <div v-if="1 === idBoat" key="1" class="t-page-main__models-boat" >
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">Название 1</h2>
+                                                <div v-if="'/models/test3'">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="'/models/test3'"
+                                                        text="Подробнее"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                                                                            <img src="/uploads/img/commercial-boat.png" alt="Название 1" />
+                                                                                                    </div>
+                                                <p class="t-page-main__models-boat-info-text">Краткое описание</p>
+                                            </div>
+                                        </div>
+                                                                                    <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="/models/test3" v-link>
+                                                    <img src="/uploads/img/available-boat.png" alt="Название 1" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                                                            </div>  
+                                                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsPrivateBoats">
+                                                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === 0}"
+                                            @click="openInfoBoat(0)"
+                                        >
+                                            <div v-if="isMobile" v-link href="/models/id" class="t-page-main__models-boat-img">
+                                                <img src="/uploads/img/commercial-boat.png" alt="Название 1" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                                                                    <img src="/uploads/img/available-boat.png" alt="Название 1" />
+                                                                                            </div>
+                                            <span class="t-boats__item-title">Название 1</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">Это прогулочная яхта с открытым кокпитом спроектирована для длительного нахождения на борту от 4-х до 8 человек. Прогулка выходного дня с друзьями, увлекательное путешествие с семьей, сложный морской переход – все эти возможности дарит яхта RESPECT ОК.</p>
+                                        </div>
+                                        <div v-if="isMobile" v-link href="/models/id" class="t-page-main__models-boat-link">
+                                        </div>
+                                    </swiper-slide>
+                                                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === 1}"
+                                            @click="openInfoBoat(1)"
+                                        >
+                                            <div v-if="isMobile" v-link href="/models/test3" class="t-page-main__models-boat-img">
+                                                <img src="/uploads/img/available-boat.png" alt="Название 1" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                                                                    <img src="/uploads/img/commercial-boat.png" alt="Название 1" />
+                                                                                            </div>
+                                            <span class="t-boats__item-title">Название 1</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">Краткое описание</p>
+                                        </div>
+                                        <div v-if="isMobile" v-link href="/models/test3" class="t-page-main__models-boat-link">
+                                        </div>
+                                    </swiper-slide>
+                                                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-private t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div>
+                <div v-else-if="activeModels === 1" key="1">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile" class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                                                    <div v-if="0 === idBoat" class="t-page-main__models-boat">
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">Название один два три</h2>
+                                                <div v-if="'/models/nazvaniye_odin_dva_tri'">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="'/models/nazvaniye_odin_dva_tri'"
+                                                        text="Подробнее"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                                                                    </div>
+                                                <p class="t-page-main__models-boat-info-text">Краткое описание</p>
+                                            </div>
+                                        </div>
+                                                                                    <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="/models/nazvaniye_odin_dva_tri" v-link>
+                                                    <img src="/uploads/img/commercial-boat.png" alt="Название один два три" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                                                            </div>
+                                                                    <div v-if="1 === idBoat" class="t-page-main__models-boat">
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">Название 2</h2>
+                                                <div v-if="'/models/_id'">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="'/models/_id'"
+                                                        text="Подробнее"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                                                                    </div>
+                                                <p class="t-page-main__models-boat-info-text"></p>
+                                            </div>
+                                        </div>
+                                                                            </div>
+                                                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsCommercialBoats">
+                                                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === 0}"
+                                            @click="openInfoBoat(0)"
+                                        >
+                                            <div v-if="isMobile" v-link href="/models/nazvaniye_odin_dva_tri" class="t-page-main__models-boat-img">
+                                                <img src="/uploads/img/commercial-boat.png" alt="Название один два три" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                                                            </div>
+                                            <span class="t-boats__item-title">Название один два три</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">Краткое описание</p>
+                                        </div>
+                                    </swiper-slide>
+                                                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === 1}"
+                                            @click="openInfoBoat(1)"
+                                        >
+                                            <div v-if="isMobile" v-link href="/models/_id" class="t-page-main__models-boat-img">
+                                                <img src="" alt="Название 2" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                                                            </div>
+                                            <span class="t-boats__item-title">Название 2</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text"></p>
+                                        </div>
+                                    </swiper-slide>
+                                                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-commercial t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div>
+                <div v-else-if="activeModels === 2" key="2">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile"  class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsAvailableBoats">
+                                                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-available t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div> 
+            </transition>
+        </div>
+
+        <div class="t-page-main__production t-margin-top">
+            <h2 class="t-title t-title-small">О нашем Производстве</h2>
+            <div class="t-page-main__production-shipyard">
+                <span class="t-page-main__production-shipyard-thesis t-thesis">о нашей верфи</span>
+                <div class="t-page-main__production-shipyard-media" >
+                                            <video-cmp 
+                            preload="none"
+                            id="shipyard"
+                            autoplay=""
+                            mute=""
+                            :video="{'mark':'video','type':'youtube','src':'https://www.youtube.com/watch?v=E0hnI4_egl8'}"
+                        ></video-cmp>
+                                    </div>
+            </div>
+            <div class="t-page-main__production-approach">
+                <span class="t-page-main__production-approach-thesis t-thesis">наш подход</span>
+                <p class="t-page-main__production-approach-description">квалифицированная команда специалистов с ответственным отношением к любимому делу</p>
+            </div>
+
+            <div class="t-page-main__production-about">
+                <div class="t-page-main__production-about-left">
+                    <span class="t-page-main__production-about-thesis t-thesis">о нас</span>
+                                            <div class="t-page-main__production-about-slider-btns">
+                            <div class="t-button-prev swiper-button-prev js-button-prev" slot="button-prev">
+                                <div class="t-button-prev__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="t-button-next swiper-button-next js-button-next" slot="button-next">
+                                <div class="t-button-next__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                                    </div>
+                <div class="t-page-main__production-about-right">
+                                            <swiper 
+                            class="t-page-main__production-about-slider" 
+                            ref="aboutSlider"
+                            :options="aboutSwiperOptions"
+                        >
+                                                            <swiper-slide>
+                                    <h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Современное производство</h5>
+                                    <p class="t-page-main__production-about-slider-description t-page-main__production-about-description">Построенно по всем правилам и канонам голландского яхтостроения в 2012 году на территории Калининградской области</p>
+                                </swiper-slide>
+                                                            <swiper-slide>
+                                    <h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Гарантия качества</h5>
+                                    <p class="t-page-main__production-about-slider-description t-page-main__production-about-description">В процессе судостроения используется только самое передовое оборудование и проектные решения. Специалисты верфи прошли полное обучение и стажировки в Голландии, что гарантирует качество исполнения наших яхт</p>
+                                </swiper-slide>
+                                                            <swiper-slide>
+                                    <h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">Полная кастомизация</h5>
+                                    <p class="t-page-main__production-about-slider-description t-page-main__production-about-description">Благодаря нашим проектным и конструкторским компетенциям мы имеем уникальную возможность строить не только модели базовой комплектации, но и воплощать в жизнь желания самых требовательных клиентов</p>
+                                </swiper-slide>
+                                                    </swiper>
+                                        
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-main__benefits t-margin-top">
+            <h2 class="t-title t-title-small">Почему клиенты выбирают нас?</h2>
+
+            <div class="t-page-main__benefits-items">
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 0 === idOpenBenefits }" 
+                        @click="openBenefits(0)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">Современный дизайн</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>01</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 0" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">Современный дизайн</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            01
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 1 === idOpenBenefits }" 
+                        @click="openBenefits(1)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">сталь марки KRUPP</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>02</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 1" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">сталь марки KRUPP</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            02
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 2 === idOpenBenefits }" 
+                        @click="openBenefits(2)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">Полный контроль процесса производства</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>03</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 2" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">Полный контроль процесса производства</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            03
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 3 === idOpenBenefits }" 
+                        @click="openBenefits(3)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">Full Custom</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>04</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 3" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">Full Custom</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            04
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 4 === idOpenBenefits }" 
+                        @click="openBenefits(4)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">Привлекательная стоимость</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>05</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 4" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">Привлекательная стоимость</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            05
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 5 === idOpenBenefits }" 
+                        @click="openBenefits(5)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">суда класса люкс</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>06</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 5" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">суда класса люкс</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            06
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: 6 === idOpenBenefits }" 
+                        @click="openBenefits(6)"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">сертификат СЕ и номер СIN</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                                                    <span>07</span> 
+                                                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === 6" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">сертификат СЕ и номер СIN</h4>
+                                    <p class="t-page-main__benefits-item-text">Современный голландский дизайн линейки, продуманная планировка</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                                                                            07
+                                                                                    </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                                                                            07
+                                                                                        
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                                
+            </div>
+        </div>
+
+        <div class="t-page-main__media t-margin-top">
+            <div class="t-page-main__media-wrapper">
+                <div class="t-page-main__media-wrapper-left">
+                    <h2 class="t-title t-title-small">Медиа</h2>
+                    <button-link-cmp inline-template>
+    
+            <a v-link href="/media" class="t-button-link t-button-link_border">
+            <div class="t-button-link__content">
+                <div class="t-button-link__text">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="t-button-link__icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/>
+                    <path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/>
+                </svg>
+            </div>
+        </a>
+    </button-link-cmp>                </div>
+                <div class="t-page-main__media-wrapper-right">
+                    <div class="t-page-main__media-tabs">
+                        <tabs-cmp inline-template>
+    <div class="t-tabs">
+        <ul class="t-tabs__list">
+                                                <li class="t-tabs__item" 
+                        :id="9"
+                        :class="{'t-tabs__item-active': 0 == loopId}" 
+                        @click="setActiveClassMainPage('0', 'Пресса')"
+                    >
+                        <span>Пресса</span>
+                    </li>
+                                    <li class="t-tabs__item" 
+                        :id="10"
+                        :class="{'t-tabs__item-active': 1 == loopId}" 
+                        @click="setActiveClassMainPage('1', 'Кейсы')"
+                    >
+                        <span>Кейсы</span>
+                    </li>
+                                    <li class="t-tabs__item" 
+                        :id="12"
+                        :class="{'t-tabs__item-active': 2 == loopId}" 
+                        @click="setActiveClassMainPage('2', 'Пресса о нас')"
+                    >
+                        <span>Пресса о нас</span>
+                    </li>
+                                    </ul>
+    </div>
+</tabs-cmp>
+                    </div>
+                    <div v-if="!isMobile" class="t-page-main__media-link">
+                        <link-page-cmp inline-template>
+<div class="t-link-page">
+    <a href="/media" v-link class="t-link-page__text">
+        <span>Все медиа</span>
+        <span>Все медиа</span>
+    </a>
+</div>
+
+</link-page-cmp>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="t-page-main__media-content">
+                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="t-page-main__media-content-left">
+                    <transition name="fade" mode="out-in">
+                        <div v-if="`Пресса` === this.$root.activeTabNameMainPage" key="one">
+                            <transition name="fade" mode="out-in">
+                                                                    <div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                            </transition>
+                        </div>
+                        <div v-if="`Кейсы` === this.$root.activeTabNameMainPage" key="two">
+                            <transition name="fade" mode="out-in">
+                                                                    <div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                            </transition>
+                        </div>
+                        <div v-if="`Пресса о нас` === this.$root.activeTabNameMainPage"  key="three">
+                            <transition name="fade" mode="out-in">
+                                                                    <div v-if="0 === idOpenMedia" :key="0" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="1 === idOpenMedia" :key="1" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/media-item.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                                    <div v-if="2 === idOpenMedia" :key="2" class="t-page-main__media-content-item-img">
+                                        <img src="/uploads/img/benefits-slider.jpg" alt="" loading="lazy"/>
+                                    </div>
+                                                            </transition>
+                        </div>
+                    </transition>
+                </div>
+                <div class="t-page-main__media-content-right">
+                    <div v-if="`Пресса` === this.$root.activeTabNameMainPage">
+                                                    <div 
+                                
+                                :key="0"
+                                :id="0"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 0 === idOpenMedia}"
+                                @click="click(0)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">Пресса1</h5>
+                                
+                                    <a 
+                                        v-if="0 === idOpenMedia" 
+                                        :key="0" 
+                                        v-link href="/media/zagolovok_3" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/zagolovok_3'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="1"
+                                :id="1"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 1 === idOpenMedia}"
+                                @click="click(1)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">Пресса2</h5>
+                                
+                                    <a 
+                                        v-if="1 === idOpenMedia" 
+                                        :key="1" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p></p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="2"
+                                :id="2"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 2 === idOpenMedia}"
+                                @click="click(2)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">Пресса3</h5>
+                                
+                                    <a 
+                                        v-if="2 === idOpenMedia" 
+                                        :key="2" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p></p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                            </div>
+                    <div v-if="`Кейсы` === this.$root.activeTabNameMainPage">
+                                                    <div 
+                                
+                                :key="0"
+                                :id="0"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 0 === idOpenMedia}"
+                                @click="click(0)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">Кейс1</h5>
+                                
+                                    <a 
+                                        v-if="0 === idOpenMedia" 
+                                        :key="0" 
+                                        v-link href="/media/zagolovok_3" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/zagolovok_3'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="1"
+                                :id="1"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 1 === idOpenMedia}"
+                                @click="click(1)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">кейс2</h5>
+                                
+                                    <a 
+                                        v-if="1 === idOpenMedia" 
+                                        :key="1" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>123123123</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="2"
+                                :id="2"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 2 === idOpenMedia}"
+                                @click="click(2)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">кейс3</h5>
+                                
+                                    <a 
+                                        v-if="2 === idOpenMedia" 
+                                        :key="2" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p></p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                            </div>
+                    <div v-if="`Пресса о нас` === this.$root.activeTabNameMainPage">
+                                                    <div 
+                                
+                                :key="0"
+                                :id="0"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 0 === idOpenMedia}"
+                                @click="click(0)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">111</h5>
+                                
+                                    <a 
+                                        v-if="0 === idOpenMedia" 
+                                        :key="0" 
+                                        v-link href="/media/zagolovok_3" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/zagolovok_3'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="1"
+                                :id="1"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 1 === idOpenMedia}"
+                                @click="click(1)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">222</h5>
+                                
+                                    <a 
+                                        v-if="1 === idOpenMedia" 
+                                        :key="1" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>222</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                                    <div 
+                                
+                                :key="2"
+                                :id="2"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': 2 === idOpenMedia}"
+                                @click="click(2)"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">333</h5>
+                                
+                                    <a 
+                                        v-if="2 === idOpenMedia" 
+                                        :key="2" 
+                                        v-link href="/media/456" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p></p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="'/media/456'"
+                                            text="Подробнее"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                
+                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-main__form t-margin-top">
+            <h2 class="t-title t-title-small">Свяжитесь с нами</h2>
+            <form-contacts-cmp 
+                action="contact" 
+                :referer="routeName"
+                formname="Свяжитесь с нами"
+            >
+            </form-contacts-cmp>
+        </div> 
+
+        
+        <cursor-cmp inline-template>
+    <div class="t-cursor js-cursor">
+        <span class="t-cursor__text">Смотреть</span>
+    </div>
+</cursor-cmp>
+        
+        
+    </main>
+</transition>

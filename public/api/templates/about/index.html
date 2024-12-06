@@ -1,1 +1,227 @@
-<transition><main class="t-page-padding-small t-about t-container"><div class="t-title__container"><h1 class="t-title t-title-small t-page-about__title">О компании</h1></div><div class="t-page-about__shipyard"><div class="t-page-about__shipyard-thesis"><span class="t-thesis">о нашей верфи</span></div><div class="t-page-about__shipyard-media"><video-cmp id="shipyard" autoplay="" mute="" :video="{'id':0,'mark':'video','type':'youtube','src':'https://www.youtube.com/watch?v=Hfn0FZcmy14'}"></video-cmp></div></div><div class="t-page-about__production t-margin-top"><h2 class="t-subtitle">современное яхтенное производство</h2><div class="t-page-about__production-content"><div class="t-page-about__production-description"><div class="t-page-about__production-thesis"><span class="t-thesis">о нашей верфи</span></div><div class="t-page-about__production-text t-html"><p>Судостроительная компания Ушаковские Верфи —  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 года строящее на территории Калининградской области стальные водоизмещающие яхты класса «люкс».</p><p>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</p></div></div><div class="t-page-about__production-media"><div class="t-page-about__production-slider"><slider-img inline-template><swiper class="t-slider-img" :options="swiperOptions"><swiper-slide class="t-slider-img__item"><div class="t-slider-img__item-container"><div class="t-slider-img__item-img"><img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-1" loading="lazy"/></div><div class="t-slider-img__item-title">Ушаковские верфи-1</div><div v-if="isMobile" class="t-slider-img__item-line"><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 0 == 0}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 1 == 0}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 2 == 0}"></div></div></div></swiper-slide><swiper-slide class="t-slider-img__item"><div class="t-slider-img__item-container"><div class="t-slider-img__item-img"><img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-2" loading="lazy"/></div><div class="t-slider-img__item-title">Ушаковские верфи-2</div><div v-if="isMobile" class="t-slider-img__item-line"><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 0 == 1}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 1 == 1}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 2 == 1}"></div></div></div></swiper-slide><swiper-slide class="t-slider-img__item"><div class="t-slider-img__item-container"><div class="t-slider-img__item-img"><img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-3" loading="lazy"/></div><div class="t-slider-img__item-title">Ушаковские верфи-3</div><div v-if="isMobile" class="t-slider-img__item-line"><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 0 == 2}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 1 == 2}"></div><div class="t-slider-img__item-line-item" :class="{'t-slider-img__item-line-item-active': 2 == 2}"></div></div></div></swiper-slide><div class="t-slider-img__button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev"><div class="t-slider-img__button-prev-icon t-button-prev__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-slider-img__button-next t-button-next swiper-button-next no-swiping" slot="button-next"><div class="t-slider-img__button-next-icon t-button-next__icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/><path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/></svg></div></div><div class="t-slider-img__pagination t-pagination" slot="pagination"></div></swiper></slider-img></div><div v-if="!isMobile" class="t-page-about__production-img"><img src="/uploads/img/production-img.jpg" alt="" loading="lazy"/></div></div></div></div><div class="t-page-about__mission"><div class="t-page-about__mission-thesis"><span class="t-thesis">о нашей философии И МИССИИ</span></div><div class="t-page-about__mission-text t-html"><p>Видим нашу задачу в том, чтобы оказывать высочайший уровень сервиса нашим клиентам, будь то покупка, продажа, чартер яхты, или менеджмент яхты.</p><p>Работаем максимально профессионально, используя наш опыт в яхтинге и теоретические знания, полученные за годы работы;наше консультирование и наши советы помогут вам, если вы собираетесь построить новую яхту на заказ, ищете помощь в управлении яхтой, или яхту в чартер, если вы хотите купить или продать яхту.</p><p>Мы выполняем то, что обещаем — потому что работаем только с тем, что знаем и что изучили сами на практике.</p></div></div><div class="t-page-about__equipment t-margin-top"><h2 class="t-subtitle">швейцарские часы в мире яхт, образец классического стиля и европейского качества</h2><div class="t-page-about__equipment-media"><div class="t-page-about__equipment-img"><img src="/uploads/img/equipment-img.jpg" alt="" loading="lazy"/></div></div><div class="t-page-about__equipment-descr"><div class="t-page-about__equipment-descr-left"></div><div class="t-page-about__equipment-descr-right"><div class="t-page-about__equipment-item"><span class="t-page-about__equipment-item-title t-thesis">сталь марки KRUPP</span><div class="t-page-about__equipment-item-text t-html"><p>Корпус из судостроительной стали класса А устойчив, несокрушим и практически вечен — в отличие от пластиковых, стальные яхты легко выдерживают удары плавучего мусора, вмерзание в лед и даже столкновение с грунтом</p></div></div><div class="t-page-about__equipment-col"><div class="t-page-about__equipment-item"><span class="t-page-about__equipment-item-title t-thesis">Только лучшее оборудование</span><div class="t-page-about__equipment-item-text t-html"><p>Для каждого судна подбираем лучшее в своем классе оборудование, оснастку и отделку, поэтому наши маломерные суда сочетают в себе надежность, комфорт и простоту управления</p></div></div><div class="t-page-about__equipment-item"><span class="t-page-about__equipment-item-title t-thesis">Индивидуальность</span><div class="t-page-about__equipment-item-text t-html"><p>Благодаря стараниям нашего проектного центра и знаменитому голландскому дизайнеру Яну Виссеру (Jan Visser), а так же и авторским идеям заказчика, каждая яхта приобретает уникальную и неповторимую внешность</p></div></div></div></div></div></div><div class="t-page-about__employees t-margin-top"><h2 class="t-subtitle">квалифицированные специалисты с ответственным отношением к любимому делу</h2><div class="t-page-about__employees-content"><div class="t-page-about__employees-description"><div class="t-page-about__employees-thesis"><span class="t-thesis">о нашей команде</span></div><div class="t-page-about__employees-text t-html"><p>Специалисты верфи прошли полное обучение и стажировки в Голландии, что в сочетании с ответственным отношением к любимому делу гарантирует качество исполнения наших яхт.</p><p>Благодаря нашим компетенциям, мы имеем уникальную возможность строить не только модели базовой комплектации, но и подбирать лучшие индивидуальные решения, воплощая в жизнь желания самых требовательных клиентов.</p></div></div></div></div><div class="t-page-about__employees-media"><div class="t-page-about__employees-img"><img src="/uploads/img/emloyees-img-1.jpg" alt="" loading="lazy"/></div><div class="t-page-about__employees-img"><img src="/uploads/img/emloyees-img-2.jpg" alt="" loading="lazy"/></div></div><div class="t-page-about__certificates t-margin-top"><h2 class="t-subtitle">идентификационный номер CIN и сертификат СЕ</h2><div class="t-page-about__certificates-media"><div class="t-page-about__certificates-img"><img src="/uploads/img/certificate-img.jpg" alt="" loading="lazy"/></div></div><div class="t-page-about__certificates-content"><div class="t-page-about__certificates-descr t-html"><p>Все этапы производства и сборки проходят под контролем голландской компании Dutch Marine Inspektion. Каждое судно по завершении строительства получает уникальный идентификационный номер CIN и сертификат СЕ</p></div><div class="t-page-about__certificates-items"><div class="t-page-about__certificates-item"><span class="t-page-about__certificates-item-title t-thesis">CIN</span><div class="t-page-about__certificates-item-text t-html"><p></p><p>Подтверждает соответствие маломерного судна до 20 метров длиной стандартам экологической и технической безопасности Евросоюза, разрешает его продажу и эксплуатацию в Европе</p><p></p></div></div><div class="t-page-about__certificates-item"><span class="t-page-about__certificates-item-title t-thesis">Сертификат СЕ</span><div class="t-page-about__certificates-item-text t-html"><p></p><p>Разрешает постановку яхты на учет в ГИМС — Государственной инспекции по маломерным судам МЧС России</p><p></p></div></div></div></div></div><cursor-cmp inline-template><div class="t-cursor js-cursor"><span class="t-cursor__text">Смотреть видео</span></div></cursor-cmp></main></transition>
+<transition>
+        <main class="t-page-padding-small t-about t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-about__title">О компании</h1>
+        </div>
+                    <div class="t-page-about__shipyard">
+                <div class="t-page-about__shipyard-thesis">
+                    <span class="t-thesis">о нашей верфи</span>
+                </div>
+                <div class="t-page-about__shipyard-media">
+                                            <video-cmp 
+                            id="shipyard"
+                            autoplay=""
+                            mute=""
+                            :video="{'id':0,'mark':'video','type':'youtube','src':'https://www.youtube.com/watch?v=Hfn0FZcmy14'}"
+                        ></video-cmp>
+                                    </div>
+            </div>
+                
+        <div class="t-page-about__production t-margin-top">
+            <h2 class="t-subtitle">современное яхтенное производство</h2>
+            <div class="t-page-about__production-content">
+                <div class="t-page-about__production-description">
+                    <div class="t-page-about__production-thesis">
+                        <span class="t-thesis">о нашей верфи</span>
+                    </div>
+                    <div class="t-page-about__production-text t-html">
+                        <p>Судостроительная компания Ушаковские Верфи —  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 года строящее на территории Калининградской области стальные водоизмещающие яхты класса «люкс».</p> <p>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</p>
+                    </div>
+                </div>
+                <div class="t-page-about__production-media">
+                    <div class="t-page-about__production-slider">
+                        <slider-img inline-template>
+			<swiper class="t-slider-img" :options="swiperOptions">
+							<swiper-slide class="t-slider-img__item">
+					<div class="t-slider-img__item-container">
+						<div class="t-slider-img__item-img">
+							<img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-1" loading="lazy"/>
+						</div>
+						<div class="t-slider-img__item-title">Ушаковские верфи-1</div>
+						<div v-if="isMobile" class="t-slider-img__item-line">
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 0 == 0}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 1 == 0}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 2 == 0}"
+								>
+								</div>
+													</div>
+					</div>
+				</swiper-slide>
+							<swiper-slide class="t-slider-img__item">
+					<div class="t-slider-img__item-container">
+						<div class="t-slider-img__item-img">
+							<img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-2" loading="lazy"/>
+						</div>
+						<div class="t-slider-img__item-title">Ушаковские верфи-2</div>
+						<div v-if="isMobile" class="t-slider-img__item-line">
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 0 == 1}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 1 == 1}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 2 == 1}"
+								>
+								</div>
+													</div>
+					</div>
+				</swiper-slide>
+							<swiper-slide class="t-slider-img__item">
+					<div class="t-slider-img__item-container">
+						<div class="t-slider-img__item-img">
+							<img src="/uploads/img/production-slider.jpg" alt="Ушаковские верфи-3" loading="lazy"/>
+						</div>
+						<div class="t-slider-img__item-title">Ушаковские верфи-3</div>
+						<div v-if="isMobile" class="t-slider-img__item-line">
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 0 == 2}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 1 == 2}"
+								>
+								</div>
+															<div class="t-slider-img__item-line-item" 
+									:class="{'t-slider-img__item-line-item-active': 2 == 2}"
+								>
+								</div>
+													</div>
+					</div>
+				</swiper-slide>
+						<div class="t-slider-img__button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+				<div class="t-slider-img__button-prev-icon t-button-prev__icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+						<path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+					</svg>
+				</div>
+			</div>
+			<div class="t-slider-img__button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+				<div class="t-slider-img__button-next-icon t-button-next__icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+						<path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+					</svg>
+				</div>
+			</div>
+			<div class="t-slider-img__pagination t-pagination" slot="pagination"></div>
+		</swiper>
+	</slider-img>                    </div>
+                                            <div v-if="!isMobile" class="t-page-about__production-img">
+                            <img src="/uploads/img/production-img.jpg" alt="" loading="lazy"/>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__mission">
+            <div class="t-page-about__mission-thesis">
+                <span class="t-thesis">о нашей философии И МИССИИ</span>
+            </div>
+            <div class="t-page-about__mission-text t-html">
+                <p>Видим нашу задачу в том, чтобы оказывать высочайший уровень сервиса нашим клиентам, будь то покупка, продажа, чартер яхты, или менеджмент яхты.</p><p>Работаем максимально профессионально, используя наш опыт в яхтинге и теоретические знания, полученные за годы работы;наше консультирование и наши советы помогут вам, если вы собираетесь построить новую яхту на заказ, ищете помощь в управлении яхтой, или яхту в чартер, если вы хотите купить или продать яхту.</p><p>Мы выполняем то, что обещаем — потому что работаем только с тем, что знаем и что изучили сами на практике.</p>
+            </div>
+        </div>
+
+        <div class="t-page-about__equipment t-margin-top">
+            <h2 class="t-subtitle">швейцарские часы в мире яхт, образец классического стиля и европейского качества</h2>
+            <div class="t-page-about__equipment-media">
+                <div class="t-page-about__equipment-img">
+                    <img src="/uploads/img/equipment-img.jpg" alt="" loading="lazy"/>
+                </div>
+            </div>
+            <div class="t-page-about__equipment-descr">
+                <div class="t-page-about__equipment-descr-left"></div>
+                <div class="t-page-about__equipment-descr-right">
+                    <div class="t-page-about__equipment-item">
+                        <span class="t-page-about__equipment-item-title t-thesis">сталь марки KRUPP</span>
+                        <div class="t-page-about__equipment-item-text t-html">
+                            <p>Корпус из судостроительной стали класса А устойчив, несокрушим и практически вечен — в отличие от пластиковых, стальные яхты легко выдерживают удары плавучего мусора, вмерзание в лед и даже столкновение с грунтом</p>
+                        </div>
+                    </div>
+                                            <div class="t-page-about__equipment-col">
+                                                            <div class="t-page-about__equipment-item">
+                                    <span class="t-page-about__equipment-item-title t-thesis">Только лучшее оборудование</span>
+                                    <div class="t-page-about__equipment-item-text t-html">
+                                        <p>Для каждого судна подбираем лучшее в своем классе оборудование, оснастку и отделку, поэтому наши маломерные суда сочетают в себе надежность, комфорт и простоту управления</p>
+                                    </div>
+                                </div>
+                                                            <div class="t-page-about__equipment-item">
+                                    <span class="t-page-about__equipment-item-title t-thesis">Индивидуальность</span>
+                                    <div class="t-page-about__equipment-item-text t-html">
+                                        <p>Благодаря стараниям нашего проектного центра и знаменитому голландскому дизайнеру Яну Виссеру (Jan Visser), а так же и авторским идеям заказчика, каждая яхта приобретает уникальную и неповторимую внешность</p>
+                                    </div>
+                                </div>
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__employees t-margin-top">
+            <h2 class="t-subtitle">квалифицированные специалисты с ответственным отношением к любимому делу</h2>
+            <div class="t-page-about__employees-content">
+                <div class="t-page-about__employees-description">
+                    <div class="t-page-about__employees-thesis">
+                        <span class="t-thesis">о нашей команде</span>
+                    </div>
+                    <div class="t-page-about__employees-text t-html">
+                        <p>Специалисты верфи прошли полное обучение и стажировки в Голландии, что в сочетании с ответственным отношением к любимому делу гарантирует качество исполнения наших яхт.</p><p>Благодаря нашим компетенциям, мы имеем уникальную возможность строить не только модели базовой комплектации, но и подбирать лучшие индивидуальные решения, воплощая в жизнь желания самых требовательных клиентов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__employees-media">
+                            <div class="t-page-about__employees-img">
+                    <img src="/uploads/img/emloyees-img-1.jpg" alt="" loading="lazy"/>
+                </div>
+                            <div class="t-page-about__employees-img">
+                    <img src="/uploads/img/emloyees-img-2.jpg" alt="" loading="lazy"/>
+                </div>
+                    </div>
+
+        <div class="t-page-about__certificates t-margin-top">
+            <h2 class="t-subtitle">идентификационный номер CIN и сертификат СЕ</h2>
+            <div class="t-page-about__certificates-media">
+                <div class="t-page-about__certificates-img">
+                    <img src="/uploads/img/certificate-img.jpg" alt="" loading="lazy"/> 
+                </div>
+            </div>
+                <div class="t-page-about__certificates-content">
+                    <div class="t-page-about__certificates-descr t-html">
+                        <p>Все этапы производства и сборки проходят под контролем голландской компании Dutch Marine Inspektion. Каждое судно по завершении строительства получает уникальный идентификационный номер CIN и сертификат СЕ</p>
+                    </div>
+                                            <div class="t-page-about__certificates-items">
+                                                            <div class="t-page-about__certificates-item">
+                                    <span class="t-page-about__certificates-item-title t-thesis">CIN</span>
+                                    <div class="t-page-about__certificates-item-text t-html">
+                                        <p><p>Подтверждает соответствие маломерного судна до 20 метров длиной стандартам экологической и технической безопасности Евросоюза, разрешает его продажу и эксплуатацию в Европе</p></p>
+                                    </div>
+                                </div>
+                                                            <div class="t-page-about__certificates-item">
+                                    <span class="t-page-about__certificates-item-title t-thesis">Сертификат СЕ</span>
+                                    <div class="t-page-about__certificates-item-text t-html">
+                                        <p><p>Разрешает постановку яхты на учет в ГИМС — Государственной инспекции по маломерным судам МЧС России</p></p>
+                                    </div>
+                                </div>
+                                                    </div>
+                                    </div>
+        </div>
+        
+        <cursor-cmp inline-template>
+    <div class="t-cursor js-cursor">
+        <span class="t-cursor__text">Смотреть видео</span>
+    </div>
+</cursor-cmp>
+    </main>
+</transition>
