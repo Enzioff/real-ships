@@ -26,10 +26,10 @@
                         {% for key, element in item.items %}
                             {% if key % 2 == 0 %}
                                 <a v-link href="{{element.link}}" @click="closeMenu" class="t-model">
-                                    <div class="t-model__picture" v-animation:left>
+                                    <div class="t-model__picture" v-animation:left_strong>
                                         <img src="{{element.img}}" alt="" loading="lazy"/>
                                     </div>
-                                    <div class="t-model__info" v-animation:right>
+                                    <div class="t-model__info" v-animation:right_strong>
                                         <h3  class="t-model__title">{{element.title}}</h3>
                                         {% if element.text %}
                                             <p class="t-model__text">{{element.text}}</p>
@@ -38,10 +38,10 @@
                                 </a>
                             {% else %}
                                 <a v-link href="{{element.link}}" @click="closeMenu" class="t-model">
-                                    <div class="t-model__picture" v-animation:right>
+                                    <div class="t-model__picture" v-animation:right_strong>
                                         <img src="{{element.img}}" alt="" loading="lazy"/>
                                     </div>
-                                    <div class="t-model__info" v-animation:left>
+                                    <div class="t-model__info" v-animation:left_strong>
                                         <h3  class="t-model__title">{{element.title}}</h3>
                                         {% if element.text %}
                                             <p class="t-model__text">{{element.text}}</p>

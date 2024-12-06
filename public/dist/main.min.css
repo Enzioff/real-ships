@@ -2351,6 +2351,14 @@ a {
   transform: translateY(-50px);
 }
 
+[data-animate-direction=right_strong] {
+  transform: translateX(100%);
+}
+
+[data-animate-direction=left_strong] {
+  transform: translateX(-100%);
+}
+
 [data-animate=true] {
   opacity: 1;
   transform: translate3d(0, 0, 0);
