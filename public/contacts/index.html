@@ -2,20 +2,20 @@
 <html prefix="og: //ogp.me/ns#">
 <head>
     <meta charset="utf-8"/>
-         <link href="/dist/main.min.css" rel="stylesheet"><title>Real Ships</title><meta name="description" content="test description"><meta name="keywords" content="keywords">
+         <link href="public/dist/main.min.css" rel="stylesheet"><title>Real Ships</title><meta name="description" content="test description"><meta name="keywords" content="keywords">
     <meta name="viewport" content="width=device-width"/>
 
-    
+
 
    <link rel="icon" type="image/png" sizes="64x64" href="/dist/assets/img/favicon/favicon-64x64.png">
    <link rel="icon" type="image/png" sizes="32x32" href="/dist/assets/img/favicon/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="/dist/assets/img/favicon/favicon-16x16.png">
-   
 
 
 
 
-    
+
+
 
 
 
@@ -35,7 +35,7 @@
     <header-cmp inline-template>
     <header ref="header" class="t-header" :class="classScroll" :class="{'headerVideo': isMobile}">
         <div class="t-header__content">
-            
+
             <div class="t-header__block-top">
                 <div class="t-header__col">
                     <a v-link @click="closeMenu" href="/" class="t-logo">
@@ -82,7 +82,7 @@
             <div v-if="openMenu" class="t-header__block-bottom">
                 <div class="t-header__info">
                     <div class="t-header__menu">
-                        
+
                         <menu-cmp inline-template>
     <ul class="t-menu _horizontal">
                     <li class="t-menu__item">
@@ -122,13 +122,13 @@
                         <div class="t-header__contacts-phones">
                                                             <div class="t-header__contacts-phones-item">
                                     <span class="t-header__contacts-name">Отдел продаж</span>
-                                                                            <a href="tel:+7 906 219-50-00" class="t-header__contacts-value">+7 906 219-50-00</a> 
-                                                                        
+                                                                            <a href="tel:+7 906 219-50-00" class="t-header__contacts-value">+7 906 219-50-00</a>
+
                                 </div>
                                                             <div class="t-header__contacts-phones-item">
                                     <span class="t-header__contacts-name">Отдел логистики</span>
-                                                                            <a href="tel:+7 927 155-84-06" class="t-header__contacts-value">+7 927 155-84-06</a> 
-                                                                        
+                                                                            <a href="tel:+7 927 155-84-06" class="t-header__contacts-value">+7 927 155-84-06</a>
+
                                 </div>
                                                     </div>
                         <div class="t-header__contacts-mail">
@@ -225,14 +225,14 @@
                 </svg>
             </div>
         </button>
-    
+
     </button-link-cmp>            </div>
         </div>
         <div class="t-page-contacts__media">
             <div class="t-page-contacts__img"
-                                    @mouseenter="hoverCursor('.t-video__controls')" 
+                                    @mouseenter="hoverCursor('.t-video__controls')"
                             >
-                                    <video-cmp 
+                                    <video-cmp
                         :class="{'_cursor-none': !isMobile}"
                         id="contacts"
                         autoplay=""
@@ -281,13 +281,13 @@
                 <div class="t-page-contacts__phones">
                                             <div class="t-page-contacts__phones-item">
                             <span class="t-page-contacts__phones-name">Отдел продаж</span>
-                                                           <a href="tel:+7 906 219-50-00" class="t-page-contacts__phones-value">+7 906 219-50-00</a> 
-                                                      
+                                                           <a href="tel:+7 906 219-50-00" class="t-page-contacts__phones-value">+7 906 219-50-00</a>
+
                         </div>
                                             <div class="t-page-contacts__phones-item">
                             <span class="t-page-contacts__phones-name">Отдел логистики</span>
-                                                           <a href="tel:+7 927 155-84-06" class="t-page-contacts__phones-value">+7 927 155-84-06</a> 
-                                                      
+                                                           <a href="tel:+7 927 155-84-06" class="t-page-contacts__phones-value">+7 927 155-84-06</a>
+
                         </div>
                                     </div>
                 <div class="t-page-contacts__mail">
@@ -310,7 +310,7 @@
                 </svg>
             </div>
         </button>
-    
+
     </button-link-cmp>                </div>
             </div>
         </div>
@@ -346,7 +346,7 @@
         <span class="t-cursor__text">Смотреть видео</span>
     </div>
 </cursor-cmp>
-        
+
     </main>
                     </transition>
                 </div>
@@ -358,15 +358,15 @@
         <div class="t-footer__content">
             <div class="t-footer__data">
                 <div class="t-footer__data-form">
-                    <form-subscribe-cmp 
-                        action="subscribe" 
+                    <form-subscribe-cmp
+                        action="subscribe"
                         title="Подписаться на рассылку"
                         text="Оставьте свой e-mail, и мы будем оповещать вас о событиях и новостях. Обещаем без спама"
                     >
                     </form-subscribe-cmp>
                 </div>
                 <div class="t-footer__data-menu">
-                    
+
                     <menu-cmp inline-template>
     <ul class="t-menu _vertical">
                     <li class="t-menu__item">
@@ -412,7 +412,7 @@
                                     <path d="M0.799805 2.39883C0.799805 1.97448 0.968376 1.56752 1.26843 1.26746C1.56849 0.967399 1.97546 0.798828 2.3998 0.798828H5.0238C5.19164 0.798956 5.35518 0.851865 5.49129 0.950068C5.6274 1.04827 5.72917 1.18679 5.7822 1.34603L6.9806 4.94043C7.04133 5.1231 7.03414 5.32154 6.96038 5.49934C6.88661 5.67715 6.75121 5.82239 6.579 5.90843L4.7734 6.81243C5.65846 8.77126 7.22737 10.3402 9.1862 11.2252L10.0902 9.41963C10.1762 9.24743 10.3215 9.11202 10.4993 9.03825C10.6771 8.96449 10.8755 8.95731 11.0582 9.01803L14.6526 10.2164C14.812 10.2695 14.9506 10.3714 15.0488 10.5077C15.147 10.6439 15.1998 10.8077 15.1998 10.9756V13.5988C15.1998 14.0232 15.0312 14.4301 14.7312 14.7302C14.4311 15.0303 14.0242 15.1988 13.5998 15.1988H12.7998C6.1726 15.1988 0.799805 9.82603 0.799805 3.19883V2.39883Z" stroke="#022855" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="bevel"/>
                                 </svg>
                             </div>
-                        </a>  
+                        </a>
                         <a href="mailto:lider@real-ships.ru">
                             <span v-if="!isMobile">lider@real-ships.ru</span>
                             <span v-if="isMobile" class="t-footer__contacts-text">Почта</span>
@@ -516,34 +516,34 @@
                         </swiper-slide>
                                     </swiper>
                 <div class="t-footer__boats-slider-item-line">
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 0 == activeSlide}"
                         >
                         </div>
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 1 == activeSlide}"
                         >
                         </div>
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 2 == activeSlide}"
                         >
                         </div>
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 3 == activeSlide}"
                         >
                         </div>
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 4 == activeSlide}"
                         >
                         </div>
-                                            <div class="t-footer__boats-slider-item-line-item" 
+                                            <div class="t-footer__boats-slider-item-line-item"
                             :class="{'t-footer__boats-slider-item-line-item-active': 5 == activeSlide}"
                         >
                         </div>
                                     </div>
             </div>
             <div class="t-footer__services">
-                <div class="t-footer__services-copyright"> 
+                <div class="t-footer__services-copyright">
                     <span>© 2021 Ушаковские верфи.</span>
                     <span>Все права защищены</span>
                 </div>
@@ -629,7 +629,7 @@
 </div>
 
 <script>
-    
+
     var staticText = {"name":"Имя","surname":"Фамилия","email":"E-mail","phone":"Телефон","message":"Задайте свой вопрос","position":"Желаемая должность","file":"Нажмите на поле для загрузки или просто перетащите файл (3 файла max)","messageVacancy":"Расскажите нам о своем опыте","submit":"Отправить","further":"Далее","mail":"Почта","feedbackVacancyTab":"Персональные данные","feedbackVacancyTab2":"Информация о вакансии","address":"Адрес","textCookie":"Мы используем файлы","linkTextCookie":"Cookie","btnCookie":"Принять","step":"Шаг","formBtnSend":"Отправить","formTextError":"Поле обязательно к заполнению","modalClose":"Закрыть","textPersonalData":"Я даю согласие на обработку персональных данных","errorTextName":"Имя введено некорректно","errorTextSurname":"Фамилия введена некорректно","errorTextEmail":"E-mail введен некорректно","errorTextPhone":"Номер введен некорректно","errorTextPosition":"Должность введена некорректно","errorTextFile":"Некорректные файлы"};
     var locale = [{"label":"Ru","value":"","current":true},{"label":"En","value":"en","current":false},{"label":"De","value":"de","current":false}];
     var social = [{"id":1,"link":"#","icon":"/uploads/img/footer-social.svg"},{"id":2,"link":"#","icon":"/uploads/img/footer-social.svg"},{"id":3,"link":"#","icon":"/uploads/img/footer-social.svg"},{"id":4,"link":"#","icon":"/uploads/img/footer-social.svg"}];
