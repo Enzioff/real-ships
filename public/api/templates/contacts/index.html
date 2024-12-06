@@ -1,1 +1,120 @@
-<transition><main class="t-page-padding-small t-page-contacts t-container"><div class="t-page-contacts__wrapper"><h1 class="t-title t-title-big t-page-contacts__title">Контакты</h1><div @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" v-if="!isMobile"><button-link-cmp inline-template><button @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" class="t-button-link"><div class="t-button-link__content"><div class="t-button-link__text"><span>Связаться с нами</span> <span>Связаться с нами</span></div></div><div class="t-button-link__icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/><path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/></svg></div></button></button-link-cmp></div></div><div class="t-page-contacts__media"><div class="t-page-contacts__img" @mouseenter="hoverCursor('.t-video__controls')"><video-cmp :class="{'_cursor-none': !isMobile}" id="contacts" autoplay="" mute="" :video="{'mark':'video','type':'file','src':'/uploads/video/lodka.mp4'}"></video-cmp></div></div><div class="t-page-contacts__info"><div class="t-page-contacts__info-left"><div class="t-page-contacts__info-descr t-html"><p>Мы рады рассказать вам больше о нашей страсти к строительству яхт.</p><p>Пожалуйста, не стесняйтесь обращаться к нам за дополнительной информацией.</p></div><div class="t-page-contacts__info-social"><social-networks-cmp inline-template><div class="t-social-networks"></div></social-networks-cmp></div></div><div class="t-page-contacts__info-right"><div class="t-page-contacts__phones"><div class="t-page-contacts__phones-item"><span class="t-page-contacts__phones-name">Отдел продаж</span> <a href="tel:+7 906 219-50-00" class="t-page-contacts__phones-value">+7 906 219-50-00</a></div><div class="t-page-contacts__phones-item"><span class="t-page-contacts__phones-name">Отдел логистики</span> <a href="tel:+7 927 155-84-06" class="t-page-contacts__phones-value">+7 927 155-84-06</a></div></div><div class="t-page-contacts__mail"><span class="t-page-contacts__phones-name">Почта</span> <a href="mailto:lider@real-ships.ru" class="t-page-contacts__phones-value">lider@real-ships.ru</a></div><div class="t-page-contacts__button" v-if="isMobile"><button-link-cmp inline-template><button @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" class="t-button-link t-button-link_border"><div class="t-button-link__content"><div class="t-button-link__text"><span>Связаться с нами</span> <span>Связаться с нами</span></div></div><div class="t-button-link__icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/><path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/></svg></div></button></button-link-cmp></div></div></div><div class="t-page-contacts__maps t-margin-top"><h2 class="t-page-contacts__subtitle t-subtitle">Мы на карте</h2><div class="t-page-contacts__maps-description"><div class="t-page-contacts__thesis"><span class="t-thesis">КАК НАЙТИ НАС</span></div><div class="t-page-contacts__maps-info"><div class="t-page-contacts__maps-text t-html"><p>Наша верфь расположена в поселке Ушаково, примерно в 20 минутах езды от Калининграда</p></div><div class="t-page-contacts__maps-address"><span class="t-page-contacts__maps-address-name">Адрес</span> <span class="t-page-contacts__maps-address-value">Россия, 238322, Калининградская область посёлок Ушаково, переулок Портовый, строение 1</span></div></div></div><div class="t-page-contacts__maps-map"><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7b1d1a0b33911fcb8ded6ff4252d16c9d483bdbf98fdfb2254f2646a9b05a013&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe></div></div><modal-cmp></modal-cmp><cursor-cmp inline-template><div class="t-cursor js-cursor"><span class="t-cursor__text">Смотреть видео</span></div></cursor-cmp></main></transition>
+<transition>
+        <main class="t-page-padding-small t-page-contacts t-container">
+        <div class="t-page-contacts__wrapper">
+            <h1 class="t-title t-title-big t-page-contacts__title">Контакты</h1>
+            <div @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" v-if="!isMobile" >
+                <button-link-cmp inline-template>
+            <button @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" class="t-button-link ">
+            <div class="t-button-link__content">
+                <div class="t-button-link__text">
+                    <span>Связаться с нами</span>
+                    <span>Связаться с нами</span>
+                </div>
+            </div>
+            <div class="t-button-link__icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/>
+                    <path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/>
+                </svg>
+            </div>
+        </button>
+    
+    </button-link-cmp>            </div>
+        </div>
+        <div class="t-page-contacts__media">
+            <div class="t-page-contacts__img"
+                                    @mouseenter="hoverCursor('.t-video__controls')" 
+                            >
+                                    <video-cmp 
+                        :class="{'_cursor-none': !isMobile}"
+                        id="contacts"
+                        autoplay=""
+                        mute=""
+                        :video="{'mark':'video','type':'file','src':'/uploads/video/lodka.mp4'}"
+                    ></video-cmp>
+                            </div>
+        </div>
+        <div class="t-page-contacts__info">
+            <div class="t-page-contacts__info-left">
+                <div class="t-page-contacts__info-descr t-html">
+                    <p>Мы рады рассказать вам больше о нашей страсти к строительству яхт.</p><p>Пожалуйста, не стесняйтесь обращаться к нам за дополнительной информацией.</p>
+                </div>
+                <div class="t-page-contacts__info-social">
+                    <social-networks-cmp inline-template>
+    <div class="t-social-networks">
+            </div>
+</social-networks-cmp>
+                </div>
+            </div>
+            <div class="t-page-contacts__info-right">
+                <div class="t-page-contacts__phones">
+                                            <div class="t-page-contacts__phones-item">
+                            <span class="t-page-contacts__phones-name">Отдел продаж</span>
+                                                           <a href="tel:+7 906 219-50-00" class="t-page-contacts__phones-value">+7 906 219-50-00</a> 
+                                                      
+                        </div>
+                                            <div class="t-page-contacts__phones-item">
+                            <span class="t-page-contacts__phones-name">Отдел логистики</span>
+                                                           <a href="tel:+7 927 155-84-06" class="t-page-contacts__phones-value">+7 927 155-84-06</a> 
+                                                      
+                        </div>
+                                    </div>
+                <div class="t-page-contacts__mail">
+                    <span class="t-page-contacts__phones-name">Почта</span>
+                    <a href="mailto:lider@real-ships.ru" class="t-page-contacts__phones-value">lider@real-ships.ru</a>
+                </div>
+                <div class="t-page-contacts__button" v-if="isMobile">
+                    <button-link-cmp inline-template>
+            <button @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" class="t-button-link t-button-link_border">
+            <div class="t-button-link__content">
+                <div class="t-button-link__text">
+                    <span>Связаться с нами</span>
+                    <span>Связаться с нами</span>
+                </div>
+            </div>
+            <div class="t-button-link__icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.41211 1L11.0002 0.999999C12.1047 0.999999 13.0002 1.89543 13.0002 3L13.0002 11.5881" stroke="#022855" stroke-width="2"/>
+                    <path d="M12.3137 1.68629L1 13" stroke="#022855" stroke-width="2"/>
+                </svg>
+            </div>
+        </button>
+    
+    </button-link-cmp>                </div>
+            </div>
+        </div>
+
+        <div class="t-page-contacts__maps t-margin-top">
+            <h2 class="t-page-contacts__subtitle t-subtitle">Мы на карте</h2>
+
+            <div class="t-page-contacts__maps-description">
+                <div class="t-page-contacts__thesis">
+                    <span class="t-thesis">КАК НАЙТИ НАС</span>
+                </div>
+                <div class="t-page-contacts__maps-info">
+                    <div class="t-page-contacts__maps-text t-html">
+                        <p>Наша верфь расположена в поселке Ушаково, примерно в 20 минутах езды от Калининграда</p>
+                    </div>
+                    <div class="t-page-contacts__maps-address">
+                        <span class="t-page-contacts__maps-address-name">Адрес</span>
+                        <span class="t-page-contacts__maps-address-value">Россия, 238322, Калининградская область посёлок Ушаково, переулок Портовый, строение 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-page-contacts__maps-map">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7b1d1a0b33911fcb8ded6ff4252d16c9d483bdbf98fdfb2254f2646a9b05a013&amp;source=constructor" width="100%" height="100%" frameborder="0">
+                </iframe>
+            </div>
+        </div>
+
+        <modal-cmp></modal-cmp>
+
+        <cursor-cmp inline-template>
+    <div class="t-cursor js-cursor">
+        <span class="t-cursor__text">Смотреть видео</span>
+    </div>
+</cursor-cmp>
+        
+    </main>
+</transition>

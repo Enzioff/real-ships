@@ -1,1 +1,304 @@
-<transition><main class="t-page-padding-small t-about t-container"><div class="t-title__container"><h1 class="t-title t-title-small t-page-vacancies__title">Вакансии</h1></div><div class="t-page-vacancies__shipyard"><div class="t-page-vacancies__shipyard-thesis"><span class="t-thesis">о нашей верфи</span></div><div class="t-page-vacancies__shipyard-text">Ищем в свою команду высококвалифицированных специалистов с ответственным отношением к любимому делу</div></div><div class="t-page-vacancies__img"><img src="/uploads/img/vacancies.jpg" alt="о нашей верфи"/></div><div class="t-page-vacancies__mission"><div class="t-page-vacancies__mission-thesis"><span class="t-thesis">о нашей философии И МИССИИ</span></div><div v-if="!isMobile" class="t-page-vacancies__mission-text t-html"><p><strong>Судостроительная</strong> <em>компания </em>Ушаковские Верфи &mdash;  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 го<span style="text-decoration: underline;">да строящее на территории Калининградской области стальные водоизмещающие яхты класса &laquo;люкс&raquo;.</span></p><p><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></p><p>Все специалисты верфи проходят полное обучение и стажировку в Голландии перед началом работ. Воплощаем индивидуальные решения, не боимся работать с требовательными клиентами.</p><p><em><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></em></p><p><span style="background-color: rgb(251, 238, 184);">На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</span></p></div><div v-if="isMobile" class="t-page-vacancies__mission-text t-html js-height" :class="{ '_hidden-text': hiddenText }"><p><strong>Судостроительная</strong> <em>компания </em>Ушаковские Верфи &mdash;  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 го<span style="text-decoration: underline;">да строящее на территории Калининградской области стальные водоизмещающие яхты класса &laquo;люкс&raquo;.</span></p><p><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></p><p>Все специалисты верфи проходят полное обучение и стажировку в Голландии перед началом работ. Воплощаем индивидуальные решения, не боимся работать с требовательными клиентами.</p><p><em><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></em></p><p><span style="background-color: rgb(251, 238, 184);">На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</span></p></div><p class="_cursor" :class="{ '_none': !hiddenText }" v-if="isMobile" @click="changeHiddenText">Читать полностью</p></div><div class="t-page-vacancies__items t-margin-top js-vacancies"><div class="t-page-vacancies__item" :class="{ _open: 0 === idOpenVacancy }" @click="onVacancy(0)"><div class="t-page-vacancies__item-inner" :class="{'_cursor-none': !isMobile}" @mouseenter="hoverCursor('.t-page-vacancies__item-inner')"><div class="t-page-vacancies__item-position">Инженер по подготовке производства</div><div class="t-page-vacancies__item-icon"><span></span> <span></span></div></div><transition name="fade"><div @click.stop v-if="idOpenVacancy === 0" class="t-page-vacancies__item-content"><div class="t-page-vacancies__item-data"><div class="t-page-vacancies__item-busyness"><span class="t-page-vacancies__item-name">Занятость</span> <span class="t-page-vacancies__item-value">полный рабочий день</span></div><div class="t-page-vacancies__item-experience"><span class="t-page-vacancies__item-name">Требуемый опыт работы</span> <span class="t-page-vacancies__item-value">1–3 года</span></div></div><div class="t-page-vacancies__item-description t-html"><p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p></div><div class="t-page-vacancies__item-duties t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Обязанности</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li><li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li><li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li></ul></div><div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Требования</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Опыт работы от 1 года</li><li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li><li class="t-page-vacancies__item-li">Чтение чертежей</li></ul></div><div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Условия</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li><li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li><li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li><li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li><li class="t-page-vacancies__item-li">Официальная заработная плата</li></ul></div><div class="t-page-vacancies__item-salary t-page-vacancies__item-mt"><span class="t-page-vacancies__item-name">Зарплата</span> <span class="t-page-vacancies__item-value">100 000 ₽</span></div><div class="t-page-vacancies__item-btn t-page-vacancies__item-mt"><div @click="getActiveVacancy('Инженер по подготовке производства', 0)" class="t-button"><span>Откликнуться</span></div></div></div></transition></div><div class="t-page-vacancies__item" :class="{ _open: 1 === idOpenVacancy }" @click="onVacancy(1)"><div class="t-page-vacancies__item-inner" :class="{'_cursor-none': !isMobile}" @mouseenter="hoverCursor('.t-page-vacancies__item-inner')"><div class="t-page-vacancies__item-position">Электрогазосварщик</div><div class="t-page-vacancies__item-icon"><span></span> <span></span></div></div><transition name="fade"><div @click.stop v-if="idOpenVacancy === 1" class="t-page-vacancies__item-content"><div class="t-page-vacancies__item-data"><div class="t-page-vacancies__item-busyness"><span class="t-page-vacancies__item-name">Занятость</span> <span class="t-page-vacancies__item-value">полный рабочий день</span></div><div class="t-page-vacancies__item-experience"><span class="t-page-vacancies__item-name">Требуемый опыт работы</span> <span class="t-page-vacancies__item-value">1–3 года</span></div></div><div class="t-page-vacancies__item-description t-html"><p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p></div><div class="t-page-vacancies__item-duties t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Обязанности</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li><li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li><li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li></ul></div><div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Требования</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Опыт работы от 1 года</li><li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li><li class="t-page-vacancies__item-li">Чтение чертежей</li></ul></div><div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Условия</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li><li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li><li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li><li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li><li class="t-page-vacancies__item-li">Официальная заработная плата</li></ul></div><div class="t-page-vacancies__item-salary t-page-vacancies__item-mt"><span class="t-page-vacancies__item-name">Зарплата</span> <span class="t-page-vacancies__item-value">100 000 ₽</span></div><div class="t-page-vacancies__item-btn t-page-vacancies__item-mt"><div @click="getActiveVacancy('Электрогазосварщик', 1)" class="t-button"><span>Откликнуться</span></div></div></div></transition></div><div class="t-page-vacancies__item" :class="{ _open: 2 === idOpenVacancy }" @click="onVacancy(2)"><div class="t-page-vacancies__item-inner" :class="{'_cursor-none': !isMobile}" @mouseenter="hoverCursor('.t-page-vacancies__item-inner')"><div class="t-page-vacancies__item-position">Инженер по нормированию труда</div><div class="t-page-vacancies__item-icon"><span></span> <span></span></div></div><transition name="fade"><div @click.stop v-if="idOpenVacancy === 2" class="t-page-vacancies__item-content"><div class="t-page-vacancies__item-data"><div class="t-page-vacancies__item-busyness"><span class="t-page-vacancies__item-name">Занятость</span> <span class="t-page-vacancies__item-value">полный рабочий день</span></div><div class="t-page-vacancies__item-experience"><span class="t-page-vacancies__item-name">Требуемый опыт работы</span> <span class="t-page-vacancies__item-value">1–3 года</span></div></div><div class="t-page-vacancies__item-description t-html"><p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p></div><div class="t-page-vacancies__item-duties t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Обязанности</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li><li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li><li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li></ul></div><div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Требования</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">Опыт работы от 1 года</li><li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li><li class="t-page-vacancies__item-li">Чтение чертежей</li></ul></div><div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt"><h3 class="t-page-vacancies__item-title">Условия</h3><ul class="t-page-vacancies__item-list"><li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li><li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li><li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li><li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li><li class="t-page-vacancies__item-li">Официальная заработная плата</li></ul></div><div class="t-page-vacancies__item-salary t-page-vacancies__item-mt"><span class="t-page-vacancies__item-name">Зарплата</span> <span class="t-page-vacancies__item-value">100 000 ₽</span></div><div class="t-page-vacancies__item-btn t-page-vacancies__item-mt"><div @click="getActiveVacancy('Инженер по нормированию труда', 2)" class="t-button"><span>Откликнуться</span></div></div></div></transition></div></div><div class="t-page-vacancies__form t-margin-top js-responseVacancy"><form-vacancies-cmp action="vacancy" :referer="routeName" formname="Откликнуться на вакансию" title="Откликнуться на вакансию" text="Заполните форму или свяжитесь с нами одним из удобных способов" :position="[{'label':'Инженер по подготовке производства','id':0},{'label':'Электрогазосварщик','id':1},{'label':'Инженер по нормированию труда','id':2}]" :active="activePosition" :id="idClickVacancy"></form-vacancies-cmp></div><div class="t-hover js-hover"><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_3283_2271)"><path d="M3.02539 13.5L9.09807 7.42732C9.87912 6.64627 11.1454 6.64628 11.9265 7.42733L17.9992 13.5" stroke="#A7B5C5" stroke-width="2"/></g><defs><clipPath id="clip0_3283_2271"><rect width="20" height="20" fill="white" transform="translate(0.5)"/></clipPath></defs></svg> <span></span></div><cursor-cmp inline-template><div class="t-cursor js-cursor"><span class="t-cursor__text">Смотреть</span></div></cursor-cmp></main></transition>
+<transition>
+        <main class="t-page-padding-small t-about t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-vacancies__title">Вакансии</h1>
+        </div>
+        <div class="t-page-vacancies__shipyard">
+            <div class="t-page-vacancies__shipyard-thesis">
+                <span class="t-thesis">о нашей верфи</span>
+            </div>
+            <div class="t-page-vacancies__shipyard-text">
+                Ищем в свою команду высококвалифицированных специалистов с ответственным отношением к любимому делу
+            </div>
+        </div>
+
+                    <div class="t-page-vacancies__img">
+                <img src="/uploads/img/vacancies.jpg" alt="о нашей верфи" />
+            </div>
+        
+                    <div class="t-page-vacancies__mission">
+                <div class="t-page-vacancies__mission-thesis">
+                    <span class="t-thesis">о нашей философии И МИССИИ</span>
+                </div>
+                                    <div v-if="!isMobile" class="t-page-vacancies__mission-text t-html">
+                        <p><strong>Судостроительная</strong> <em>компания </em>Ушаковские Верфи &mdash;  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 го<span style="text-decoration: underline;">да строящее на территории Калининградской области стальные водоизмещающие яхты класса &laquo;люкс&raquo;.</span></p><p><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></p><p>Все специалисты верфи проходят полное обучение и стажировку в Голландии перед началом работ. Воплощаем индивидуальные решения, не боимся работать с требовательными клиентами.</p><p><em><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></em></p><p><span style="background-color: rgb(251, 238, 184);">На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</span></p>
+                    </div>
+                    <div v-if="isMobile" class="t-page-vacancies__mission-text t-html js-height" :class="{ '_hidden-text': hiddenText }">
+                        <p><strong>Судостроительная</strong> <em>компания </em>Ушаковские Верфи &mdash;  это современное яхтенное производство, построенное по всем правилам и канонам голландского кораблестроения, с 2012 го<span style="text-decoration: underline;">да строящее на территории Калининградской области стальные водоизмещающие яхты класса &laquo;люкс&raquo;.</span></p><p><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></p><p>Все специалисты верфи проходят полное обучение и стажировку в Голландии перед началом работ. Воплощаем индивидуальные решения, не боимся работать с требовательными клиентами.</p><p><em><strong>На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</strong></em></p><p><span style="background-color: rgb(251, 238, 184);">На сегодняшний день предприятие оснащено самым современным оборудованием, позволяющим производить моторные яхты и коммерческие суда длиной до 22 метров.</span></p>
+                    </div>
+                    <p class="_cursor" :class="{ '_none': !hiddenText }" v-if="isMobile" @click="changeHiddenText">Читать полностью</p>
+                            </div>
+        
+                    <div class="t-page-vacancies__items t-margin-top js-vacancies">
+                                                            <div 
+                            class="t-page-vacancies__item" 
+                            :class="{ _open: 0 === idOpenVacancy }"
+                            @click="onVacancy(0)"
+                        >
+                            <div class="t-page-vacancies__item-inner"
+                                :class="{'_cursor-none': !isMobile}"
+                                @mouseenter="hoverCursor('.t-page-vacancies__item-inner')" 
+                            >
+                                <div class="t-page-vacancies__item-position">
+                                    Инженер по подготовке производства
+                                </div>
+                                <div class="t-page-vacancies__item-icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <transition name="fade">
+                                <div @click.stop v-if="idOpenVacancy === 0" class="t-page-vacancies__item-content">
+                                    <div class="t-page-vacancies__item-data">
+                                                                                    <div class="t-page-vacancies__item-busyness">
+                                                <span class="t-page-vacancies__item-name">Занятость</span>
+                                                <span class="t-page-vacancies__item-value">полный рабочий день</span>
+                                            </div>
+                                                                                                                            <div class="t-page-vacancies__item-experience">
+                                                <span class="t-page-vacancies__item-name">Требуемый опыт работы</span>
+                                                <span class="t-page-vacancies__item-value">1–3 года</span>
+                                            </div>
+                                                                            </div>
+                                    <div class="t-page-vacancies__item-description t-html">
+                                        <p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p>
+                                    </div>
+
+                                                                            <div class="t-page-vacancies__item-duties t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Обязанности</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Требования</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Опыт работы от 1 года</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Чтение чертежей</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Условия</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Официальная заработная плата</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-salary t-page-vacancies__item-mt">
+                                            <span class="t-page-vacancies__item-name">Зарплата</span>
+                                            <span class="t-page-vacancies__item-value">100 000 ₽</span>
+                                        </div>
+                                    
+                                    <div class="t-page-vacancies__item-btn t-page-vacancies__item-mt">
+                                        <div @click="getActiveVacancy('Инженер по подготовке производства', 0)" class="t-button">
+                                            <span>Откликнуться</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </transition>
+                        </div>
+                                                                                <div 
+                            class="t-page-vacancies__item" 
+                            :class="{ _open: 1 === idOpenVacancy }"
+                            @click="onVacancy(1)"
+                        >
+                            <div class="t-page-vacancies__item-inner"
+                                :class="{'_cursor-none': !isMobile}"
+                                @mouseenter="hoverCursor('.t-page-vacancies__item-inner')" 
+                            >
+                                <div class="t-page-vacancies__item-position">
+                                    Электрогазосварщик
+                                </div>
+                                <div class="t-page-vacancies__item-icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <transition name="fade">
+                                <div @click.stop v-if="idOpenVacancy === 1" class="t-page-vacancies__item-content">
+                                    <div class="t-page-vacancies__item-data">
+                                                                                    <div class="t-page-vacancies__item-busyness">
+                                                <span class="t-page-vacancies__item-name">Занятость</span>
+                                                <span class="t-page-vacancies__item-value">полный рабочий день</span>
+                                            </div>
+                                                                                                                            <div class="t-page-vacancies__item-experience">
+                                                <span class="t-page-vacancies__item-name">Требуемый опыт работы</span>
+                                                <span class="t-page-vacancies__item-value">1–3 года</span>
+                                            </div>
+                                                                            </div>
+                                    <div class="t-page-vacancies__item-description t-html">
+                                        <p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p>
+                                    </div>
+
+                                                                            <div class="t-page-vacancies__item-duties t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Обязанности</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Требования</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Опыт работы от 1 года</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Чтение чертежей</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Условия</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Официальная заработная плата</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-salary t-page-vacancies__item-mt">
+                                            <span class="t-page-vacancies__item-name">Зарплата</span>
+                                            <span class="t-page-vacancies__item-value">100 000 ₽</span>
+                                        </div>
+                                    
+                                    <div class="t-page-vacancies__item-btn t-page-vacancies__item-mt">
+                                        <div @click="getActiveVacancy('Электрогазосварщик', 1)" class="t-button">
+                                            <span>Откликнуться</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </transition>
+                        </div>
+                                                                                <div 
+                            class="t-page-vacancies__item" 
+                            :class="{ _open: 2 === idOpenVacancy }"
+                            @click="onVacancy(2)"
+                        >
+                            <div class="t-page-vacancies__item-inner"
+                                :class="{'_cursor-none': !isMobile}"
+                                @mouseenter="hoverCursor('.t-page-vacancies__item-inner')" 
+                            >
+                                <div class="t-page-vacancies__item-position">
+                                    Инженер по нормированию труда
+                                </div>
+                                <div class="t-page-vacancies__item-icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <transition name="fade">
+                                <div @click.stop v-if="idOpenVacancy === 2" class="t-page-vacancies__item-content">
+                                    <div class="t-page-vacancies__item-data">
+                                                                                    <div class="t-page-vacancies__item-busyness">
+                                                <span class="t-page-vacancies__item-name">Занятость</span>
+                                                <span class="t-page-vacancies__item-value">полный рабочий день</span>
+                                            </div>
+                                                                                                                            <div class="t-page-vacancies__item-experience">
+                                                <span class="t-page-vacancies__item-name">Требуемый опыт работы</span>
+                                                <span class="t-page-vacancies__item-value">1–3 года</span>
+                                            </div>
+                                                                            </div>
+                                    <div class="t-page-vacancies__item-description t-html">
+                                        <p>Осуществляет с использованием средств вычислительной техники, коммуникаций и связи подготовку производства, контроль за обеспечением производства комплектующими изделиями, материалами, инструментом, за своевременностью оформления всей необходимой технической документации, разрабатывает месячные производственные программы и сменно-суточные задания по закрепленному участку работы.</p><p>Контролирует комплектность незавершенного производства, соблюдение установленных норм заделов и календарных опережений в работе производственных подразделений.</p>
+                                    </div>
+
+                                                                            <div class="t-page-vacancies__item-duties t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Обязанности</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Актуализация планирования ведомостей по открытым заказам</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Отметка текущего состояния изготовления деталей</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Работа с маршрутными картами, тех. процессами</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Требования</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">Опыт работы от 1 года</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Высшее образование (техническое, машиностроение, судостроение)</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Чтение чертежей</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">Условия</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                                                                    <li class="t-page-vacancies__item-li">График работы 5/2, 8:00-17:00</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Территориально — посёлок Ушаково</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Оформление в соответствии с Трудовым Кодексом РФ</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Широкие возможности для профессионального развития</li>
+                                                                                                    <li class="t-page-vacancies__item-li">Официальная заработная плата</li>
+                                                                                            </ul>
+                                        </div>
+                                    
+                                                                            <div class="t-page-vacancies__item-salary t-page-vacancies__item-mt">
+                                            <span class="t-page-vacancies__item-name">Зарплата</span>
+                                            <span class="t-page-vacancies__item-value">100 000 ₽</span>
+                                        </div>
+                                    
+                                    <div class="t-page-vacancies__item-btn t-page-vacancies__item-mt">
+                                        <div @click="getActiveVacancy('Инженер по нормированию труда', 2)" class="t-button">
+                                            <span>Откликнуться</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </transition>
+                        </div>
+                                                </div>
+
+        
+        
+                    
+                                                                                                                
+
+        <div class="t-page-vacancies__form t-margin-top js-responseVacancy">
+            <form-vacancies-cmp 
+                action="vacancy" 
+                :referer="routeName"
+                formname="Откликнуться на вакансию"
+                title="Откликнуться на вакансию"
+                text="Заполните форму или свяжитесь с нами одним из удобных способов"
+                :position="[{'label':'Инженер по подготовке производства','id':0},{'label':'Электрогазосварщик','id':1},{'label':'Инженер по нормированию труда','id':2}]"
+                :active="activePosition"
+                :id="idClickVacancy"
+            >
+            </form-vacancies-cmp>
+        </div>
+
+        
+        <div class="t-hover js-hover">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_3283_2271)">
+                    <path d="M3.02539 13.5L9.09807 7.42732C9.87912 6.64627 11.1454 6.64628 11.9265 7.42733L17.9992 13.5" stroke="#A7B5C5" stroke-width="2"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_3283_2271">
+                        <rect width="20" height="20" fill="white" transform="translate(0.5)"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span></span>
+        </div>
+
+        <cursor-cmp inline-template>
+    <div class="t-cursor js-cursor">
+        <span class="t-cursor__text">Смотреть</span>
+    </div>
+</cursor-cmp>
+        
+    </main>
+</transition>

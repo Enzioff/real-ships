@@ -1,1 +1,117 @@
-<transition><main class="t-page-padding-small t-media t-container"><div class="t-title__container"><h1 class="t-title t-title-small t-page-media__title">Медиа</h1></div><div class="t-page-media__content"><div class="t-page-media__tabs"><tabs-cmp inline-template><div class="t-tabs"><ul class="t-tabs__list"><li class="t-tabs__item" :class="{'t-tabs__item-active': 0 == this.$root.activeTabId}" @click="setActiveClass('0', null, 'all')"><span>Все медиа</span></li><li class="t-tabs__item" :class="{'t-tabs__item-active': 1 == this.$root.activeTabId}" @click="setActiveClass('1', 'media', 'Пресса')"><span>Пресса</span></li><li class="t-tabs__item" :class="{'t-tabs__item-active': 2 == this.$root.activeTabId}" @click="setActiveClass('2', 'media', 'Кейсы')"><span>Кейсы</span></li><li class="t-tabs__item" :class="{'t-tabs__item-active': 3 == this.$root.activeTabId}" @click="setActiveClass('3', 'media', 'Пресса о нас')"><span>Пресса о нас</span></li></ul></div></tabs-cmp></div><div class="t-page-media__items"><a v-if="!isMobile" v-link href="/media/id" class="t-page-media__item t-page-media__item-main"><div @mouseenter.once="hoverCursor('.t-page-media__item-main-img', 'Подробнее')" class="t-page-media__item-main-img _cursor-none"><img src="/uploads/img/media-item.jpg" alt=""/></div><div class="t-page-media__item-main-description"><div class="t-page-media__item-main-col"><span class="t-page-media__item-main-tag">Пресса</span></div><div class="t-page-media__item-main-col"><span class="t-page-media__item-main-date">27 ноября 2021</span></div><div class="t-page-media__item-main-col"><h5 class="t-page-media__item-main-title">Специальное предложение: корпус яхты BONITO 40 OK и VRIPACK 1310 AK</h5><p class="t-page-media__item-main-text">Все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p></div></div></a><div class="t-page-media__items-container t-margin-top"><div v-if="isMobile" class="_main-media"><article-cmp inline-template><a @click="scrollTo" href="/media/id" v-link class="t-article"><div class="t-article__img" :class="{'_cursor-none': !isMobile}"><img src="/uploads/img/media-item.jpg" alt=""/></div><div class="t-article__content"><div class="t-article__content-data"><span class="t-article__content-tag">Пресса</span> <span class="t-article__content-date">27 ноября 2021</span></div><div class="t-article__content-description"><h5 class="t-article__content-title">Специальное предложение: корпус яхты BONITO 40 OK и VRIPACK 1310 AK</h5><p class="t-article__content-text">Все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p></div></div></a></article-cmp></div><div @mouseenter.once="hoverCursor('.t-article__img', 'Подробнее')" v-for="(item, index) in [{'id':30,'link':'/media/zagolovok_3','tag':'Кейсы','img':'/uploads/img/media-item.jpg','title':'Кейс1','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':29,'link':'/media/456','tag':'Кейсы','img':'/uploads/img/media-item.jpg','title':'кейс2','text':'123123123','date':'27 января 2022'},{'id':27,'link':'/media/456','tag':'Кейсы','img':'/uploads/img/benefits-slider.jpg','title':'кейс3','text':null,'date':'27 января 2022'},{'id':26,'link':'/media/zagolovok_3','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса1','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':8,'link':'/media/456','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса2','text':null,'date':'27 января 2022'},{'id':7,'link':'/media/456','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса2','text':null,'date':'27 января 2022'},{'id':6,'link':'/media/zagolovok_3','tag':'Пресса о нас','img':'/uploads/img/media-item.jpg','title':'111','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':5,'link':'/media/456','tag':'Пресса о нас','img':'/uploads/img/media-item.jpg','title':'кейс2','text':'222','date':'27 января 2022'},{'id':4,'link':'/media/456','tag':'Пресса о нас','img':'/uploads/img/benefits-slider.jpg','title':'333','text':null,'date':'27 января 2022'}]" :key="index"><article-vue-cmp :article="item"></article-vue-cmp></div><div @mouseenter.once="hoverCursor('.t-article__img', 'Подробнее')" v-for="item in mediaCards"><article-vue-cmp :article="item"></article-vue-cmp></div></div><div class="_none js-pagination" data-pagination="{'currentPage':1,'pageCount':2,'totalCount':8}"></div><div class="t-page-media__btn"><load-more-cmp text="Показать ещё" :pagination="pagination"></load-more-cmp></div></div></div><cursor-cmp inline-template><div class="t-cursor js-cursor"><span class="t-cursor__text">Подробнее</span></div></cursor-cmp></main></transition>
+<transition>
+        <main class="t-page-padding-small t-media t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-media__title">Медиа</h1>
+        </div>
+        <div class="t-page-media__content">
+            <div class="t-page-media__tabs">
+                <tabs-cmp inline-template>
+    <div class="t-tabs">
+        <ul class="t-tabs__list">
+                            <li class="t-tabs__item" 
+                    :class="{'t-tabs__item-active': 0 == this.$root.activeTabId}" 
+                    @click="setActiveClass('0', null, 'all')" 
+                >
+                    <span>Все медиа</span>
+                </li>
+                                    <li class="t-tabs__item" 
+                        :class="{'t-tabs__item-active': 1 == this.$root.activeTabId}"
+                        @click="setActiveClass('1', 'media', 'Пресса')"
+                    >
+                        <span>Пресса</span>
+                    </li>
+                                    <li class="t-tabs__item" 
+                        :class="{'t-tabs__item-active': 2 == this.$root.activeTabId}"
+                        @click="setActiveClass('2', 'media', 'Кейсы')"
+                    >
+                        <span>Кейсы</span>
+                    </li>
+                                    <li class="t-tabs__item" 
+                        :class="{'t-tabs__item-active': 3 == this.$root.activeTabId}"
+                        @click="setActiveClass('3', 'media', 'Пресса о нас')"
+                    >
+                        <span>Пресса о нас</span>
+                    </li>
+                                    </ul>
+    </div>
+</tabs-cmp>
+            </div>
+            <div class="t-page-media__items">
+                                    <a v-if="!isMobile" v-link href="/media/id" class="t-page-media__item t-page-media__item-main">
+                        <div @mouseenter.once="hoverCursor('.t-page-media__item-main-img', 'Подробнее')" class="t-page-media__item-main-img _cursor-none">
+                            <img src="/uploads/img/media-item.jpg" alt="" />
+                        </div>
+                        <div class="t-page-media__item-main-description">
+                            <div class="t-page-media__item-main-col">
+                                <span class="t-page-media__item-main-tag">Пресса</span>
+                            </div>
+                            <div class="t-page-media__item-main-col">
+                                <span class="t-page-media__item-main-date">27 ноября 2021</span>
+                            </div>
+                            <div class="t-page-media__item-main-col">
+                                <h5 class="t-page-media__item-main-title">Специальное предложение: корпус яхты BONITO 40 OK и VRIPACK 1310 AK</h5>
+                                <p class="t-page-media__item-main-text">Все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p>
+                            </div>
+                        </div>
+                    </a>
+                
+                <div class="t-page-media__items-container  t-margin-top ">
+                                            <div v-if="isMobile" class="_main-media">
+                            <article-cmp inline-template>
+    <a @click="scrollTo" href="/media/id" v-link class="t-article">
+        <div class="t-article__img" :class="{'_cursor-none': !isMobile}">
+            <img src="/uploads/img/media-item.jpg" alt="" />
+        </div>
+        <div class="t-article__content">
+            <div class="t-article__content-data">
+                <span class="t-article__content-tag">Пресса</span>
+                <span class="t-article__content-date">27 ноября 2021</span>
+            </div>
+            <div class="t-article__content-description">
+                <h5 class="t-article__content-title">Специальное предложение: корпус яхты BONITO 40 OK и VRIPACK 1310 AK</h5>
+                <p class="t-article__content-text">Все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.</p>
+            </div>
+        </div>
+    </a>
+</article-cmp>
+ 
+                        </div>
+                                        
+                    
+                    <div @mouseenter.once="hoverCursor('.t-article__img', 'Подробнее')" v-for="(item, index) in [{'id':30,'link':'/media/zagolovok_3','tag':'Кейсы','img':'/uploads/img/media-item.jpg','title':'Кейс1','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':29,'link':'/media/456','tag':'Кейсы','img':'/uploads/img/media-item.jpg','title':'кейс2','text':'123123123','date':'27 января 2022'},{'id':27,'link':'/media/456','tag':'Кейсы','img':'/uploads/img/benefits-slider.jpg','title':'кейс3','text':null,'date':'27 января 2022'},{'id':26,'link':'/media/zagolovok_3','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса1','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':8,'link':'/media/456','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса2','text':null,'date':'27 января 2022'},{'id':7,'link':'/media/456','tag':'Пресса','img':'/uploads/img/benefits-slider.jpg','title':'Пресса2','text':null,'date':'27 января 2022'},{'id':6,'link':'/media/zagolovok_3','tag':'Пресса о нас','img':'/uploads/img/media-item.jpg','title':'111','text':'Все все все все все проекты каждой торговой линейки &mdash; Courage, Respect, Tridente и Rubicon &mdash; были созданы с нуля и, что называется, вышли &laquo;из-под одного карандаша&raquo;, поэтому полных аналогов вы нигде не найдете.','date':'27 января 2022'},{'id':5,'link':'/media/456','tag':'Пресса о нас','img':'/uploads/img/media-item.jpg','title':'кейс2','text':'222','date':'27 января 2022'},{'id':4,'link':'/media/456','tag':'Пресса о нас','img':'/uploads/img/benefits-slider.jpg','title':'333','text':null,'date':'27 января 2022'}]" :key="index">    
+                            <article-vue-cmp
+                                :article="item"
+                            >
+                            </article-vue-cmp>
+                    </div>
+                    
+                    <div @mouseenter.once="hoverCursor('.t-article__img', 'Подробнее')" v-for="item in mediaCards">
+                        <article-vue-cmp
+                            :article="item"
+                        >
+                        </article-vue-cmp>
+                    </div>
+                </div>
+
+                <div
+                    class="_none js-pagination"
+                    data-pagination="{'currentPage':1,'pageCount':2,'totalCount':8}"
+                >
+                </div>
+                                    <div class="t-page-media__btn">
+                        <load-more-cmp 
+                            text="Показать ещё"
+                            :pagination="pagination"
+                        ></load-more-cmp>
+                    </div>
+                            </div>
+        </div>
+    
+        <cursor-cmp inline-template>
+    <div class="t-cursor js-cursor">
+        <span class="t-cursor__text">Подробнее</span>
+    </div>
+</cursor-cmp>
+        
+    </main>
+</transition>
