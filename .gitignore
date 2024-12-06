@@ -1,6 +1,6 @@
 .idea
 .vscode
-public/dist
+# public/dist
 node_modules
 package-lock.json
 yarn.lock
@@ -55,7 +55,7 @@ front/public
 
 front/public/dist/main.min.js
 front/public/dist/main.min.js.map
-# front/public/dist/main.min.css
+front/public/dist/main.min.css
 front/public/dist/main.min.css.map
 front/public/dist/*.map
 front/public/dist/*min.js
