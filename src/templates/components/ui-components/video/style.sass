@@ -1,0 +1,111 @@
+.t-video
+    position: relative
+    width: 100%
+    height: 100%
+    background: #000
+    object-fit: contain
+    transition: object-fit 2s
+    video
+        height: 100%
+        width: 100%
+    iframe
+        width: 100%
+        height: 100%
+    video
+        object-fit: cover
+        width: 100%
+        height: 100%
+    &__controls
+        z-index: 11
+        position: absolute
+        left: 0
+        top: 0
+        content: ''
+        width: 100%
+        height: 100%
+        &-play
+            position: absolute
+            left: calc( 50% - 64px )
+            top: calc( 50% - 64px )
+            height: 128px
+            width: 128px
+            background: $border-color-2
+            border-radius: 50%
+            display: flex
+            align-items: center
+            justify-content: center
+            @include _1366
+                left: calc( 50% - 44px )
+                top: calc( 50% - 44px )
+                height: 88px
+                width: 88px
+            @include _1024
+                left: calc( 50% - 36px )
+                top: calc( 50% - 36px )
+                height: 72px
+                width: 72px
+            svg
+                @include _1366
+                    height: 28px
+                @include _1024
+                    height: 20px
+                path
+                    stroke: $primary
+        &-mute
+            position: absolute
+            right: 32px
+            bottom: 32px
+            height: 64px
+            width: 64px
+            background: $border-color-2
+            border-radius: 50%
+            display: flex
+            align-items: center
+            justify-content: center
+            z-index: 12
+            &::before
+                position: absolute
+                left: -32px
+                top: -32px
+                content: ''
+                width: 128px
+                height: 128px
+            @include _1366
+                height: 48px
+                width: 48px
+                right: 20px
+                bottom: 20px
+                &::before
+                    left: -20px
+                    top: -20px
+                    width: 88px
+                    height: 88px
+            @include _1024
+                height: 40px
+                width: 40px
+                right: 24px
+                bottom: 24px
+                &::before
+                    left: -24px
+                    top: -24px
+                    width: 88px
+                    height: 88px
+            svg
+                @include _1366
+                    height: 16.67px
+                path
+                    stroke: $primary
+
+.t-youtube_curtain
+    position: absolute
+    bottom: 0
+    right: 0
+    width: 100%
+    height: 100%
+    opacity: 1
+    img
+        min-width: 100%
+        min-height: 100%
+        object-fit: cover
+.js-opacity
+    opacity: 0 !important

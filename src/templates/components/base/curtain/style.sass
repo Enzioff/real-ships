@@ -1,0 +1,70 @@
+.curtain
+    position: fixed
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    background: $border-color-2
+    z-index: 1000
+    opacity: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    animation: top 1.5s ease-out 1.77s forwards
+    @include _320
+        animation: top 1.5s ease-out 2s forwards
+    .t-preloader
+        z-index: 1001
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        .load 
+            fill: $primary
+            width: 496px
+            height: 240px
+            z-index: 1002
+            y: 100%
+            animation: load 0.5s ease-out .2s forwards
+        svg
+            z-index: 1003
+            width: 496px
+            height: 240px
+            background: $border-color-2
+            animation: scale 1s ease-out .75s forwards
+            @include _1366    
+                width: 360px
+                height: 174px            
+            @include _1024    
+                width: 288px
+                height: 138px  
+            @include _320  
+                width: 190px
+                height: 91px    
+
+@keyframes scale 
+    from    
+        transform: scale(1)
+    to 
+        transform: scale(0.8)
+
+@keyframes load 
+    from    
+        y: 100%
+    to 
+        y: 0%
+
+@keyframes top 
+    from    
+        top: 0
+    to 
+        top: -130%
+
+             
+.curtain-enter-active, .curtain-leave-active
+    transition: opacity .4s
+.curtain-enter, .curtain-leave-to
+    opacity: 0

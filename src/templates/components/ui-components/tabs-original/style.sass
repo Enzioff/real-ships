@@ -1,0 +1,41 @@
+.t-tabs-original
+    &__list
+        list-style: none
+        display: flex
+        align-items: center
+        @include _320
+            justify-content: space-between
+    &__item
+        font-size: 20px
+        line-height: 120%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $border-color
+        border-bottom: 2px solid transparent
+        cursor: pointer
+        transition: color .3s ease-in-out
+        &:hover
+            color: $primary
+
+        @include _1366
+            font-size: 16px
+        @include _1024
+            font-size: 14px
+        @include _320
+            font-size: 12px
+        span
+            display: inline-block
+            padding-bottom: 32px
+            @include _1366
+                padding-bottom: 24px
+            @include _320
+                padding-bottom: 12px
+                padding-top: 24px
+        &-active
+            color: $primary
+            border-color: $primary
+        &:not(:last-child)
+            margin-right: 32px
+            @include _320
+                margin-right: 28px
+            

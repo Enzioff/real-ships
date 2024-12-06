@@ -1,0 +1,43 @@
+.t-social-networks
+    display: flex
+    align-items: center
+    @include _320
+        justify-content: space-between
+    &__item
+        display: flex
+        align-items: center
+        justify-content: center
+        margin: 32px
+        @include _1366
+            margin: 24px
+        @include _1024
+            margin: 18px
+        @include _320
+            margin: 0
+        div
+            background-repeat: no-repeat
+            background-position: center
+            filter: none
+            transform: scale3d(1,1,1)
+            transition: transform .6s ease-in-out .1s, filter .6s ease-out .2s
+            z-index: 1
+            width: 32px
+            height: 32px
+            margin: 16px
+            @include _1366
+                width: 24px
+                height: 24px
+                margin: 12px
+                background-size: 24px
+            @include _1024
+                width: 20px
+                height: 20px
+                margin: 9px
+                background-size: 20px
+        &:hover
+            div
+                filter: hue-rotate(1deg) saturate(174%) brightness(46%)
+                transform: scale3d(1.05, 1.05, 1.05)
+            .t-circle-svg
+                stroke-dashoffset: 0
+                stroke: rgb(2, 40, 85)

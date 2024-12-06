@@ -1,0 +1,415 @@
+.t-page-models
+  &__content
+    margin-top: 32px
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: ""
+      position: absolute
+      border-bottom: 1px solid $border-color
+      width: 100%
+      top: 0
+      right: -100%
+      animation: linie 2s ease-out 0.7s forwards
+      @include _320
+        animation: none
+        right: 0
+
+    .t-cursor
+      display: none
+
+    @include _1366
+      margin-top: 24px
+    @include _320
+      margin-top: 16px
+
+  &__title
+    transform: translateY(100%)
+    animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+    @include _320
+      animation: none
+      transform: translateY(0)
+
+  &__boats
+    &-top
+      display: flex
+      @include _320
+        flex-direction: column
+
+    &-thesis, &-description
+      padding-top: 32px
+      overflow: hidden
+
+      span
+        transform: translateY(180%)
+        animation: show 2s cubic-bezier(.11, .98, .01, -0.01) 0.8s forwards
+        @include _320
+          animation: none
+          transform: translateY(0)
+
+      @include _1366
+        padding-top: 24px
+
+    &-thesis
+      width: 33.8%
+      @include _320
+        width: 100%
+        padding-top: 32px
+
+    &-description
+      padding-left: 24px
+      border-left: 1px solid $border-color
+      width: 66.2%
+      @include _320
+        width: 100%
+        border-left: none
+        padding: 0
+        border-top: none
+
+      span
+        display: block
+        max-width: 558px
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $text-color
+        @include _1366
+          font-size: 16px
+          max-width: 388px
+        @include _1024
+          font-size: 14px
+          max-width: 282px
+
+    &-slider
+      margin-top: 128px
+      @include _1366
+        margin-top: 96px
+      @include _1024
+        margin-top: 80px
+      @include _320
+        margin-top: 40px
+  // height: 408px
+  &__slider
+    &-button-prev, &-button-next
+      bottom: 0
+      @include _320
+        bottom: 0
+
+    &-button-prev
+      left: 32.8%
+      @include _320
+        left: 0
+
+    &-button-next
+      left: calc(32.8% + 81px)
+      @include _320
+        left: 48px
+
+    &-pagination
+      bottom: 27px
+      width: max-content
+      right: 21.11%
+      left: auto
+      @include _320
+        right: 0
+        left: auto
+        bottom: 9px
+    // &-container
+    //     cursor: none
+    &-item
+      // cursor: none
+      // padding-bottom: 120px
+      // @include _320
+      //     padding-bottom: 72px
+      &.swiper-slide
+        opacity: 0.32
+        transition: opacity .3s ease-in-out
+
+      &.swiper-slide-active
+        opacity: 1
+
+        .t-page-models__slider-item-description
+          margin-bottom: 120px
+          @include _320
+            margin-bottom: 72px
+
+      &-img
+        display: flex
+        margin-top: 32px
+        width: 100%
+        @include _1366
+          margin-top: 24px
+        @include _320
+          margin-top: 48px
+
+        img
+          height: vw(480, 1920)
+          width: 100%
+          align-items: center
+          @include _320
+            height: vw(184, 320)
+
+      &-title
+        font-weight: 500
+        font-size: 56px
+        line-height: 110%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        height: 62px
+        @include _1366
+          font-size: 40px
+          height: 44px
+        @include _1024
+          font-size: 30px
+          height: 34px
+        @include _320
+          font-size: 22px
+          height: 25px
+
+      &-description
+        display: flex
+        justify-content: space-between
+        margin-top: 32px
+        border-top: 1px solid $border-color
+        position: relative
+        height: 117px
+        @include _1366
+          margin-top: 24px
+          height: 89px
+        @include _1024
+          height: 81px
+        @include _320
+          margin-top: 32px
+          flex-direction: column
+          border-top: none
+          border-bottom: 1px solid $border-color
+          padding-bottom: 54px
+          height: 143px
+
+      &-line
+        display: flex
+        flex-direction: row
+        width: 100%
+        flex-wrap: nowrap
+        position: absolute
+        bottom: -1px
+
+        &-item
+          flex: 0 1 100%
+
+          &-active
+            height: 2px
+            background: $primary
+
+      &-text, &-param
+        display: block
+        padding-top: 32px
+        @include _1366
+          padding-top: 24px
+
+      &-text
+        padding-right: 24px
+        border-right: 1px solid $border-color
+        width: 68.4%
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $text-color
+        height: 116px
+        @include _1366
+          font-size: 16px
+          height: 88px
+        @include _1024
+          font-size: 14px
+          height: 80px
+        @include _320
+          width: 100%
+          border-right: none
+          padding-top: 0
+          height: 60px
+          overflow: hidden
+
+      &-param
+        padding-left: 24px
+        width: 31.6%
+        font-weight: 500
+        font-size: 20px
+        line-height: 120%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $border-color
+        @include _1366
+          font-size: 16px
+        @include _1024
+          font-size: 14px
+        @include _320
+          width: 100%
+          padding-left: 0
+          padding-top: 13px
+          font-size: 12px
+
+._available,
+._commercial
+  .t-page-models__boats-top
+    border-top: 1px solid $border-color
+
+.t-intro
+  position: relative
+  display: flex
+  flex-direction: column
+  margin-bottom: 80px
+  width: 100%
+  min-height: 500px
+
+  @include _1024
+    min-height: 400px
+
+
+  &__info
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    flex-grow: 1
+    gap: 24px
+    z-index: 1
+
+  &__title
+    position: relative
+    padding-bottom: 24px
+    font-size: 60px
+    color: #FFFFFF
+    background: #ffffff
+    background-clip: text
+
+    &::after
+      content: ''
+      position: absolute
+      top: 100%
+      left: 50%
+      display: block
+      width: 173px
+      height: 1px
+      background-color: rgba(#ffffff, 0.2)
+      transform: translateX(-50%)
+
+    @include _1024
+      font-size: 32px
+      padding-bottom: 12px
+
+  &__text
+    font-size: 16px
+    font-weight: 400
+    line-height: 22px
+    text-align: center
+    color: #FFFFFF
+
+    @include _1024
+      font-size: 14px
+      line-height: 18px
+
+  &__picture
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    width: 100%
+    height: 100%
+    z-index: 0
+
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: linear-gradient(108.23deg, rgba(0, 3, 60, 0.5) 18.25%, rgba(0, 1, 19, 0.7) 61.42%)
+
+    img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+
+.t-model
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 28px
+  padding: 50px 0
+  @include _1024
+    display: flex
+    flex-direction: column
+    gap: 0
+    padding: 30px 0
+  @include _320
+    width: 100%
+    padding-left: 0
+    padding-top: 13px
+    font-size: 12px
+
+  &:nth-child(even)
+    direction: rtl
+
+    .t-model__info
+      align-items: flex-end
+
+  &__picture
+    display: flex
+    width: 100%
+    min-height: 370px
+    height: 100%
+
+    @include _1024
+      min-height: 270px
+
+    img
+      width: 100%
+
+  &__info
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    gap: 24px
+    padding: 24px 57px 24px 24px
+    height: 100%
+
+    @include _320
+      padding: 12px 30px 12px 12px
+
+  &__title
+    position: relative
+    display: flex
+    padding-bottom: 16px
+    font-size: 18px
+    font-weight: 500
+    line-height: 22px
+    text-align: left
+    width: max-content
+    color: #022855
+    text-transform: uppercase
+
+    &::after
+      content: ''
+      position: absolute
+      top: 100%
+      left: 0
+      min-width: 109px
+      height: 1px
+      background-color: #ACBED4
+
+  &__text
+    font-size: 16px
+    font-weight: 400
+    line-height: 24px
+    text-align: left
+    color: #061527

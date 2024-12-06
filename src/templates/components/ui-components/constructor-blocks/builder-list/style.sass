@@ -1,0 +1,58 @@
+.t-builder-list
+    &__title
+        font-weight: 500
+        font-size: 36px
+        line-height: 100%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        @include _1366
+            font-size: 28px
+        @include _1024
+            font-size: 24px
+        @include _320
+            font-size: 18px
+    &__items
+        margin-top: 32px
+        list-style: none
+        @include _1366
+            margin-top: 24px
+        @include _1024
+            margin-top: 20px
+        @include _320
+            margin-top: 16px
+    &__item
+        position: relative
+        padding-left: 48px
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $text-color
+        @include _1366
+            font-size: 16px
+            padding-left: 36px
+        @include _1024
+            font-size: 14px
+            padding-left: 28px
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            top: 14px
+            width: 32px
+            height: 2px
+            background: $border-color
+            @include _1366
+                width: 24px
+                top: 11px
+            @include _1024
+                width: 20px
+                top: 8px
+        &:not(:last-child)
+            margin-bottom: 20px
+            @include _1366
+                margin-bottom: 14px
+            @include _1024
+                margin-bottom: 10px
+            

@@ -1,0 +1,148 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-about t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-about__title">{{ t('app.front', 'О компании') }}</h1>
+        </div>
+        {% if shipyard %}
+            <div class="t-page-about__shipyard">
+                <div class="t-page-about__shipyard-thesis">
+                    <span class="t-thesis">{{shipyard.thesis}}</span>
+                </div>
+                <div class="t-page-about__shipyard-media">
+                    {% if shipyard.media.mark == 'video' %}
+                        <video-cmp 
+                            id="shipyard"
+                            autoplay=""
+                            mute=""
+                            :video="{{ shipyard.media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                        ></video-cmp>
+                    {% elseif shipyard.media.mark == 'image' %}
+                        <div class="t-page-about__shipyard-media-img">
+                            <img src="{{ shipyard.media.src }}" alt="" loading="lazy"/>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        
+        <div class="t-page-about__production t-margin-top">
+            <h2 class="t-subtitle">{{production.title}}</h2>
+            <div class="t-page-about__production-content">
+                <div class="t-page-about__production-description">
+                    <div class="t-page-about__production-thesis">
+                        <span class="t-thesis">{{production.thesis}}</span>
+                    </div>
+                    <div class="t-page-about__production-text t-html">
+                        {{production.description|raw}}
+                    </div>
+                </div>
+                <div class="t-page-about__production-media">
+                    <div class="t-page-about__production-slider">
+                        {% include "@components/ui-components/slider-img/template.twig" with {
+                            slides: production.slider 
+                        }%}
+                    </div>
+                    {% if production.img %}
+                        <div v-if="!isMobile" class="t-page-about__production-img">
+                            <img src="{{production.img}}" alt="" loading="lazy"/>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__mission">
+            <div class="t-page-about__mission-thesis">
+                <span class="t-thesis">{{mission.thesis}}</span>
+            </div>
+            <div class="t-page-about__mission-text t-html">
+                {{mission.description|raw}}
+            </div>
+        </div>
+
+        <div class="t-page-about__equipment t-margin-top">
+            <h2 class="t-subtitle">{{equipment.title}}</h2>
+            <div class="t-page-about__equipment-media">
+                <div class="t-page-about__equipment-img">
+                    <img src="{{equipment.img}}" alt="" loading="lazy"/>
+                </div>
+            </div>
+            <div class="t-page-about__equipment-descr">
+                <div class="t-page-about__equipment-descr-left"></div>
+                <div class="t-page-about__equipment-descr-right">
+                    <div class="t-page-about__equipment-item">
+                        <span class="t-page-about__equipment-item-title t-thesis">{{equipment.repeater[0].title}}</span>
+                        <div class="t-page-about__equipment-item-text t-html">
+                            {{equipment.repeater[0].description|raw}}
+                        </div>
+                    </div>
+                    {% if equipment.repeater|length > 1 %}
+                        <div class="t-page-about__equipment-col">
+                            {% for item in equipment.repeater|slice(1) %}
+                                <div class="t-page-about__equipment-item">
+                                    <span class="t-page-about__equipment-item-title t-thesis">{{item.title}}</span>
+                                    <div class="t-page-about__equipment-item-text t-html">
+                                        {{item.description|raw}}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__employees t-margin-top">
+            <h2 class="t-subtitle">{{employees.title}}</h2>
+            <div class="t-page-about__employees-content">
+                <div class="t-page-about__employees-description">
+                    <div class="t-page-about__employees-thesis">
+                        <span class="t-thesis">{{employees.thesis}}</span>
+                    </div>
+                    <div class="t-page-about__employees-text t-html">
+                        {{employees.description|raw}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-about__employees-media">
+            {% for img in employees.imgs %}
+                <div class="t-page-about__employees-img">
+                    <img src="{{img}}" alt="" loading="lazy"/>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="t-page-about__certificates t-margin-top">
+            <h2 class="t-subtitle">{{certificates.title}}</h2>
+            <div class="t-page-about__certificates-media">
+                <div class="t-page-about__certificates-img">
+                    <img src="{{certificates.img}}" alt="" loading="lazy"/> 
+                </div>
+            </div>
+                <div class="t-page-about__certificates-content">
+                    <div class="t-page-about__certificates-descr t-html">
+                        {{certificates.text|raw}}
+                    </div>
+                    {% if certificates.repeater %}
+                        <div class="t-page-about__certificates-items">
+                            {% for item in certificates.repeater %}
+                                <div class="t-page-about__certificates-item">
+                                    <span class="t-page-about__certificates-item-title t-thesis">{{item.title}}</span>
+                                    <div class="t-page-about__certificates-item-text t-html">
+                                        <p>{{ item.description|raw }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+        </div>
+        
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Смотреть видео'),
+        }%}
+    </main>
+{% endblock %}

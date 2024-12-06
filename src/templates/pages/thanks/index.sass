@@ -1,0 +1,122 @@
+.t-page
+    overflow: hidden
+.t-page-thanks
+    margin-bottom: -193px
+    overflow: hidden
+    @include _1366
+        margin-bottom: -161px
+    @include _1024
+        margin-bottom: -144px
+    &__content
+        position: relative
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        height: 100vh
+        &-row-top
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+            position: relative
+            overflow: hidden
+            &::after
+                content: ""
+                position: absolute
+                border-bottom: 1px solid $border-color
+                width: 100%
+                bottom: 0
+                right: -100%
+                animation: linie 2s ease-out 0.7s forwards
+
+            @include _320
+                flex-direction: column
+                align-items: start
+                animation: none
+                right: 0
+        &-row-bottom
+            padding-top: 32px
+            padding-bottom: 16px
+            @include _1366
+                padding-top: 24px
+            @include _320
+                padding-top: 16px
+                .t-tdsgn
+                    justify-content: center
+                    width: 100%
+                    padding-top: 16px
+                    margin-top: 16px
+                    border-top: 1px solid $border-color
+            .t-footer__services
+                margin-top: 0
+                &-copyright
+                    @include _320
+                        padding-bottom: 16px
+                        margin-bottom: 46px
+            &-block
+                width: 100%
+                margin-bottom: 24px
+                height: 459px
+                @include _1366
+                    margin-bottom: 16px
+                    height: 290px
+                @include _1024
+                    height: 240px
+                @include _320
+                    height: 32vh
+                    margin-bottom: 32px
+
+    &__title
+        text-transform: uppercase
+        white-space: wrap
+        max-width: 55%
+        font-weight: 500
+        line-height: 100%
+        font-size: 88px
+        padding-bottom: 32px
+        color: #022855
+        transform: translateY(100%)
+        animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+
+        @include _1366
+            padding-bottom: 24px
+            font-size: 60px
+        @include _1024
+            font-size: 44px
+        @include _320
+            font-size: 24px
+            max-width: 100%
+            padding-bottom: 16px
+            animation: none
+            transform: none
+    &__text
+        font-weight: 500
+        font-size: 24px
+        line-height: 120%
+        padding-bottom: 39px
+        text-align: end
+        color: $primary
+        text-transform: uppercase
+        transform: translateY(100%)
+        animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+        @include _1366
+            padding-bottom: 28px
+            font-size: 18px
+        @include _1024
+            padding-bottom: 26px
+            font-size: 14px
+        @include _320
+            padding-bottom: 16px
+            animation: none
+            transform: none
+
+    &__descr
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        color: #010B17
+        transform: translateY(100%)
+        animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+        @include _1366
+            font-size: 16px
+        @include _1024
+            font-size: 14px

@@ -1,0 +1,656 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class=" t-main t-container">
+        <div class="t-page-padding-big t-page-main__promo">
+            <div class="t-page-main__promo-top">
+                <div class="t-page-main__promo-description">
+                    <div class="t-title-big"><h1 class="t-title  t-page-main__title">{{ title }}</h1></div>
+                    <div class="t-page-main__promo-offer_container"><span class="t-page-main__promo-offer">{{description}}</span></div>
+                </div>
+                <div @click="toNextBlock" class="t-page-main__promo-icon">
+                    <svg class="circle-svg" width="264" height="264" viewBox="0 0 264 264" fill="none" xmlns="http://www.w3.org/2000/svg">                        
+                        <circle cx="132" cy="132" r="131" transform="rotate(-90, 132, 132)" stroke-dasharray="823" stroke="#A7B5C5" stroke-width="2">                         
+                        {# <animate attributeName="stroke-dashoffset" dur="2s" values="823;0" fill="freeze"/>  #}
+                        </circle>
+                        <g>
+                            <path d="M159.594 132.974L134.828 157.74C133.266 159.302 130.734 159.302 129.172 157.74L104.406 132.974" stroke="#022855" stroke-width="3"/>
+                            <path d="M132 159.189V104" stroke="#022855" stroke-width="3"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="t-page-main__promo-video">
+                {% if media %}
+                    <video-cmp 
+                        id="main"
+                        autoplay="autoplay"
+                        mute="mute"
+                        :video="{{ media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                    >
+                    </video-cmp>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="t-page-main__models t-margin-top">
+            <div class="t-page-main__models-wrapper">
+                <div class="t-page-main__models-wrapper-left">
+                    <h2 class="t-title t-title-small">{{ t('app.front', 'Модельный ряд') }}</h2>
+                    {% include "@components/ui-components/button-link/template.twig" with {
+                        type: 'link',
+                        border: 'true',
+                        link: '/models',
+                        text: ''
+                    } %}
+                </div>
+                <div class="t-page-main__models-wrapper-right">
+                    <div v-if="screenSize" class="t-page-main__models-tabs">
+                        {% set modelNames = [] %}
+                        
+                        {% if models[0] %} 
+                            {% set modelNames = modelNames|merge([{name: t('app.front', 'Частные')}]) %}
+                        {% endif %}
+                        {% if models[1] %} 
+                            {% set modelNames = modelNames|merge([{name: t('app.front', 'Коммерческие')}]) %}
+                        {% endif %}
+                        {% if models[2] %} 
+                            {% set modelNames = modelNames|merge([{name: t('app.front', 'В наличии')}]) %}
+                        {% endif %}
+                        
+                        {% include "@components/ui-components/tabs-original/template.twig" with {
+                            tabs: modelNames
+                        }%}
+                    </div>
+                    <div v-if="!screenSize" class="t-page-main__models-tabs">
+                        {% include "@components/ui-components/tabs-original/template.twig" with {
+                            tabs: models
+                        }%}
+                        
+                    </div>
+                    <div class="t-page-main__models-link">
+                        {% include "@components/ui-components/link-page/template.twig" with {
+                            link: '/models',
+                            text: t('app.front', 'Все модели')
+                        } %}
+                    </div>
+                    
+                </div>
+            </div>
+            <transition name="tabs" mode="out-in">
+                <div v-if="activeModels === 0" key="0">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile" class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in models[0].items %}
+                                    <div v-if="{{key}} === idBoat" key="{{key}}" class="t-page-main__models-boat" >
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">{{ item.title }}</h2>
+                                                <div v-if="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                                        text="{{t('app.front', 'Подробнее')}}"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                    {% if item.icon %}
+                                                        <img src="{{item.icon}}" alt="{{item.title}}" />
+                                                    {% endif %}
+                                                </div>
+                                                <p class="t-page-main__models-boat-info-text">{{item.text}}</p>
+                                            </div>
+                                        </div>
+                                        {% if item.img %}
+                                            <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="{{item.link}}" v-link>
+                                                    <img src="{{item.img}}" alt="{{item.title}}" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>  
+                                {% endfor %}
+                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsPrivateBoats">
+                                {% for key, subitem in models[0].items %}
+                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === {{key}}}"
+                                            @click="openInfoBoat({{key}})"
+                                        >
+                                            <div v-if="isMobile" v-link href="{{subitem.link}}" class="t-page-main__models-boat-img">
+                                                <img src="{{subitem.img}}" alt="{{subitem.title}}" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                {% if subitem.icon %}
+                                                    <img src="{{subitem.icon}}" alt="{{subitem.title}}" />
+                                                {% endif %}
+                                            </div>
+                                            <span class="t-boats__item-title">{{subitem.title}}</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">{{subitem.text}}</p>
+                                        </div>
+                                        <div v-if="isMobile" v-link href="{{subitem.link}}" class="t-page-main__models-boat-link">
+                                        </div>
+                                    </swiper-slide>
+                                {% endfor %}
+                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-private t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div>
+                <div v-else-if="activeModels === 1" key="1">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile" class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in models[1].items %}
+                                    <div v-if="{{key}} === idBoat" class="t-page-main__models-boat">
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">{{ item.title }}</h2>
+                                                <div v-if="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                                        text="{{t('app.front', 'Подробнее')}}"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                    {% if item.icon %}
+                                                        <img src="{{item.icon}}" alt="{{item.title}}" />
+                                                    {% endif %}
+                                                </div>
+                                                <p class="t-page-main__models-boat-info-text">{{item.text}}</p>
+                                            </div>
+                                        </div>
+                                        {% if item.img %}
+                                            <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="{{item.link}}" v-link>
+                                                    <img src="{{item.img}}" alt="{{item.title}}" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsCommercialBoats">
+                                {% for key, subitem in models[1].items %}
+                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === {{key}}}"
+                                            @click="openInfoBoat({{key}})"
+                                        >
+                                            <div v-if="isMobile" v-link href="{{subitem.link}}" class="t-page-main__models-boat-img">
+                                                <img src="{{subitem.img}}" alt="{{subitem.title}}" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                {% if subitem.icon %}
+                                                    <img src="{{subitem.icon}}" alt="{{subitem.title}}" />
+                                                {% endif %}
+                                            </div>
+                                            <span class="t-boats__item-title">{{subitem.title}}</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">{{subitem.text}}</p>
+                                        </div>
+                                    </swiper-slide>
+                                {% endfor %}
+                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-commercial t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div>
+                <div v-else-if="activeModels === 2" key="2">
+                    <div class="t-page-main__models-content">
+                        <div v-if="!isMobile"  class="t-page-main__models-content-top">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in models[2].items %}
+                                    <div v-if="{{key}} === idBoat" key="{{key}}" class="t-page-main__models-boat">
+                                        <div class="t-page-main__models-boat-info">
+                                            <div class="t-page-main__models-boat-info-top">
+                                                <h2 class="t-title t-subtitle">{{ item.title }}</h2>
+                                                <div v-if="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}">
+                                                    <button-link-vue-cmp
+                                                        type="link"
+                                                        border="true"
+                                                        :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                                        text="{{t('app.front', 'Подробнее')}}"
+                                                    >
+                                                    </button-link-vue-cmp>
+                                                </div>
+                                            </div>
+                                            <div class="t-page-main__models-boat-info-bottom">
+                                                <div class="t-page-main__models-boat-info-icon">
+                                                    {% if item.icon %}
+                                                        <img src="{{item.icon}}" alt="{{item.title}}" />
+                                                    {% endif %}
+                                                </div>
+                                                <p class="t-page-main__models-boat-info-text">{{item.text}}</p>
+                                            </div>
+                                        </div>
+                                        {% if item.img %}
+                                            <div @mouseenter="hoverCursor('.t-page-main__models-boat-img')" class="t-page-main__models-boat-img">
+                                                <a :class="{'_cursor-none': !isMobile}" href="{{item.link}}" v-link>
+                                                    <img src="{{item.img}}" alt="{{item.title}}" loading="lazy"/>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </transition>
+                        </div>
+                        <div class="t-page-main__models-items t-boats js-boat-count">
+                            <swiper class="t-page-main__models-slider" :options="swiperOptionsAvailableBoats">
+                                {% for key, subitem in models[2].items %}
+                                    <swiper-slide class="t-page-main__models-slider-item">
+                                        <div 
+                                            class="t-page-main__models-item t-boats__item" 
+                                            :class="{'t-boats__item-active': idBoat === {{key}}}"
+                                            @click="openInfoBoat({{key}})"
+                                        >
+                                            <div v-if="isMobile" v-link href="{{subitem.link}}" class="t-page-main__models-boat-img">
+                                                <img src="{{subitem.img}}" alt="{{subitem.title}}" />
+                                            </div>
+                                            <div class="t-boats__item-img">
+                                                {% if subitem.icon %}
+                                                    <img src="{{subitem.icon}}" alt="{{subitem.title}}" />
+                                                {% endif %}
+                                            </div>
+                                            <span class="t-boats__item-title">{{subitem.title}}</span>
+                                            <p v-if="isMobile" class="t-page-main__models-boat-info-text">{{subitem.text}}</p>
+                                        </div>
+                                    </swiper-slide>
+                                {% endfor %}
+                                <div class="t-page-main__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                                    <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                                    <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                            <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div v-if="isMobile" class="t-page-main__slider-pagination t-page-main__slider-pagination-available t-pagination" slot="pagination"></div>
+                            </swiper>
+                        </div>  
+                    </div>
+                </div> 
+            </transition>
+        </div>
+
+        <div class="t-page-main__production t-margin-top">
+            <h2 class="t-title t-title-small">{{ t('app.front', 'О нашем Производстве') }}</h2>
+            <div class="t-page-main__production-shipyard">
+                <span class="t-page-main__production-shipyard-thesis t-thesis">{{production.shipyard.thesis}}</span>
+                <div class="t-page-main__production-shipyard-media" >
+                    {% if production.shipyard.media.mark == 'video' %}
+                        <video-cmp 
+                            preload="none"
+                            id="shipyard"
+                            autoplay=""
+                            mute=""
+                            :video="{{ production.shipyard.media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                        ></video-cmp>
+                    {% elseif production.shipyard.media.mark == 'image' %}
+                        <div class="t-page-main__production-shipyard-media-img">
+                            <img src="{{ production.shipyard.media.src }}" alt="" />
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="t-page-main__production-approach">
+                <span class="t-page-main__production-approach-thesis t-thesis">{{production.approach.thesis}}</span>
+                <p class="t-page-main__production-approach-description">{{production.approach.description}}</p>
+            </div>
+
+            <div class="t-page-main__production-about">
+                <div class="t-page-main__production-about-left">
+                    <span class="t-page-main__production-about-thesis t-thesis">{{production.about.thesis}}</span>
+                    {% if production.about.slider|length > 2 %}
+                        <div class="t-page-main__production-about-slider-btns">
+                            <div class="t-button-prev swiper-button-prev js-button-prev" slot="button-prev">
+                                <div class="t-button-prev__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="t-button-next swiper-button-next js-button-next" slot="button-next">
+                                <div class="t-button-next__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="t-page-main__production-about-right">
+                    {% if production.about.slider|length > 2 %}
+                        <swiper 
+                            class="t-page-main__production-about-slider" 
+                            ref="aboutSlider"
+                            :options="aboutSwiperOptions"
+                        >
+                            {% for slide in production.about.slider %}
+                                <swiper-slide>
+                                    <h5 class="t-page-main__production-about-slider-title t-page-main__production-about-title">{{slide.title}}</h5>
+                                    <p class="t-page-main__production-about-slider-description t-page-main__production-about-description">{{slide.description}}</p>
+                                </swiper-slide>
+                            {% endfor %}
+                        </swiper>
+                    {% else %}
+                        <div class="t-page-main__production-about-items">
+                            {% for item in production.about.slider %}
+                                <div class="t-page-main__production-about-item">
+                                    <h5 class="t-page-main__production-about-item-title t-page-main__production-about-title">{{item.title}}</h5>
+                                    <p class="t-page-main__production-about-item-description t-page-main__production-about-description">{{item.description}}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-main__benefits t-margin-top">
+            <h2 class="t-title t-title-small">{{ t('app.front', 'Почему клиенты выбирают нас?') }}</h2>
+
+            <div class="t-page-main__benefits-items">
+                {% for key, item in benefits %}
+                    <div 
+                        class="t-page-main__benefits-item" 
+                        :class="{ _open: {{loop.index - 1}} === idOpenBenefits }" 
+                        @click="openBenefits({{loop.index - 1}})"
+                    >
+                        <div class="t-page-main__benefits-item-inner">
+                            <h4 class="t-page-main__benefits-item-title">{{item.title}}</h4>
+                            <div class="t-page-main__benefits-item-icon">
+                                {% if loop.index - 1 > 9 %}
+                                    <span>{{loop.index}}</span>
+                                {% else %}
+                                    <span>0{{loop.index}}</span> 
+                                {% endif %}
+                            </div>
+                        </div>
+                        <template name="fade">
+                            <div v-if="idOpenBenefits === {{loop.index - 1}}" class="t-page-main__benefits-item-content">
+                                <div class="t-page-main__benefits-item-content-left">
+                                    <h4 class="t-page-main__benefits-item-title">{{item.title}}</h4>
+                                    <p class="t-page-main__benefits-item-text">{{item.description}}</p>
+                                    <div class="t-page-main__benefits-item-pagination">
+                                        <span class="t-page-main__benefits-item-pagination-current">
+                                            {% if loop.index  > 9 %}
+                                                {{loop.index}}
+                                            {% else %}
+                                                0{{loop.index}}
+                                            {% endif %}
+                                        </span>
+                                        <span class="t-page-main__benefits-item-pagination-total">
+                                            {% if benefits|length > 9 %}
+                                                {{benefits|length}}
+                                            {% else %}
+                                                0{{benefits|length}}
+                                            {% endif %}
+                                            
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="t-page-main__benefits-item-content-right">
+                                    <img src="{{item.img}}" alt="" loading="lazy"/>
+                                </div>
+                            </div>
+                        </template>
+                    </div> 
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <div class="t-page-main__media t-margin-top">
+            <div class="t-page-main__media-wrapper">
+                <div class="t-page-main__media-wrapper-left">
+                    <h2 class="t-title t-title-small">{{ t('app.front', 'Медиа') }}</h2>
+                    {% include "@components/ui-components/button-link/template.twig" with {
+                        type: 'link',
+                        border: 'true',
+                        link: '/media',
+                        text: ''
+                    }%}
+                </div>
+                <div class="t-page-main__media-wrapper-right">
+                    <div class="t-page-main__media-tabs">
+                        {% include "@components/ui-components/tabs/template.twig" with {
+                            tabs: medias.tabs
+                        } %}
+                    </div>
+                    <div v-if="!isMobile" class="t-page-main__media-link">
+                        {% include "@components/ui-components/link-page/template.twig" with {
+                            link: '/media',
+                            text: t('app.front', 'Все медиа')
+                        }%}
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="t-page-main__media-content">
+                {% set tagOne = medias.tabs[0].name %}
+                {% set tagTwo = medias.tabs[1].name %}
+                {% set tagThree = medias.tabs[2].name %}
+                {% set groupOne = [] %}
+                {% set groupTwo = [] %}
+                {% set groupThree = [] %}
+
+                {% for item in medias.media %}
+                    {% if item.tag == tagOne %}
+                        {% set groupOne = groupOne|merge([item]) %}
+                    {% else %}
+                        {% if item.tag == tagTwo %}
+                            {% set groupTwo = groupTwo|merge([item]) %}
+                        {% else %}
+                            {% if item.tag == tagThree %}
+                                {% set groupThree = groupThree|merge([item]) %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <div class="t-page-main__media-content-left">
+                    <transition name="fade" mode="out-in">
+                        <div v-if="`{{tagOne}}` === this.$root.activeTabNameMainPage" key="one">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in groupOne %}
+                                    <div v-if="{{key}} === idOpenMedia" :key="{{key}}" class="t-page-main__media-content-item-img">
+                                        <img src="{{item.img}}" alt="" loading="lazy"/>
+                                    </div>
+                                {% endfor %}
+                            </transition>
+                        </div>
+                        <div v-if="`{{tagTwo}}` === this.$root.activeTabNameMainPage" key="two">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in groupTwo %}
+                                    <div v-if="{{key}} === idOpenMedia" :key="{{key}}" class="t-page-main__media-content-item-img">
+                                        <img src="{{item.img}}" alt="" loading="lazy"/>
+                                    </div>
+                                {% endfor %}
+                            </transition>
+                        </div>
+                        <div v-if="`{{tagThree}}` === this.$root.activeTabNameMainPage"  key="three">
+                            <transition name="fade" mode="out-in">
+                                {% for key, item in groupThree %}
+                                    <div v-if="{{key}} === idOpenMedia" :key="{{key}}" class="t-page-main__media-content-item-img">
+                                        <img src="{{item.img}}" alt="" loading="lazy"/>
+                                    </div>
+                                {% endfor %}
+                            </transition>
+                        </div>
+                    </transition>
+                </div>
+                <div class="t-page-main__media-content-right">
+                    <div v-if="`{{tagOne}}` === this.$root.activeTabNameMainPage">
+                        {% for key, item in groupOne %}
+                            <div 
+                                {# v-if="`{{item.tag}}` === this.$root.activeTabNameMainPage"  #}
+                                :key="{{key}}"
+                                :id="{{key}}"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': {{key}} === idOpenMedia}"
+                                @click="click({{key}})"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">{{item.title}}</h5>
+                                {# <transition name="fade" mode="out-in"> #}
+                                    <a 
+                                        v-if="{{key}} === idOpenMedia" 
+                                        :key="{{key}}" 
+                                        v-link href="{{item.link}}" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>{{item.text|raw}}</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                            text="{{t('app.front', 'Подробнее')}}"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                {# </transition> #}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div v-if="`{{tagTwo}}` === this.$root.activeTabNameMainPage">
+                        {% for key, item in groupTwo %}
+                            <div 
+                                {# v-if="`{{item.tag}}` === this.$root.activeTabNameMainPage"  #}
+                                :key="{{key}}"
+                                :id="{{key}}"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': {{key}} === idOpenMedia}"
+                                @click="click({{key}})"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">{{item.title}}</h5>
+                                {# <transition name="fade" mode="out-in"> #}
+                                    <a 
+                                        v-if="{{key}} === idOpenMedia" 
+                                        :key="{{key}}" 
+                                        v-link href="{{item.link}}" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>{{item.text|raw}}</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                            text="{{t('app.front', 'Подробнее')}}"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                {# </transition> #}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div v-if="`{{tagThree}}` === this.$root.activeTabNameMainPage">
+                        {% for key, item in groupThree %}
+                            <div 
+                                {# v-if="`{{item.tag}}` === this.$root.activeTabNameMainPage"  #}
+                                :key="{{key}}"
+                                :id="{{key}}"
+                                class="t-page-main__media-content-item"
+                                :class="{'_active': {{key}} === idOpenMedia}"
+                                @click="click({{key}})"
+                            >
+                                <h5 class="t-page-main__media-content-item-name">{{item.title}}</h5>
+                                {# <transition name="fade" mode="out-in"> #}
+                                    <a 
+                                        v-if="{{key}} === idOpenMedia" 
+                                        :key="{{key}}" 
+                                        v-link href="{{item.link}}" 
+                                        class="t-page-main__media-content-item-description"
+                                    >
+                                        <p>{{item.text|raw}}</p>
+                                        <button-link-vue-cmp
+                                            type="link"
+                                            border="true"
+                                            :link="{{item.link|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}"
+                                            text="{{t('app.front', 'Подробнее')}}"
+                                        >
+                                        </button-link-vue-cmp>
+                                    </a>
+                                {# </transition> #}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-main__form t-margin-top">
+            <h2 class="t-title t-title-small">{{ t('app.front', 'Свяжитесь с нами') }}</h2>
+            <form-contacts-cmp 
+                action="contact" 
+                :referer="routeName"
+                formname="{{ t('app.front', 'Свяжитесь с нами') }}"
+            >
+            </form-contacts-cmp>
+        </div> 
+
+        
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Смотреть'),
+        }%}
+        
+        
+    </main>
+{% endblock %}

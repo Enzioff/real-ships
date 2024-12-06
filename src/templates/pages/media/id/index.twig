@@ -1,0 +1,165 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-media-id t-container" :key="$route.params.id">
+        {% include "@components/ui-components/comeback/template.twig" %}
+
+        <div class="t-page-media-id__content">
+            <div class="t-page-media-id__container">
+                <div class="t-page-media-id__promo">
+                    <div class="t-title__container">
+                        <h1 class="t-subtitle t-page-media-id__title">{{ title }}</h1>
+                    </div>
+                    <div class="t-page-media-id__data">
+                        <span class="t-page-media-id__data-tag">{{tag}}</span>
+                        <span class="t-page-media-id__data-date">{{date}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-margin-top">
+                {% for item in constructor %}
+
+                    {% if item.type == 'builder_title_text' %}
+                        <div class="t-page-media-id__block t-page-media-id__block-description t-page-media-id__container">
+                            {% include "@components/ui-components/constructor-blocks/builder-description/template.twig" with {
+                                title: item.content.title,
+                                text: item.content.text,
+                            }%}
+                        </div>
+                    {% endif %}
+
+                    {% if item.type == 'builder_slider' and item.children|length > 1 %}
+                        <div class="t-page-media-id__block t-page-media-id__block-slider t-page-media-id__container">
+                            {% include "@components/ui-components/constructor-blocks/builder-slider/template.twig" with {
+                                slides: item.children
+                            }%}
+                        </div>
+                    {% elseif item.type == 'builder_slider' and item.children|length == 1 %}
+                        <div class="t-page-media-id__block t-page-media-id__block-slider t-page-media-id__container">
+                            <div class="t-slider-img__item-img">
+                                <img src="{{ item.children[0].content.img }}" alt="" />
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    {% if item.type == 'builder_quote' %}
+                        <div class="t-page-media-id__block t-page-media-id__block-quote t-page-media-id__container">
+                            {% include "@components/ui-components/constructor-blocks/builder-quote/template.twig" with {
+                                quote: item.content.text
+                            }%}
+                        </div>
+                    {% endif %}
+
+                    {% if item.type == 'builder_media' %}
+                        <div class="t-page-media-id__block t-page-media-id__block-media">
+                            {% if item.content.media.mark == 'video' %}
+                                <video-cmp 
+                                    id="media"
+                                    autoplay=""
+                                    mute=""
+                                    :video="{{ item.content.media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                                ></video-cmp>
+                            {% elseif item.content.media.mark == 'image' %}
+                                <div class="t-page-media-id__block-media-img">
+                                    <img src="{{ item.content.media.src }}" alt="" />
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if item.type == 'builder_title_list' %}
+                        <div class="t-page-media-id__block t-page-media-id__block-list t-page-media-id__container">
+                            {% include "@components/ui-components/constructor-blocks/builder-list/template.twig" with {
+                                title: item.content.title,
+                                list: item.content.list,
+                            }%}
+                        </div>
+                    {% endif %}
+
+                    {% if item.type == 'builder_author' %}
+                        <div class="t-page-media-id__block t-page-media-id__block-author t-page-media-id__container">
+                            {% include "@components/ui-components/constructor-blocks/builder-author/template.twig" with {
+                                name: item.content.name,
+                                view: item.content.view,
+                            }%} 
+                        </div>
+                    {% endif %}
+                    
+                {% endfor %}
+            </div>
+
+            <div class="t-page-media-id__articles t-margin-top">
+                <div v-if="isMobile" class="t-page-media-id__articles-left">
+                    <span class="t-thesis">{{ t('app.front', 'Больше статей по теме') }}</span>
+                </div>
+                <div v-if="!isMobile" class="t-page-media-id__articles-left">
+                    <span class="t-thesis">{{ t('app.front', 'Больше статей по теме') }}</span>
+                    {% if articles|length > 2  %}
+                        <div class="t-page-media-id__articles-slider-btns">
+                            <div class="t-button-prev swiper-button-prev js-button-prev no-swiping" slot="button-prev">
+                                <div class="t-button-prev__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="t-button-next swiper-button-next js-button-next no-swiping" slot="button-next">
+                                <div class="t-button-next__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %} 
+                </div>
+                <div v-if="!isMobile" class="t-page-media-id__articles-right">
+                    {% if articles|length > 2 %}
+                        <swiper 
+                            class="t-page-media-id__articles-slider" 
+                            ref="articlesSlider"
+                            :options="swiperOptions"
+                        >
+                            {% for slide in articles %}
+                                <swiper-slide>
+                                    <div @mouseenter="hoverCursor('.t-article__img', '{{t('app.front', 'Подробнее')}}')">
+                                        {% include "@components/ui-components/article/template.twig" with {
+                                        article: slide
+                                        } %}  
+                                    </div>
+                                </swiper-slide>
+                            {% endfor %}
+                        </swiper>
+                    {% else %}
+                        <div @mouseenter="hoverCursor('.t-article__img', '{{t('app.front', 'Подробнее')}}')" class="t-page-media-id__articles-items">
+                            {% for item in articles %}
+                                {% include "@components/ui-components/article/template.twig" with {
+                                    article: item
+                                } %} 
+                            {% endfor %}
+                        </div>
+                    
+                    {% endif %}
+                    
+                </div>
+                <div v-if="isMobile" class="t-page-media-id__articles-right">
+                    <div class="t-page-media-id__articles-items">
+                        {% for item in articles %}
+                            {% include "@components/ui-components/article/template.twig" with {
+                                article: item
+                            } %} 
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Смотреть'),
+        }%}
+        
+    </main>
+{% endblock %}

@@ -1,0 +1,53 @@
+.t-button-link
+    display: flex
+    align-items: center
+    cursor: pointer
+    transition: all .3s
+    &:active
+        transform: scale3d(.98, .98, .98)
+    &:hover
+        .t-button-link__text
+            transform: translateY(-50%)
+            @include _320
+                transform: none
+
+    &_border
+        padding: 16px 24px
+        border: 1px solid $primary
+        border-radius: 72px
+        @include _1366
+            padding: 12px 20px
+    &__icon
+        margin-left: 20px
+        @include _1366
+            margin-left: 16px
+        @include _1024
+            margin-left: 12px
+        svg
+            @include _1366
+                height: 12px
+                width: 12px
+            @include _1024
+                height: 9px
+                width: 9px
+    &__content
+        max-height: 20px
+        overflow-y: hidden
+        @include _1366
+            max-height: 16px
+        @include _1024
+            max-height: 14px
+    &__text
+        font-weight: 500
+        font-size: 20px
+        line-height: 103%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        display: flex
+        flex-direction: column
+        overflow: hidden
+        transition: transform .3s ease-out
+        @include _1366
+            font-size: 16px
+        @include _1024
+            font-size: 14px

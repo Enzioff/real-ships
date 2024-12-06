@@ -1,0 +1,31 @@
+.t-button
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 264px
+    height: 264px
+    border: 2px solid $primary
+    border-radius: 50%
+    cursor: pointer
+    transition: all 0.3s ease-in-out
+    @include _1366
+        width: 194px
+        height: 194px
+    @include _1024
+        width: 142px
+        height: 142px
+    span
+        font-weight: 500
+        font-size: 20px
+        line-height: 100%
+        text-align: center
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        @include _1366
+            font-size: 16px
+        @include _1024
+            font-size: 14px
+        @include _320
+            font-size: 12px
+    &:hover, &:focus
+        transform: scale(1.1)

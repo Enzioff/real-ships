@@ -1,0 +1,1058 @@
+@import "../../styles/params.sass"
+@keyframes show
+    from
+        transform: translateY(100%)
+    to
+        transform: translateY(0)
+@keyframes linie
+    from
+        right: 100%
+    to
+        right: 0
+@keyframes showVideo
+    from
+        height: 101%
+    to
+        height: 0
+@keyframes circle
+    from
+        stroke: transparent
+        stroke-dashoffset: 823
+    to
+        stroke: $bg
+        stroke-dashoffset: 0
+@keyframes arrow
+    from
+        transform: translateY(-35%)
+    to
+        transform: translateY(0)
+
+.t-loaded
+    .t-page-main
+        &__slider-pagination
+            @include _320
+                width: auto
+                bottom: 8px
+                right: 0
+                left: auto
+        &__title
+            transform: translateY(-100%)
+            animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+            @include _320
+                transform: translateY(-3%)
+                padding-bottom: 16px
+                border-bottom: 1px solid $border-color
+                margin-bottom: 23px
+                color: $bg
+                animation: none
+                background-position: 0 100%
+        &__promo
+            height: 100vh
+            position: relative
+            &-top
+                display: flex
+                position: relative
+                justify-content: space-between
+                margin-bottom: 32px
+                padding-bottom: 32px
+                overflow: hidden
+                z-index: 1
+                transition: transform 2s
+                &::after
+                    content: ''
+                    position: absolute
+                    border-bottom: 1px solid $border-color
+                    width: 100%
+                    bottom: 0
+                    right: -100%
+                    animation: linie 2s ease-out 0.7s forwards
+                    @include _320
+                        animation: none
+
+                @include _1366
+                    margin-bottom: 24px
+                    padding-bottom: 24px
+                    border-bottom: none
+                @include _320
+                    height: 100%
+                    padding-bottom: 0
+                    margin-bottom: 0
+                    position: relative
+
+            &-description
+                max-width: 1187px
+                display: flex
+                align-items: flex-end
+                justify-content: start
+                overflow: hidden
+                @include _1366
+                    max-width: 870px
+                @include _1024
+                    max-width: 640px
+                @include _320
+                    max-width: 100%
+                    height: 100%
+                    flex-direction: column
+                    align-items: start
+                    justify-content: flex-end
+
+            &-offer
+                padding-bottom: 10px
+                font-weight: 500
+                font-size: 24px
+                line-height: 120%
+                text-transform: uppercase
+                font-feature-settings: 'pnum' on, 'lnum' on
+                transform: translateY(-100%)
+                animation: show 1s ease-out 1183.39ms 1 normal forwards
+                display: block
+                @include _1366
+                    font-size: 18px
+                @include _1024
+                    font-size: 14px
+                @include _320
+                    margin-left: 0
+                    color: $bg
+                    max-width: 140px
+                    font-size: 14px
+                    padding-bottom: 22px
+                    animation: none
+                    transform: translateY(0)
+                &_container
+                    overflow: hidden
+                    margin-left: -98px
+                    @include _1366
+                        margin-left: -40px
+                    @include _320
+                        margin-left: 0
+                        background-position: 0 100%
+                        transition: none
+                    span
+                        background: linear-gradient(to bottom, #022855, #022855 50%, #E6ECF2 50%)
+                        background-clip: text
+                        -webkit-background-clip: text
+                        -webkit-text-fill-color: transparent
+                        background-size: 1% 200%
+                        background-position: 100% 0
+                        transition: background-position 1s ease-out 2s
+                        @include _320
+                            background-position: 0 100%
+                            transition: none
+            &-icon
+                width: 294px
+                height: 294px
+                border-radius: 50%
+                display: flex
+                align-items: center
+                justify-content: center
+                position: relative
+                cursor: pointer
+                transition: all 0.4s
+                &:hover
+                    transform: scale(1.05)
+                    svg
+                        transform: scale(1.05)
+                        @include _320
+                            transform: none
+                &:active
+                    transform: scale(1)
+                    svg
+                        transform: scale(1)
+                        @include _320
+                            transform: none
+                @include _1366
+                    width: 214px
+                    height: 214px
+                @include _1024
+                    width: 161px
+                    height: 161px
+                @include _320
+                    position: absolute
+                    right: 0
+                    bottom: 16px
+                    width: 64px
+                    height: 64px
+                    z-index: 1
+                svg
+                    width: 264px
+                    stroke: transparent
+                    stroke-dasharray: 823
+                    stroke-dashoffset: 823
+                    animation: circle 1360ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 1.5s forwards
+                    @include _1366
+                        width: 194px
+                    @include _1024
+                        width: 141px
+                    @include _320
+                        width: 64px
+                        animation: none
+                        stroke: $bg
+                        stroke-dasharray: 823
+                        stroke-dashoffset: 0
+                        path
+                            stroke: $bg
+                    path
+                        transform: translateY(-35%)
+                        animation: arrow 1.5s ease-out .5s forwards
+                        @include _320
+                            animation: none
+                            transform: translateY(0)
+
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 67px
+                    height: 50px
+                    background: $bg
+                    top: 7%
+                    left: 39%
+                    @include _1366
+                        width: 49px
+                    @include _1024
+                        width: 35px
+                        height: 35px
+                        top: 8%
+                    @include _320
+                        display: none
+
+            &-video
+                position: absolute
+                width: 100%
+                bottom: 0
+                @include _320
+                    height: 100vh
+                    width: 100vw
+                    position: absolute
+                    top: 0
+                    left: -16px
+                    // z-index: 0
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 101%
+                    top: -2px
+                    left: -1px
+                    z-index: 10
+                    height: 101%
+                    background: $bg
+                    animation: showVideo 1.5s ease-out .2s forwards
+                    // animation-timing-function: cubic-bezier(.11,.98,.01,-0.01)
+                    @include _320
+                        animation: none
+                        height: 0%
+
+                .t-video
+                    height: 100%
+                    pointer-events: none
+                    video
+                        height: 100%
+                    iframe
+                        width: 100%
+                        height: 100%
+            .animate-video_width
+                width: calc(100vw - 8px)
+                transform: translateX(-64px)
+                transition: all 1s ease-out 0.15ms
+                @include _1366
+                    transform: translateX(-40px)
+
+            .animate-video_height
+                height: 63vh
+                transition: height 2s ease-out .150ms
+            .animate-video_max-height
+                height: 100vh
+                transition: height 2s ease-out .150ms
+            .animate-bottom
+                height: 63vh
+                transition: height 2s ease-out .150ms
+            .animate-block-medium
+                transform: translateY(30vh)
+                .t-title
+                    background: linear-gradient(to bottom, #022855, #022855 50%, #E6ECF2 50%)
+                    background-clip: text
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                    background-size: 1% 200%
+                    background-position: 0 100%
+                    transition: background-position 600.867ms linear 250ms
+                    @include _2000
+                        transition: background-position .55s ease-out .25s
+                    @include _1024
+                        transition: background-position .5s ease-out .2s
+                    // @include _2000
+                    //     transition: background-position .5s linear .6s
+                .t-title-big
+                    transform: scale(0.8) translate(-13%, 10%)
+                    transition: transform 2s ease-out 0.1s
+                .t-page-main__promo-offer_container
+                    span
+                        background: linear-gradient(to bottom, #022855, #022855 50%, #E6ECF2 50%)
+                        background-clip: text
+                        -webkit-background-clip: text
+                        -webkit-text-fill-color: transparent
+                        background-size: 1% 200%
+                        background-position: 0 100%
+                        transition: background-position 165.992ms linear 250ms
+                        @include _2000
+                            transition: background-position .5s ease-out .25s
+
+                .t-page-main__promo-icon
+                    svg
+                        path, circle
+                            stroke: $border-color
+                            transition: stroke 2s ease-out 0.1s
+
+                    &::after
+                        background: transparent
+            .animate-block-bottom
+                transform: translateY(45vh)
+                transition: transform 2s ease-out
+                .t-title-big
+                    transform: scale(0.8) translate(-13%, 10%)
+                // @include _1366
+                //     transform: translateY(120%)
+                // @include _1024
+                //     transform: translateY(190%)
+
+        &__slider
+            // .swiper-wrapper
+                // border-bottom: 1px solid $border-color
+            &-button-prev, &-button-next
+                bottom: 0
+            &-button-prev
+                left: 0
+            &-button-next
+                left: 64px
+                @include _320
+                    left: 48px
+            @include _320
+                padding-top: 32px
+                padding-bottom: 72px
+                margin-bottom: -72px
+            &-left
+                width: 17%
+            &-right
+                width: calc(83% + 64px)
+                margin-right: -64px
+                @include _1366
+                    margin-right: -40px
+                    width: calc(83% + 40px)
+                &-pagination
+                    bottom: 9px
+                    width: max-content
+                    right: 0
+                    left: auto
+        &__models
+            &-link
+                @include _320
+                    display: none
+            &-slider
+                width: 100%
+                padding-bottom: 100px
+                margin-bottom: -100px
+                @include _320
+                    padding-bottom: 72px
+                    margin-bottom: -72px
+            &-wrapper
+                display: flex
+                align-items: flex-end
+                justify-content: space-between
+                @include _320
+                    flex-direction: column
+                    align-items: start
+                &-left, &-right
+                    width: calc(50% - 12px)
+                    border-bottom: 1px solid $border-color
+                    @include _320
+                        width: 100%
+                &-left
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    padding-bottom: 32px
+                    @include _1366
+                        padding-bottom: 24px
+                    .t-button-link
+                        display: none
+                    @include _320
+                        padding-bottom: 16px
+                        .t-button-link
+                            display: flex
+                            align-items: center
+                            cursor: pointer
+                            width: 40px
+                            height: 40px
+                            &_border
+                                border: 1px solid $primary
+                                border-radius: 50%
+                                padding: 12px 12px
+                            &__icon
+                                margin-left: 0
+                                svg
+                                    height: 15px
+                                    width: 15px
+                                    transform: rotate(45deg)
+                &-right
+                    display: flex
+                    justify-content: space-between
+                    @include _320
+                        display: block
+            &-content
+                margin-top: 64px
+                @include _1366
+                    margin-top: 48px
+                @include _320
+                    margin-top: 32px
+                .t-boats
+                    @include _320
+                        padding: 0
+                        border-top: none
+                        border-bottom: none
+                    &__item
+                        &-img
+                            @include _320
+                                margin: 0
+                                margin-top: 24px
+                                width: 132px
+                                height: 44px
+                        &-title
+                            @include _320
+                                text-align: start
+                                margin-top: 24px
+                                font-size: 22px
+                                line-height: 110%
+                                color: $primary
+            &-items
+                margin-top: 64px
+                @include _1366
+                    margin-top: 48px
+                @include _320
+                    margin-top: 32px
+            &-item
+                cursor: pointer
+
+            &-boat
+                display: flex
+                justify-content: space-between
+                @include _320
+                    flex-direction: column-reverse
+                &-info
+                    width: calc(33.1% - 12px)
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-between
+                    &-bottom
+                        margin-top: 32px
+                        @include _1366
+                            margin-top: 20px
+                    &-top
+                        .t-button-link
+                            margin-top: 64px
+                            width: max-content
+                            @include _1024
+                                margin-top: 48px
+
+                    &-icon
+                        width: 279px
+                        height: 84px
+                        @include _1366
+                            width: 193px
+                            height: 58px
+                        @include _1024
+                            width: 141px
+                            height: 42px
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    &-text
+                        max-width: 279px
+                        margin-top: 32px
+                        font-weight: 500
+                        font-size: 20px
+                        line-height: 140%
+                        font-feature-settings: 'pnum' on, 'lnum' on
+                        color: $text-color
+                        @include _1366
+                            font-size: 16px
+                            margin-top: 22px
+                            max-width: 193px
+                        @include _1024
+                            font-size: 14px
+                            margin-top: 20px
+                            max-width: 141px
+                        @include _320
+                            max-width: 100%
+                &-img
+                    width: calc(66.9% - 12px)
+                    height: 528px
+                    @include _1366
+                        height: 376px
+                    @include _1024
+                        height: 400px
+                    @include _320
+                        height: 304px
+                        width: 100%
+                    img
+                        height: 100%
+                        width: 100%
+                        object-fit: contain
+                &-link
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    bottom: 0
+                    cursor: pointer
+        &__production
+            @include _320
+                padding-bottom: 72px
+            .t-title
+                max-width: 884px
+                @include _1366
+                    max-width: 666px
+                @include _320
+                    padding-top: 72px
+            &-shipyard
+                margin-top: 32px
+                padding-top: 64px
+                display: flex
+                justify-content: space-between
+                border-top: 1px solid $border-color
+                @include _1366
+                    margin-top: 24px
+                    padding-top: 48px
+                @include _320
+                    margin-top: 16px
+                    padding-top: 32px
+                    flex-direction: column
+                &-thesis
+                    width: 15.5%
+                    @include _320
+                        width: 100%
+                &-media
+                    width: 83%
+                    height: 838px
+                    position: relative
+                    overflow: hidden
+                    @include _1366
+                        height: 594px
+                    @include _1024
+                        height: 440px
+                    @include _320
+                        width: 100%
+                        height: 180px
+                    .t-video
+                        height: 100%
+                        video
+                            height: 100%
+                        iframe
+                            width: 100%
+                            height: 100%
+                    &-img
+                        height: 100%
+                        img
+                            height: 100%
+                            width: 100%
+                            object-fit: cover
+            &-approach
+                display: flex
+                justify-content: space-between
+                margin-top: 64px
+                padding: 96px 0
+                border-top: 1px solid $border-color
+                @include _1366
+                    margin-top: 48px
+                    padding: 64px 0
+                @include _1024
+                    padding: 56px 0
+                @include _320
+                    margin-top: 32px
+                    padding: 32px 0
+                    flex-direction: column
+                &-thesis
+                    width: 15.5%
+                    @include _320
+                        width: 100%
+                &-description
+                    width: 83%
+                    font-weight: 500
+                    font-size: 56px
+                    line-height: 110%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $primary
+                    @include _1366
+                        font-size: 40px
+                    @include _1024
+                        font-size: 30px
+                    @include _320
+                        width: 100%
+                        font-size: 22px
+            &-about
+                padding-top: 64px
+                display: flex
+                justify-content: space-between
+                border-top: 1px solid $border-color
+                position: relative
+                @include _1366
+                    padding-top: 48px
+                @include _320
+                    padding-top: 32px
+                    padding-bottom: 72px
+                    margin-bottom: -72px
+                &-left
+                    width: 15.5%
+                &-right
+                    width: 87%
+                    margin-right: -64px
+                    @include _1366
+                        margin-right: -40px
+                    @include _320
+                        margin-right: 0
+                        width: 80%
+                &-slider
+                    &-btns
+                        margin-top: 64px
+                        display: flex
+                        align-items: center
+                        @include _1366
+                            margin-top: 40px
+                        @include _320
+                            position: absolute
+                            bottom: 0
+                            left: 18%
+                            margin-top: 32px
+                        .t-button-prev, .t-button-next
+                            position: static
+                            margin-top: 0
+                            &__icon
+                                svg
+                                    width: 18px
+                                    height: 18px
+                        .t-button-prev
+                            margin-right: 24px
+                            @include _320
+                                margin-right: 8px
+                &-items
+                    margin-right: 64px
+                    display: flex
+                &-item
+                    width: 50%
+                    &:not(:last-child)
+                        margin-right: 24px
+                &-title
+                    padding-bottom: 32px
+                    margin-bottom: 32px
+                    border-bottom: 1px solid $border-color
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $primary
+                    @include _1366
+                        font-size: 18px
+                        padding-bottom: 24px
+                        margin-bottom: 24px
+                    @include _1024
+                        font-size: 14px
+                        padding-bottom: 20px
+                        margin-bottom: 20px
+                &-description
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 140%
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $text-color
+                    padding-right: 32px
+                    @include _1366
+                        font-size: 18px
+                    @include _1024
+                        font-size: 16px
+                    @include _320
+                        font-size: 14px
+                        padding-right: 10px
+        &__benefits
+            .t-title
+                max-width: 1186px
+                @include _1366
+                    max-width: 800px
+                @include _1024
+                    max-width: 600px
+                @include _320
+                    max-width: 100%
+            &-items
+                margin-top: 32px
+                border-top: 1px solid $border-color
+                @include _1366
+                    margin-top: 24px
+                @include _320
+                    margin-top: 16px
+            &-item
+                position: relative
+                padding: 32px 0
+                border-bottom: 1px solid $border-color
+                cursor: pointer
+                transition: all .3s ease-in-out
+                @include _1366
+                    padding: 24px 0
+                @include _320
+                    padding: 21px 0
+                &::after
+                    content: ''
+                    position: absolute
+                    bottom: -1px
+                    left: 0
+                    width: 100%
+                    height: 2px
+                    background-color: transparent
+                    transition: background-color .3s ease-in-out
+                &-inner
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                &-content
+                    display: flex
+                    justify-content: space-between
+                    @include _320
+                        flex-direction: column-reverse
+                    &-left
+                        display: flex
+                        flex-direction: column
+                        width: calc(41.5% - 163.5px)
+                        padding-right: 20px
+                        @include _1024
+                            width: 40%
+                        @include _320
+                            width: 100%
+                    &-right
+                        width: calc(58.5% - 163.5px)
+                        height: 600px
+                        @include _1366
+                            width: 60%
+                            height: 572px
+                        @include _1024
+                            height: 426px
+                        @include _320
+                            height: 200px
+                            width: 100%
+                            margin-bottom: 24px
+                        img
+                            width: 100%
+                            height: 100%
+                &-title
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $primary
+                    transition: all .3s ease-in-out
+                    @include _1366
+                        font-size: 18px
+                    @include _1024
+                        font-size: 14px
+                &-text
+                    padding-right: 18px
+                    margin-top: 64px
+                    margin-bottom: 64px
+                    font-weight: 500
+                    font-size: 20px
+                    line-height: 140%
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $text-color
+                    @include _1366
+                        font-size: 16px
+                        margin-top: 48px
+                        margin-bottom: 48px
+                    @include _1024
+                        font-size: 14px
+                    @include _320
+                        margin-top: 8px
+                &-pagination
+                    margin-top: auto
+                    @include _320
+                        margin-top: 24px
+                    &-current, &-total
+                        font-weight: 500
+                        font-size: 24px
+                        line-height: 120%
+                        text-transform: uppercase
+                        font-feature-settings: 'pnum' on, 'lnum' on
+                        @include _1366
+                            font-size: 18px
+                        @include _1024
+                            font-size: 14px
+                    &-current
+                        color: $primary
+                        padding-right: 96px
+                        position: relative
+                        @include _320
+                            padding-right: 56px
+                        &::after
+                            content: ''
+                            position: absolute
+                            top: 50%
+                            transform: translateY(-50%)
+                            right: 32px
+                            width: 32px
+                            height: 1px
+                            background-color: $primary
+                            @include _1024
+                                right: 38px
+                                width: 18px
+                            @include _320
+                                right: 22px
+                                width: 16px
+                    &-total
+                        color: $border-color
+                &-icon
+                    position: relative
+                    height: 26px
+                    width: 26px
+
+                    &::after, &::before
+                        content: ''
+                        position: absolute
+                        width: 26px
+                        height: 2px
+                        background-color: transparent
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%)
+                        transition: background-color .3s ease-in-out .1s
+                        @include _1366
+                            width: 20px
+                        @include _1024
+                            margin-right: 6px
+                        @include _320
+                            width: 13px
+                            margin-right: 10px
+                    &::before
+                        transform: translate(-50%, -50%) rotate(90deg)
+                    span
+                        font-weight: 500
+                        font-size: 24px
+                        line-height: 120%
+                        text-transform: uppercase
+                        font-feature-settings: 'pnum' on, 'lnum' on
+                        color: #022855
+                        transition: opacity .3s ease-in-out .1s
+                        @include _1366
+                            font-size: 18px
+                        @include _1024
+                            font-size: 14px
+                &:hover, &:focus
+                    padding: 64px 0
+                    @include _1366
+                        padding: 40px 0
+                    @include _1024
+                        padding: 22.5px 0
+                    .t-page-main__benefits-item-title
+                        font-size: 36px
+                        @include _1366
+                            font-size: 28px
+                        @include _1024
+                            font-size: 14px
+                    .t-page-main__benefits-item-icon
+                        span
+                            opacity: 0
+                        &::before, &::after
+                            background-color: $primary
+
+                    &::after
+                        background-color: $primary
+                &._open
+                    padding: 64px 0
+                    pointer-events: none
+                    @include _1366
+                        padding: 48px 0
+                    @include _320
+                        padding-top: 32px
+                        padding-bottom: 24px
+                    .t-page-main__benefits-item-inner
+                        display: none
+                    .t-page-main__benefits-item-title
+                        font-size: 56px
+                        line-height: 110%
+                        @include _1366
+                            font-size: 40px
+                        @include _1024
+                            font-size: 30px
+                        @include _320
+                            font-size: 18px
+        &__media
+            &-wrapper
+                display: flex
+                justify-content: space-between
+                align-items: flex-end
+                @include _320
+                    flex-direction: column
+                    align-items: start
+                &-left, &-right
+                    border-bottom: 1px solid $border-color
+                &-left
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    width: calc(60% - 12px)
+                    padding-bottom: 32px
+                    @include _1366
+                        padding-bottom: 24px
+                    @include _1024
+                        width: calc(50% - 12px)
+                    .t-button-link
+                        display: none
+                    @include _320
+                        width: 100%
+                        padding-bottom: 16px
+                        .t-button-link
+                            display: flex
+                            align-items: center
+                            cursor: pointer
+                            width: 40px
+                            height: 40px
+                            &_border
+                                border: 1px solid $primary
+                                border-radius: 50%
+                                padding: 12px 12px
+                            &__icon
+                                margin-left: 0
+                                svg
+                                    height: 15px
+                                    width: 15px
+                                    transform: rotate(45deg)
+                &-right
+                    display: flex
+                    width: calc(40% - 12px)
+                    @include _1024
+                        width: calc(50% - 12px)
+                    @include _320
+                        display: block
+                        width: 100%
+            &-tabs
+                .t-tabs
+                    &__list
+                        display: flex
+                        @include _320
+                            padding-top: 24px
+                    &__item
+                        &:not(:last-child)
+                            margin-bottom: 0
+                            margin-right: 32px
+                        &-active
+                            span
+                                padding-bottom: 32px
+                                @include _1366
+                                    padding-bottom: 24px
+                                @include _320
+                                    padding-bottom: 12px
+            &-link
+                margin-left: auto
+            &-content
+                margin-top: 64px
+                display: flex
+                justify-content: space-between
+                transition: .4s
+                @include _1366
+                    margin-top: 48px
+                @include _320
+                    flex-direction: column
+                    margin-top: 32px
+                    justify-content: start
+                &-left
+                    width: calc(50% - 12px)
+                    @include _320
+                        width: 100%
+                &-right
+                    width: calc(40% - 12px)
+                    border-top: 1px solid $border-color
+                    @include _320
+                        width: 100%
+                &-item
+                    display: block
+                    padding: 32px 0
+                    border-bottom: 1px solid $border-color
+                    cursor: pointer
+                    @include _1366
+                        padding: 24px 0
+                    &-name
+                        font-weight: 500
+                        font-size: 24px
+                        line-height: 120%
+                        text-transform: uppercase
+                        font-feature-settings: 'pnum' on, 'lnum' on
+                        color: $border-color
+                        @include _1366
+                            font-size: 18px
+                        @include _1024
+                            font-size: 14px
+                    &-description
+                        margin-top: 32px
+                        @include _1366
+                            margin-top: 24px
+                        @include _320
+                            margin-top: 8px
+                        p
+                            font-weight: 500
+                            font-size: 20px
+                            line-height: 140%
+                            font-feature-settings: 'pnum' on, 'lnum' on
+                            color: $text-color
+                            overflow: hidden
+                            display: -webkit-box
+                            -webkit-line-clamp: 3
+                            -webkit-box-orient: vertical
+                            @include _1366
+                                font-size: 16px
+                            @include _1024
+                                font-size: 14px
+                        .t-button-link
+                            margin-top: 64px
+                            @include _1366
+                                margin-top: 48px
+                            @include _320
+                                margin-top: 32px
+                                width: 100%
+                                justify-content: center
+                    &-img
+                        width: 100%
+                        height: 600px
+                        @include _1366
+                            height: 460px
+                        @include _1024
+                            height: 344px
+                        @include _320
+                            height: 200px
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    &._active
+                        .t-page-main__media-content-item-name
+                            color: $primary
+        &__form
+            .t-title
+                max-width: 630px
+                @include _320
+                    max-width: 160px
+            .t-form
+                padding-right: 15%
+                @include _320
+                    padding-right: 0
+            .t-form-wrapper
+                margin-top: 32px
+                @include _1366
+                    margin-top: 24px
+                @include _320
+                    margin-top: 16px
+            .t-form__btn
+                margin-top: 104px
+                @include _1366
+                    margin-top: 84px
+                @include _1024
+                    margin-top: 61px
+
+.t-page-main__media-content-right
+    .t-button-link
+        width: max-content

@@ -1,0 +1,90 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-models">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-models__title t-container">{{ t('app.front', 'Модельный ряд') }}</h1>
+        </div>
+        <div class="t-page-models__content">
+            {% for key, item in boats %}
+                <div class="t-page-models__boats
+                    {% if key == 0 %}_private{% endif %}
+                    {% if key == 1 %}_commercial t-margin-top{% endif %}
+                    {% if key == 2 %}_available t-margin-top{% endif %}
+                " v-animation:bottom >
+                    <div class="t-page-models__boats-top t-container">
+                        <div class="t-page-models__boats-thesis">
+                            <span class="t-thesis">{{ item.name }}</span>
+                        </div>
+                        <div class="t-page-models__boats-description">
+                            <span>{{item.thesis}}</span>
+                        </div>
+                    </div>
+                    <div class="t-page-models__boats-slider">
+                        <swiper class="t-page-models__slider"
+                            {% if key == 0 %}:options="swiperOptionsPrivateBoats"{% endif %}
+                            {% if key == 1 %}:options="swiperOptionsCommercialBoats"{% endif %}
+                            {% if key == 2 %}:options="swiperOptionsAvailableBoats"{% endif %}
+                        >
+                            {% for slide in item.items %}
+                                <swiper-slide class="t-page-models__slider-item">
+                                    <a v-link href="{{slide.link}}" @click="closeMenu" class="t-page-models__slider-container">
+                                        <h3  class="t-page-models__slider-item-title">{{slide.title}}</h3>
+                                        <div class="t-page-models__slider-item-img">
+                                            <img src="{{slide.img}}" alt="" loading="lazy"/>
+                                        </div>
+                                        <div class="t-page-models__slider-item-description">
+                                            {% if slide.text %}
+                                                <p class="t-page-models__slider-item-text">{{slide.text}}</p>
+                                            {% endif %}
+                                            {% if slide.param %}
+                                                <span class="t-page-models__slider-item-param">{{slide.param}}</span>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </swiper-slide>
+                            {% endfor %}
+                            <div class="t-page-models__slider-button-prev t-button-prev swiper-button-prev" slot="button-prev">
+                                <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="t-page-models__slider-button-next t-button-next swiper-button-next" slot="button-next">
+                                <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                        <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="t-page-models__slider-pagination t-pagination
+                                {% if key == 0 %}t-page-models__slider-pagination-private{% endif %}
+                                {% if key == 1 %}t-page-models__slider-pagination-commercial{% endif %}
+                                {% if key == 2 %}t-page-models__slider-pagination-available{% endif %}
+                            " slot="pagination"></div>
+                        </swiper>
+                        {# <div v-if="isMobile" class="t-footer__boats-slider-item-line">
+                            {% for key, item in boats %}
+                                <div class="t-footer__boats-slider-item-line-item"
+                                    {% if key == 0 %}
+                                    :class="{'t-footer__boats-slider-item-line-item-active': {{key}} == activeSlidePrivate}"
+                                    {% endif %}
+                                    {% if key == 0 %}
+                                    :class="{'t-footer__boats-slider-item-line-item-active': {{key}} == slideActiveCommercial}"
+                                    {% endif %}
+                                    {% if key == 0 %}
+                                    :class="{'t-footer__boats-slider-item-line-item-active': {{key}} == slideActiveAvailable}"
+                                    {% endif %}
+                                >
+                                </div>
+                            {% endfor %}
+                        </div>
+ #}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

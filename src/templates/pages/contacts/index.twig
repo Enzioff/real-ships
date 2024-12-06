@@ -1,0 +1,100 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-page-contacts t-container">
+        <div class="t-page-contacts__wrapper">
+            <h1 class="t-title t-title-big t-page-contacts__title">{{ t('app.front', 'Контакты') }}</h1>
+            <div @click="Open({newState: 'modal-contacts-cmp', props: {close: $root.staticText.modalClose}, modalContent: 't-max-width'})" v-if="!isMobile" >
+                {% include "@components/ui-components/button-link/template.twig" with {
+                    type: 'button',
+                    border: null,
+                    link: null,
+                    text: t('app.front', 'Связаться с нами') 
+                }%}
+            </div>
+        </div>
+        <div class="t-page-contacts__media">
+            <div class="t-page-contacts__img"
+                {% if media.mark == 'video' %}
+                    @mouseenter="hoverCursor('.t-video__controls')" 
+                {% endif %}
+            >
+                {% if media.mark == 'video' %}
+                    <video-cmp 
+                        :class="{'_cursor-none': !isMobile}"
+                        id="contacts"
+                        autoplay=""
+                        mute=""
+                        :video="{{ media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                    ></video-cmp>
+                {% elseif media.mark == 'image' %}
+                    <img src="{{media.src}}" alt="" />
+                {% endif %}
+            </div>
+        </div>
+        <div class="t-page-contacts__info">
+            <div class="t-page-contacts__info-left">
+                <div class="t-page-contacts__info-descr t-html">
+                    {{description|raw}}
+                </div>
+                <div class="t-page-contacts__info-social">
+                    {% include "@components/ui-components/social-networks/template.twig" with vacancySocial %}
+                </div>
+            </div>
+            <div class="t-page-contacts__info-right">
+                <div class="t-page-contacts__phones">
+                    {% for item in vacancyPhones %}
+                        <div class="t-page-contacts__phones-item">
+                            <span class="t-page-contacts__phones-name">{{item.department}}</span>
+                            {% for phone in item.phones %}
+                               <a href="tel:{{ phone|raw }}" class="t-page-contacts__phones-value">{{phone}}</a> 
+                            {% endfor %}                          
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="t-page-contacts__mail">
+                    <span class="t-page-contacts__phones-name">{{ t('app.front', 'Почта') }}</span>
+                    <a href="mailto:{{ email|raw }}" class="t-page-contacts__phones-value">{{email}}</a>
+                </div>
+                <div class="t-page-contacts__button" v-if="isMobile">
+                    {% include "@components/ui-components/button-link/template.twig" with {
+                        type: 'button',
+                        border: true,
+                        link: null,
+                        text: t('app.front', 'Связаться с нами') 
+                    }%}
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-contacts__maps t-margin-top">
+            <h2 class="t-page-contacts__subtitle t-subtitle">{{ t('app.front', 'Мы на карте') }}</h2>
+
+            <div class="t-page-contacts__maps-description">
+                <div class="t-page-contacts__thesis">
+                    <span class="t-thesis">{{map.thesis}}</span>
+                </div>
+                <div class="t-page-contacts__maps-info">
+                    <div class="t-page-contacts__maps-text t-html">
+                        {{map.text|raw}}
+                    </div>
+                    <div class="t-page-contacts__maps-address">
+                        <span class="t-page-contacts__maps-address-name">{{ t('app.front', 'Адрес') }}</span>
+                        <span class="t-page-contacts__maps-address-value">{{address}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-page-contacts__maps-map">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7b1d1a0b33911fcb8ded6ff4252d16c9d483bdbf98fdfb2254f2646a9b05a013&amp;source=constructor" width="100%" height="100%" frameborder="0">
+                </iframe>
+            </div>
+        </div>
+
+        <modal-cmp></modal-cmp>
+
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Смотреть видео'),
+        }%}
+        
+    </main>
+{% endblock %}

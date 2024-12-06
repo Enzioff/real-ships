@@ -1,0 +1,17 @@
+<article-cmp inline-template>
+    <a @click="scrollTo" href="{{ article.link }}" v-link class="t-article">
+        <div class="t-article__img" :class="{'_cursor-none': !isMobile}">
+            <img src="{{ article.img }}" alt="" />
+        </div>
+        <div class="t-article__content">
+            <div class="t-article__content-data">
+                <span class="t-article__content-tag">{{ article.tag }}</span>
+                <span class="t-article__content-date">{{ article.date }}</span>
+            </div>
+            <div class="t-article__content-description">
+                <h5 class="t-article__content-title">{{ article.title }}</h5>
+                <p class="t-article__content-text">{{ article.text|raw }}</p>
+            </div>
+        </div>
+    </a>
+</article-cmp>

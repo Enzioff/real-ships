@@ -1,0 +1,10 @@
+<builder-list-cmp inline-template>
+    <div class="t-builder-list">
+        <h3 class="t-builder-list__title">{{title}}</h3>
+        <ul class="t-builder-list__items">
+            {% for item in list %}
+                <li class="t-builder-list__item">{{item}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</builder-list-cmp>

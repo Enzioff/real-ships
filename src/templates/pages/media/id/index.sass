@@ -1,0 +1,215 @@
+.t-page-media-id
+    &__content
+        margin-top: 64px
+        @include _1366
+            margin-top: 48px
+        @include _1024
+            margin-top: 32px
+        @include _320
+            margin-top: 24px
+        .t-margin-top
+            @include _320
+                margin-top: 48px
+    &__title
+        transform: translateY(100%)
+        animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+        @include _320
+            animation: none
+            transform: translateY(0)
+
+    &__container
+        padding: 0 303px
+        @include _1366
+            padding: 0 218px
+        @include _1024
+            padding: 0 161px
+        @include _320
+            padding: 0
+    &__data
+        margin-top: 32px
+        border-top: 1px solid $border-color
+        display: flex
+        overflow: hidden
+        @include _1366
+            margin-top: 24px
+        @include _320
+            margin-top: 16px
+        span
+            display: block
+            font-weight: 500
+            font-size: 20px
+            line-height: 120%
+            text-transform: uppercase
+            font-feature-settings: 'pnum' on, 'lnum' on
+            transform: translateY(-100%)
+            animation: show 1300ms cubic-bezier(.11,.98,.01,-0.01) 0.8s forwards
+            @include _1366
+                font-size: 16px
+            @include _1024
+                font-size: 14px
+            @include _320
+                font-size: 12px
+                animation: none
+                transform: translateY(0)
+        &-tag, &-date
+            padding-top: 32px
+            @include _1366
+                padding-top: 24px
+            @include _1024
+                padding-top: 20px
+            @include _320
+                padding-top: 12px
+        &-tag
+            color: $primary
+            width: 25%
+            @include _320
+                width: 52%
+        &-date
+            color: $border-color
+            width: 75%
+            padding-left: 24px
+            border-left: 1px solid $border-color
+            @include _1024
+                padding-left: 16px
+            @include _320
+                width: 48%
+    &__block
+        &:not(:last-child)
+            margin-bottom: 128px
+            @include _1366
+                margin-bottom: 94px
+            @include _1024
+                margin-bottom: 80px
+            @include _320
+                margin-bottom: 40px
+        &:nth-last-child(-n+2)
+            margin-bottom: 64px
+            @include _1366
+                margin-bottom: 40px
+            @include _1024
+                margin-bottom: 32px
+            @include _320
+                margin-bottom: 24px
+        &-slider
+            .t-slider-img
+                height: 880px
+                width: 100%
+                @include _1366
+                    height: 636px
+                @include _1024
+                    height: 478px
+                @include _320
+                    height: 324px
+                &__item
+                    width: 100%
+                    &-img
+                        height: 704px
+                        @include _1366
+                            height: 500px
+                        @include _1024
+                            height: 372px
+                        @include _320
+                            height: 184px
+                            padding-right: 8px
+                    &-title
+                        width: 73.5%
+                        @include _320
+                            width: 100%
+                            padding-bottom: 32px
+                            border-bottom: 1px solid $border-color
+                &__pagination
+                    bottom: 120px
+                    @include _1366
+                        bottom: 88px
+                    @include _1024
+                        bottom: 66px
+                    @include _320
+                        bottom: 9px
+                        right: 0
+                        left: auto
+                        width: max-content
+                &__button-prev
+                    left: calc( 30% - 42px )
+                    @include _1366
+                        left: calc( 30% - 36px )
+                    @include _1024
+                        left: calc( 30% - 30px )
+                    @include _320
+                        left: 0
+                &__button-next
+                    left: calc( 30% + 42px )
+                    @include _1366
+                        left: calc( 30% + 36px )
+                    @include _1024
+                        left: calc( 30% + 30px )
+                    @include _320
+                        left: 48px
+        &-media
+            height: 1008px
+            @include _1366
+                height: 718px
+            @include _1024
+                height: 534px
+            @include _320
+                height: 180px
+            &-img 
+                height: 100%
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+            .t-video
+                height: 1008px
+                @include _1366
+                    height: 718px
+                @include _1024
+                    height: 534px
+                @include _320
+                    height: 180px
+    &__articles
+        display: flex
+        justify-content: space-between
+        @include _320
+            flex-direction: column
+        &-left
+            width: 16%
+            @include _320
+                width: 100%
+            .t-thesis
+                color: $primary
+                font-size: 18px
+        &-right
+            width: 83%
+            @include _320
+                width: 100%
+                margin-bottom: 24px
+        &-slider
+            &-btns
+                margin-top: 64px
+                display: flex
+                align-items: center
+                .t-button-next, .t-button-prev
+                    position: static
+                    margin-top: 0
+                .t-button-prev
+                    margin-right: 24px
+        &-items
+            display: flex
+            justify-content: space-between
+            @include _320
+                flex-direction: column
+            .t-article
+                width: calc(50% - 32px)
+                @include _320
+                    width: 100%
+                    &:not(:last-child)
+                        padding-bottom: 48px
+    &__btn
+        margin-top: 128px
+        display: flex
+        align-items: center
+        justify-content: center
+        @include _1366
+            margin-top: 96px
+        @include _1024
+            margin-top: 48px

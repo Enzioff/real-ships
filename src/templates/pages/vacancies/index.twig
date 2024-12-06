@@ -1,0 +1,186 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-about t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-vacancies__title">{{ t('app.front', 'Вакансии') }}</h1>
+        </div>
+        <div class="t-page-vacancies__shipyard">
+            <div class="t-page-vacancies__shipyard-thesis">
+                <span class="t-thesis">{{shipyard.thesis}}</span>
+            </div>
+            <div class="t-page-vacancies__shipyard-text">
+                {{shipyard.description}}
+            </div>
+        </div>
+
+        {% if img %}
+            <div class="t-page-vacancies__img">
+                <img src="{{img}}" alt="{{shipyard.thesis}}" />
+            </div>
+        {% endif %}
+
+        {% if mission.thesis or mission.description %}
+            <div class="t-page-vacancies__mission">
+                <div class="t-page-vacancies__mission-thesis">
+                    <span class="t-thesis">{{mission.thesis}}</span>
+                </div>
+                {% if mission.description %}
+                    <div v-if="!isMobile" class="t-page-vacancies__mission-text t-html">
+                        {{mission.description|raw}}
+                    </div>
+                    <div v-if="isMobile" class="t-page-vacancies__mission-text t-html js-height" :class="{ '_hidden-text': hiddenText }">
+                        {{mission.description|raw}}
+                    </div>
+                    <p class="_cursor" :class="{ '_none': !hiddenText }" v-if="isMobile" @click="changeHiddenText">{{t('app.front', 'Читать полностью')}}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if vacancies %}
+            <div class="t-page-vacancies__items t-margin-top js-vacancies">
+                {% for key, item in vacancies %}
+                    {% if item.position %}
+                        <div 
+                            class="t-page-vacancies__item" 
+                            :class="{ _open: {{key}} === idOpenVacancy }"
+                            @click="onVacancy({{key}})"
+                        >
+                            <div class="t-page-vacancies__item-inner"
+                                :class="{'_cursor-none': !isMobile}"
+                                @mouseenter="hoverCursor('.t-page-vacancies__item-inner')" 
+                            >
+                                <div class="t-page-vacancies__item-position">
+                                    {{item.position}}
+                                </div>
+                                <div class="t-page-vacancies__item-icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <transition name="fade">
+                                <div @click.stop v-if="idOpenVacancy === {{key}}" class="t-page-vacancies__item-content">
+                                    <div class="t-page-vacancies__item-data">
+                                        {% if item.busyness %}
+                                            <div class="t-page-vacancies__item-busyness">
+                                                <span class="t-page-vacancies__item-name">{{ t('app.front', 'Занятость') }}</span>
+                                                <span class="t-page-vacancies__item-value">{{item.busyness}}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if item.experience %}
+                                            <div class="t-page-vacancies__item-experience">
+                                                <span class="t-page-vacancies__item-name">{{ t('app.front', 'Требуемый опыт работы') }}</span>
+                                                <span class="t-page-vacancies__item-value">{{item.experience}}</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="t-page-vacancies__item-description t-html">
+                                        {{ item.description|raw }}
+                                    </div>
+
+                                    {% if item.duties %}
+                                        <div class="t-page-vacancies__item-duties t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">{{ t('app.front', 'Обязанности') }}</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                {% for li in item.duties %}
+                                                    <li class="t-page-vacancies__item-li">{{li}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if item.requirements %}
+                                        <div class="t-page-vacancies__item-requirements t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">{{ t('app.front', 'Требования') }}</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                {% for li in item.requirements %}
+                                                    <li class="t-page-vacancies__item-li">{{li}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if item.conditions %}
+                                        <div class="t-page-vacancies__item-conditions t-page-vacancies__item-mt">
+                                            <h3 class="t-page-vacancies__item-title">{{ t('app.front', 'Условия') }}</h3>
+                                            <ul class="t-page-vacancies__item-list">
+                                                {% for li in item.conditions %}
+                                                    <li class="t-page-vacancies__item-li">{{li}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if item.salary %}
+                                        <div class="t-page-vacancies__item-salary t-page-vacancies__item-mt">
+                                            <span class="t-page-vacancies__item-name">{{ t('app.front', 'Зарплата') }}</span>
+                                            <span class="t-page-vacancies__item-value">{{item.salary}}</span>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="t-page-vacancies__item-btn t-page-vacancies__item-mt">
+                                        <div @click="getActiveVacancy('{{item.position}}', {{item.id}})" class="t-button">
+                                            <span>{{t('app.front', 'Откликнуться')}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </transition>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <div class="t-page-vacancies__not-vacancy t-margin-top">
+                <h3 class="t-page-vacancies__not-vacancy-title">{{ t('app.front', 'На данный момент открытых вакансий нет') }}</h3>
+                <span class="t-page-vacancies__not-vacancy-text">{{ t('app.front', 'Тем не менее, вы можете отправить нам резюме, и мы свяжемся с вами при возникновении подходящих вакансий') }}</span>
+            </div>
+        {% endif %}
+
+        {# собираем массив из вакансий для выпадающего списка в форме #}
+        {% if vacancies %}
+            {% set vacNames = [] %}
+
+            {% for item in vacancies %}
+                {% set vacNames = vacNames|merge([{'label': item.position, 'id': item.id}]) %}
+            {% endfor %}
+        {% else %}
+            {% set vacNames = null %}
+        {% endif %}
+        {# end #}
+
+        <div class="t-page-vacancies__form t-margin-top js-responseVacancy">
+            <form-vacancies-cmp 
+                action="vacancy" 
+                :referer="routeName"
+                formname="{{ t('app.front', 'Откликнуться на вакансию') }}"
+                title="{{ t('app.front', 'Откликнуться на вакансию') }}"
+                text="{{ t('app.front', 'Заполните форму или свяжитесь с нами одним из удобных способов') }}"
+                :position="{{ vacNames|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                :active="activePosition"
+                :id="idClickVacancy"
+            >
+            </form-vacancies-cmp>
+        </div>
+
+        
+        <div class="t-hover js-hover">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_3283_2271)">
+                    <path d="M3.02539 13.5L9.09807 7.42732C9.87912 6.64627 11.1454 6.64628 11.9265 7.42733L17.9992 13.5" stroke="#A7B5C5" stroke-width="2"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_3283_2271">
+                        <rect width="20" height="20" fill="white" transform="translate(0.5)"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span></span>
+        </div>
+
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Смотреть'),
+        }%}
+        
+    </main>
+{% endblock %}

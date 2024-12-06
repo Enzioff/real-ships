@@ -1,0 +1,22 @@
+.t-builder-description
+    &__title
+        font-weight: 500
+        font-size: 36px
+        line-height: 100%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        @include _1366
+            font-size: 28px
+        @include _1024
+            font-size: 24px
+        @include _320
+            font-size: 18px
+    &__text
+        margin-top: 32px
+        @include _1366
+            margin-top: 24px
+        @include _1024
+            margin-top: 20px
+        @include _320
+            margin-top: 16px

@@ -1,0 +1,59 @@
+.t-comeback
+    max-width: max-content
+    display: flex
+    align-items: center
+    cursor: pointer
+    &:hover
+        .t-comeback__icon
+            border: 1px solid $primary  
+        .t-comeback__text
+            transform: translateY(-50%)
+            @include _320
+                transform: none
+    &:active
+        transform: scale3d(.98,.98,.98)
+    &__icon
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 56px
+        height: 56px
+        border: 1px solid $border-color
+        border-radius: 50%
+        margin-right: 15px
+        transition: border .5s linear
+        @include _1366
+            width: 48px
+            height: 48px
+        @include _1024
+            width: 40px
+            height: 40px
+        svg
+            width: 20px
+            @include _1024
+                width: 16px
+    &__content 
+        max-height: 24px  
+        overflow: hidden
+        @include _1024
+            max-height: 20px
+        @include _320
+            max-height: 16px
+  
+    &__text
+        font-weight: 500
+        font-size: 20px
+        line-height: 120%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        display: flex
+        flex-direction: column
+        overflow: hidden
+        transition: all .3s
+        @include _1366
+            font-size: 16px
+            line-height: 131%
+        @include _1024
+            font-size: 14px
+        @include _320
+            font-size: 12px

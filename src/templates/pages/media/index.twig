@@ -1,0 +1,89 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-media t-container">
+        <div class="t-title__container">
+            <h1 class="t-title t-title-small t-page-media__title">{{ t('app.front', 'Медиа') }}</h1>
+        </div>
+        <div class="t-page-media__content">
+            <div class="t-page-media__tabs">
+                {% include "@components/ui-components/tabs/template.twig" with {
+                    tabs: tabs,
+                    query: 'media',
+                    ref: 'mediaTabs',
+                    allMedia: true
+                } %}
+            </div>
+            <div class="t-page-media__items">
+                {% if mainMedia %}
+                    <a v-if="!isMobile" v-link href="{{mainMedia.link}}" class="t-page-media__item t-page-media__item-main">
+                        <div @mouseenter.once="hoverCursor('.t-page-media__item-main-img', '{{t('app.front', 'Подробнее')}}')" class="t-page-media__item-main-img _cursor-none">
+                            <img src="{{mainMedia.img}}" alt="" />
+                        </div>
+                        <div class="t-page-media__item-main-description">
+                            <div class="t-page-media__item-main-col">
+                                <span class="t-page-media__item-main-tag">{{mainMedia.tag}}</span>
+                            </div>
+                            <div class="t-page-media__item-main-col">
+                                <span class="t-page-media__item-main-date">{{mainMedia.date}}</span>
+                            </div>
+                            <div class="t-page-media__item-main-col">
+                                <h5 class="t-page-media__item-main-title">{{ mainMedia.title }}</h5>
+                                <p class="t-page-media__item-main-text">{{ mainMedia.text|raw }}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+
+                <div class="t-page-media__items-container {% if mainMedia %} t-margin-top {% endif %}">
+                    {% if mainMedia %}
+                        <div v-if="isMobile" class="_main-media">
+                            {% include "@components/ui-components/article/template.twig" with {
+                                article: mainMedia
+                            } %} 
+                        </div>
+                    {% endif %}
+                    {# {% for item in media %}
+                        <div @mouseenter.once="hoverCursor('.t-article__img', '{{t('app.front', 'Подробнее')}}')" v-if="this.$root.activeTabName === 'all' || `{{item.tag}}` === this.$root.activeTabName">
+                            {% include "@components/ui-components/article/template.twig" with {
+                                article: item
+                            } %}
+                        </div>
+                    {% endfor %} #}
+                    
+                    <div @mouseenter.once="hoverCursor('.t-article__img', '{{t('app.front', 'Подробнее')}}')" v-for="(item, index) in {{media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw}}" :key="index">    
+                            <article-vue-cmp
+                                :article="item"
+                            >
+                            </article-vue-cmp>
+                    </div>
+                    
+                    <div @mouseenter.once="hoverCursor('.t-article__img', '{{t('app.front', 'Подробнее')}}')" v-for="item in mediaCards">
+                        <article-vue-cmp
+                            :article="item"
+                        >
+                        </article-vue-cmp>
+                    </div>
+                </div>
+
+                <div
+                    class="_none js-pagination"
+                    data-pagination="{{ pagination|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                >
+                </div>
+                {% if pagination.pageCount > pagination.currentPage %}
+                    <div class="t-page-media__btn">
+                        <load-more-cmp 
+                            text="{{ t('app.front', 'Показать ещё') }}"
+                            :pagination="pagination"
+                        ></load-more-cmp>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Подробнее'),
+        }%}
+        
+    </main>
+{% endblock %}

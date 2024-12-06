@@ -1,0 +1,58 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-padding-small t-models">
+        <div class="t-intro">
+            <picture class="t-intro__picture">
+                <img src="/uploads/img/model-list-preview.png" alt="">
+            </picture>
+            <div class="t-intro__info">
+                <h1 class="t-title t-title-small t-intro__title">{{ t('app.front', 'Модельный ряд') }}</h1>
+                <p class="t-intro__text t-text">
+                    Индивидуальный подход к каждому клиенту c возможностью создания<br>уникальной яхты своей мечты
+                </p>
+            </div>
+        </div>
+        {% for key, item in boats %}
+            <div class="t-page-models__boats
+                    {% if key == 0 %}_private{% endif %}
+                    {% if key == 1 %}_commercial t-margin-top{% endif %}
+                    {% if key == 2 %}_available t-margin-top{% endif %}
+                ">
+                <div class="t-title__container" v-animation:bottom>
+                    <h2 class="t-title t-title-small t-page-models__title t-container">{{ t('app.front', item.name) }}</h2>
+                </div>
+                <div class="t-page-models__content">
+                    <div class="t-page-models__boats-slider">
+                        {% for key, element in item.items %}
+                            {% if key % 2 == 0 %}
+                                <a v-link href="{{element.link}}" @click="closeMenu" class="t-model">
+                                    <div class="t-model__picture" v-animation:left>
+                                        <img src="{{element.img}}" alt="" loading="lazy"/>
+                                    </div>
+                                    <div class="t-model__info" v-animation:right>
+                                        <h3  class="t-model__title">{{element.title}}</h3>
+                                        {% if element.text %}
+                                            <p class="t-model__text">{{element.text}}</p>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a v-link href="{{element.link}}" @click="closeMenu" class="t-model">
+                                    <div class="t-model__picture" v-animation:right>
+                                        <img src="{{element.img}}" alt="" loading="lazy"/>
+                                    </div>
+                                    <div class="t-model__info" v-animation:left>
+                                        <h3  class="t-model__title">{{element.title}}</h3>
+                                        {% if element.text %}
+                                            <p class="t-model__text">{{element.text}}</p>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}

@@ -1,0 +1,298 @@
+{% extends firstLoad ? "@layouts/base.twig" : "@layouts/ajaxPage.twig" %}
+{% block content %}
+    <main class="t-page-boat-id" :key="$route.params.id">
+        <div class="t-page-padding-small t-page-boat-id__promo t-container">
+            <div class="t-page-boat-id__promo-left">
+                <div class="t-page-boat-id__promo-top">
+                    <div class="t-page-boat-id__title">
+                        <h1 class="t-title t-title-small">{{ title }}</h1>
+                    </div>
+                    <div class="t-page-boat-id__promo-description">
+                        <span class="t-page-boat-id__promo-description-category">{{category}}</span>
+                        <span v-if="!isMobile" class="t-page-boat-id__promo-description-text">{{description}}</span>
+                        <span v-if="isMobile" class="t-page-boat-id__promo-description-text js-text-one" :class="{ '_hidden-text': hiddenTextOne }">{{description}}</span>
+                        <p class="_cursor" :class="{ '_none': !hiddenTextOne }" v-if="isMobile" @click="changeHiddenText('hiddenTextOne')">{{t('app.front', 'Читать полностью')}}</p>
+                    </div>
+                </div>
+                <div class="t-page-boat-id__promo-bottom">
+                    <div @click="scrollTo('.t-page-boat-id__specification')" @mouseenter="hoverCursor('.t-page-boat-id__promo-params')" class="t-page-boat-id__promo-params" :class="{'_cursor-none': !isMobile}">
+                        {% for item in params %}
+                            <div class="t-page-boat-id__promo-params-item">
+                                <span class="t-page-boat-id__promo-params-name">{{item.name}}</span>
+                                <span class="t-page-boat-id__promo-params-value">{{item.value}}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if icon %}
+                        <div class="t-page-boat-id__promo-icon">
+                            <img src="{{icon}}" alt="{{title}}" />
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="t-page-boat-id__promo-right">
+                {% if media.mark == 'video' %}
+                    <video-cmp 
+                        id="boat"
+                        autoplay="autoplay"
+                        mute="mute"
+                        :video="{{ media|json_encode(constant('JSON_UNESCAPED_UNICODE'))|replace({'"': '\''})|raw }}"
+                    ></video-cmp>
+                {% elseif media.mark == 'image' %}
+                    <img src="{{media.src}}" alt="{{title}}" />
+                {% endif %}
+            </div>
+            <div v-if="isMobile" class="t-page-boat-id__promo-right-bottom">
+                <div class="t-page-boat-id__promo-right-description">
+                    <h2 class="t-title t-title-big t-page-boat-id__title">{{ title }}</h2>
+                    <span class="t-page-boat-id__promo-offer">{{text}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-page-boat-id__interior t-margin-top">
+            <div class="t-container">
+                <h2 class="t-subtitle t-page-boat-id__subtitle">{{interior.title}}</h2>
+
+                <div class="t-page-boat-id__interior-description">
+                    <p class="_cursor" :class="{ '_none': !hiddenTextTwo }" v-if="isMobile" @click="changeHiddenText('hiddenTextTwo')">{{t('app.front', 'Читать полностью')}}</p>
+                    <div v-if="!isMobile" class="t-page-boat-id__interior-text t-html">
+                        {{interior.description|raw}}
+                    </div>
+                    <div v-if="isMobile"  class="t-page-boat-id__interior-text t-html js-text-two" :class="{ '_hidden-text': hiddenTextTwo }">
+                        {{interior.description|raw}}
+                    </div>
+                    <div class="t-page-boat-id__interior-thesis">
+                        <span class="t-thesis">{{interior.thesis}}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if interior.slider %}
+                <div class="t-page-boat-id__interior-slider">
+                    <swiper class="t-page-boat-id__slider" :options="swiperOptionsBoat">
+                        {% for key, slide in interior.slider %}
+                            <swiper-slide class="t-page-boat-id__slider-item">
+                                <div class="t-page-boat-id__slider-item-container">
+                                    <div class="t-page-boat-id__slider-item-img">
+                                        <img src="{{slide.img}}" alt="{{slide.caption}}" loading="lazy"/>
+                                    </div>
+                                    <div class="t-page-boat-id__slider-item-title">{{slide.caption}}</div>
+                                    <div v-if="isMobile" class="t-page-boat-id__slider-item-line">
+                                        {% for key2, item in interior.slider %}
+                                            <div class="t-page-boat-id__slider-item-line-item" 
+                                                :class="{'t-page-boat-id__slider-item-line-item-active': {{key2}} == {{key}}}"
+                                            >
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                        {% endfor %}
+                        <div class="t-page-boat-id__slider-button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+                            <div class="t-slider-img__button-prev-icon t-button-prev__icon">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                    <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="t-page-boat-id__slider-button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+                            <div class="t-slider-img__button-next-icon t-button-next__icon">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                                    <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="t-page-boat-id__slider-pagination t-pagination" slot="pagination"></div>
+                    </swiper>
+                </div>
+            {% endif %}
+        </div>
+        {% if tour.link %}
+            <div class="t-page-boat-id__tour t-margin-top t-container">
+                <span class="t-page-boat-id__tour-thesis t-thesis">{{tour.title}}</span>
+                <div class="t-page-boat-id__tour-link">
+                    <div
+                        @click="Open({newState: 'modal-boat-cmp', props: {link: '{{tour.link}}', close: $root.staticText.modalClose}, modalContent: 't-max-width' })" 
+                        @mouseenter="hoverCursor('.t-page-boat-id__tour-icon', '{{t('app.front', 'Открыть 3D-тур')}}')" 
+                        class="t-page-boat-id__tour-icon"
+                        :class="{'_cursor-none': !isMobile}"
+                    >
+                        <div class="t-page-boat-id__tour-icon-right">
+                            <svg width="132" height="141" viewBox="0 0 132 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.67822 141C1.67822 70.3075 58.9858 13 129.678 13" stroke="#022855" stroke-width="2"/>
+                                <path d="M119.687 1.68652L129.586 11.586C130.367 12.3671 130.367 13.6334 129.586 14.4144L119.687 24.3139" stroke="#022855" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="t-page-boat-id__tour-icon-text">{{ t('app.front', '3d-тур') }}</span>
+                        <div class="t-page-boat-id__tour-icon-left">
+                            <svg width="132" height="141" viewBox="0 0 132 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M130.322 0C130.322 70.6925 73.0142 128 2.32178 128" stroke="#022855" stroke-width="2"/>
+                                <path d="M12.3135 139.313L2.41398 129.414C1.63293 128.633 1.63293 127.367 2.41398 126.586L12.3135 116.686" stroke="#022855" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="t-page-boat-id__exterior t-margin-top t-container">
+            <h2 class="t-subtitle t-page-boat-id__subtitle">{{exterior.title}}</h2>
+            <div class="t-page-boat-id__exterior-description">
+                <div class="t-page-boat-id__exterior-thesis">
+                    <span class="t-thesis">{{exterior.thesis}}</span>
+                </div>
+                <div class="t-page-boat-id__exterior-text t-html">
+                    {{exterior.description|raw}}
+                </div>
+            </div>
+            {% if exterior.slider and exterior.images %}
+                <div class="t-page-boat-id__exterior-media">
+                    <div class="t-page-boat-id__exterior-media-left">
+                        {% if exterior.slider %}
+                            {% include "@components/ui-components/slider-img/template.twig" with {
+                                slides: exterior.slider 
+                            }%}
+                        {% endif %}
+                        {% set imagesOne = exterior.images[:1][0] %}
+                        {% if exterior.images %}
+                            <div v-if="!isMobile" class="t-page-boat-id__exterior-media-img">
+                                <div class="t-page-boat-id__exterior-media-img-item">
+                                    <img src="{{imagesOne.img}}" alt="" loading="lazy"/>
+                                </div>
+                                <span class="t-page-boat-id__exterior-media-img-title">{{imagesOne.caption}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% set imagesTwo = exterior.images[1:][0] %}
+                    {% if exterior.images[1:] %}
+                        <div v-if="!isMobile" class="t-page-boat-id__exterior-media-right">
+                            <div class="t-page-boat-id__exterior-media-img">
+                                <div class="t-page-boat-id__exterior-media-img-item">
+                                    <img src="{{imagesTwo.img}}" alt="" loading="lazy"/>
+                                </div>
+                                <span class="t-page-boat-id__exterior-media-img-title">{{imagesTwo.caption}}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if specification %}
+            <div class="t-page-boat-id__specification t-margin-top t-container">
+                <div class="t-page-boat-id__specification-wrapper">
+                    <div class="t-page-boat-id__specification-title">
+                        <h2 class="t-subtitle t-page-boat-id__subtitle">{{ t('app.front', 'Спецификации') }}</h2>
+                    </div>
+                    <div class="t-page-boat-id__specification-tabs">
+                        {% include "@components/ui-components/tabs-original/template.twig" with {
+                            tabs: specification
+                        }%}
+                    </div>
+                </div>
+                
+                {% for item in specification %}
+                    <div v-if="{{ loop.index }} === activeSpecification" class="t-page-boat-id__specification-content">
+                        <div class="t-page-boat-id__specification-content-top">
+                            <div class="t-page-boat-id__specification-img js-boat-img">
+                                <img src="{{item.img}}" alt="" loading="lazy"/>
+                            </div>
+                            <div v-if="!isMobile" class="t-page-boat-id__specification-width">
+                                <i class="t-arrow t-arrow-prev">
+                                    <svg width="20" height="64" viewBox="0 0 20 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2652_771)">
+                                        <path d="M17.4878 9.00195L11.4151 2.92928C10.6341 2.14823 9.36774 2.14823 8.58669 2.92928L2.51402 9.00195" stroke="#A7B5C5" stroke-width="2"/>
+                                        <path d="M10.0005 2.4852V128" stroke="#A7B5C5" stroke-width="2"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_2652_771">
+                                        <rect width="64" height="20" fill="white" transform="translate(20) rotate(90)"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                </i>
+                                <span>{{item.width}}</span>
+                                <i class="t-arrow t-arrow-next">
+                                    <svg width="20" height="64" viewBox="0 0 20 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2652_776)">
+                                        <path d="M17.4868 54.999L11.4141 61.0717C10.6331 61.8527 9.36676 61.8527 8.58571 61.0717L2.51304 54.999" stroke="#A7B5C5" stroke-width="2"/>
+                                        <path d="M10 61.5148V-64" stroke="#A7B5C5" stroke-width="2"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_2652_776">
+                                        <rect width="64" height="20" fill="white" transform="translate(20) rotate(90)"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                </i>
+                            </div>
+                            <div v-if="!isMobile" class="t-page-boat-id__specification-length">
+                                <i class="t-arrow t-arrow-prev">
+                                </i>
+                                <span>{{item.length}}</span>
+                                <i class="t-arrow t-arrow-next">
+                                </i>
+                            </div>
+                            <div v-if="!isMobile" class="t-page-boat-id__specification-lines js-boat-lines" data-lines-number="{{item.length}}"></div>
+                        </div>
+                        <div class="t-page-boat-id__specification-content-bottom">
+                            <div v-if="!isMobile" class="t-page-boat-id__specification-content-bottom-left">
+                                <h4 class="t-subtitle t-page-boat-id__subtitle t-page-boat-id__subtitle-small">{{ t('app.front', 'Необходимо получить больше информации?') }}</h4>
+                                <div @click="scrollTo('.t-form-wrapper')" class="t-page-boat-id__specification-btn">
+                                    {% include "@components/ui-components/button-link/template.twig" with {
+                                        type: 'link',
+                                        border: 'true',
+                                        link: null,
+                                        text: t('app.front', 'Связаться с нами') 
+                                    }%}
+                                </div>
+                            </div>
+                            <div class="t-page-boat-id__specification-content-bottom-right">
+                                <div class="t-page-boat-id__specification-params">
+                                    {% for param in item.params %}
+                                        <div class="t-page-boat-id__specification-param">
+                                            <span class="t-page-boat-id__specification-param-name">{{param.name}}</span>
+                                            <span class="t-page-boat-id__specification-param-value">{{param.value}}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if item.file %}
+                                    <div class="t-page-boat-id__specification-link__content">
+                                        <a download href="{{item.file}}" target="_blank" class="t-page-boat-id__specification-link">
+                                            <span>{{ t('app.front', 'Скачать спецификацию') }}</span>
+                                            <span>{{ t('app.front', 'Скачать спецификацию') }}</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        {% endif %}
+
+        <div class="t-page-boat-id__form t-margin-top t-container">
+            <form-contacts-message-cmp
+                action = "model" 
+                :referer = "routeName"
+                formname = "{{ t('app.front', 'Заинтересовала модель?') }}"
+                title = "{{ t('app.front', 'Заинтересовала модель?') }}"
+                text = "{{ t('app.front', 'Для получения дополнительной информации, пожалуйста, оставьте свои данные, и мы свяжемся с вами в ближайшее время') }}"
+                :checkbox = checkboxPersonalData
+                :id = "{{ id }}"
+            >
+            </form-contacts-message-cmp>
+        </div>
+        
+        <modal-cmp></modal-cmp>
+
+        {% include "@components/ui-components/cursor/template.twig" with {
+            text: t('app.front', 'Больше характеристик'),
+        }%}
+        
+    </main>
+{% endblock %}

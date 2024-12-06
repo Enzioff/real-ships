@@ -1,0 +1,32 @@
+<tabs-cmp inline-template>
+    <div class="t-tabs">
+        <ul class="t-tabs__list">
+            {% if allMedia %}
+                <li class="t-tabs__item" 
+                    :class="{'t-tabs__item-active': 0 == this.$root.activeTabId}" 
+                    @click="setActiveClass('0', null, 'all')" 
+                >
+                    <span>{{t('app.front', 'Все медиа')}}</span>
+                </li>
+                {% for item in tabs %}
+                    <li class="t-tabs__item" 
+                        :class="{'t-tabs__item-active': {{item.id}} == this.$root.activeTabId}"
+                        @click="setActiveClass('{{item.id}}', '{{query}}', '{{ item.name }}')"
+                    >
+                        <span>{{item.name}}</span>
+                    </li>
+                {% endfor %}
+            {% else %}
+                {% for item in tabs %}
+                    <li class="t-tabs__item" 
+                        :id="{{ item.id }}"
+                        :class="{'t-tabs__item-active': {{ loop.index - 1 }} == loopId}" 
+                        @click="setActiveClassMainPage('{{ loop.index - 1 }}', '{{ item.name }}')"
+                    >
+                        <span>{{item.name}}</span>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</tabs-cmp>

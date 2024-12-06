@@ -1,0 +1,450 @@
+.t-page-about
+    &__title
+        padding-top: 24px
+        transform: translateY(100%)
+        animation: show 1300.17ms cubic-bezier(0.4, 0, 0.08, 0.41) 0.4s forwards
+        @include _320
+            animation: none
+            transform: translateY(0)
+
+    &__shipyard
+        display: flex
+        justify-content: space-between
+        margin-top: 32px
+        padding-top: 64px
+        position: relative
+        overflow: hidden
+        @include _1366
+            margin-top: 24px
+            padding-top: 48px
+        @include _320
+            margin-top: 16px
+            padding-top: 32px
+            flex-direction: column
+        &::before
+            content: ""
+            position: absolute
+            border-bottom: 1px solid $border-color
+            width: 100%
+            top: 0
+            right: -100%
+            animation: linie 2s ease-out 0.7s forwards
+            @include _320
+                animation: none
+                right: 0
+        &-thesis
+            width: 15.5%
+            @include _320
+                width: 100%
+        &-media
+            width: 83%
+            height: 838px
+            position: relative
+            @include _1366
+                height: 594px
+            @include _1024
+                height: 440px
+            @include _320
+                width: 100%
+                height: 180px
+            .t-video
+                height: 100%
+                video
+                    height: 100%
+                iframe
+                    width: 100%
+                    height: 100%
+            &-img
+                height: 100%
+                img
+                    height: 100%
+                    width: 100%
+                    object-fit: cover
+            &::after
+                content: ''
+                position: absolute
+                width: 101%
+                top: -2px
+                left: -1px
+                z-index: 100
+                height: 101%
+                background: $bg
+                animation: showVideo 1.5s ease-out .2s forwards
+                // animation-timing-function: cubic-bezier(.11,.98,.01,-0.01)
+                @include _320
+                    animation: none
+                    height: 0%
+
+    &__production
+        .t-subtitle
+            max-width: 1187px
+            @include _1366
+                max-width: 720px
+            @include _1024
+                max-width: 600px
+        &.t-margin-top
+            margin-top: 48px
+        &-content
+            margin-top: 32px
+            @include _1366
+                margin-top: 24px
+            @include _320
+                margin-top: 16px
+        &-description
+            max-width: 1489px
+            display: flex
+            border-top: 1px solid $border-color
+            @include _320
+                flex-direction: column 
+                max-width: 100%
+        &-thesis, &-text
+            padding-top: 64px
+            @include _1366
+                padding-top: 24px
+        &-thesis
+            width: 39%
+            border-right: 1px solid $border-color
+            @include _320
+                width: 100%
+                border-right: none
+        &-text
+            padding-left: 24px
+            width: 61%
+            @include _320
+                width: 100%
+                padding-left: 0
+                padding-top: 0
+            &.t-html
+                max-width: 612px
+                @include _1366 
+                    max-width: 412px
+                @include _1024
+                    max-width: 312px
+        &-media
+            margin-top: 128px
+            display: flex
+            justify-content: space-between
+            @include _1366
+                margin-top: 96px
+            @include _1024
+                margin-top: 80px
+            @include _320
+                margin-top: 40px
+        &-slider
+            width: calc(50% - 12px)
+            @include _320
+                width: 100%
+        &-img
+            margin-top: 128px
+            height: 784px
+            width: calc( 32% + 7px )
+            @include _1366
+                margin-top: 96px
+                height: 554px
+            @include _1024
+                margin-top: 80px
+                height: 410px
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+    &__mission
+        margin-top: 128px
+        border-top: 1px solid $border-color
+        display: flex
+        @include _1366
+            margin-top: 96px
+        @include _1024
+            margin-top: 80px
+        @include _320
+            margin-top: 64px
+            flex-direction: column  
+        &-thesis, &-text
+            padding-top: 32px
+            @include _1366
+                padding-top: 24px
+        &-thesis
+            width: 34%
+            border-right: 1px solid $border-color
+            @include _320
+                width: 100%
+                border-right: none
+                padding-top: 40px
+            span
+                width: 300px
+                @include _1366
+                    width: 180px
+                @include _1024
+                    width: 142px
+                @include _320
+                    width: 100%
+        &-text
+            width: 66%
+            padding-left: 24px
+            @include _320
+                padding-left: 0
+                width: 100%
+                padding-top: 0
+            &.t-html
+                max-width: 907px
+                @include _1366
+                    width: 650px
+                @include _1024
+                    width: 450px
+                @include _320
+                    width: 100%
+    &__equipment
+        width: 81%
+        margin-left: auto
+        @include _320
+            width: 100%
+        &-media
+            margin-top: 32px
+            padding-top: 64px
+            border-top: 1px solid $border-color
+            @include _1366
+                margin-top: 24px
+                padding-top: 48px
+            @include _320
+                margin-top: 16px
+                padding-top: 24px
+        &-img
+            height: 600px
+            @include _1366
+                height: 428px
+            @include _1024
+                height: 320px
+            @include _320
+                height: 200px
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+        &-descr
+            margin-top: 128px
+            border-top: 1px solid $border-color
+            display: flex
+            @include _1366
+                margin-top: 96px
+            @include _1024
+                margin-top: 80px
+            @include _320
+                margin-top: 64px
+                flex-direction: column
+            &-left
+                width: 19%
+                border-right: 1px solid $border-color
+                @include _320
+                    width: 100%
+            &-right
+                width: 81%
+                padding: 32px 0 0 24px
+                @include _1366
+                    padding-top: 24px
+                @include _320
+                    width: 100%
+                    padding-left: 0
+        &-item
+            &-title
+                margin-bottom: 32px
+                max-width: max-content
+                @include _1366
+                    margin-bottom: 24px
+                @include _320
+                    margin-bottom: 0
+                    color: $primary
+            &-text
+                &.t-html
+                    p, span
+                        margin-bottom: 0
+        &-col
+            margin-top: 64px
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            @include _1366
+                margin-top: 48px
+            @include _320
+                flex-direction: column 
+                margin-top: 40px
+            .t-page-about__equipment-item
+                width: calc(50% - 12px)
+                @include _320
+                    width: 100%
+                &:not(:last-child)
+                    @include _320
+                        margin-bottom: 40px
+    &__employees
+        width: 81%
+        margin-right: auto
+        @include _320
+            width: 100%
+        .t-subtitle
+            max-width: 1187px
+            @include _1366
+                max-width: 844px
+            @include _1024
+                max-width: 628px
+            @include _320
+                max-width: 100%
+        &-content
+            margin-top: 32px
+            @include _1024
+                margin-top: 24px
+            @include _320
+                margin-top: 16px
+        &-description
+            display: flex
+            border-top: 1px solid $border-color
+            @include _320
+                flex-direction: column
+                padding-top: 32px
+        &-thesis
+            width: 22%
+            border-right: 1px solid $border-color
+            @include _320
+                width: 100%
+                border-right: none
+        &-thesis, &-text
+            padding-top: 48px
+            @include _1366
+                padding-top: 24px
+        &-text
+            margin: 0 auto
+            &.t-html
+                max-width: 581px
+                @include _1366
+                    max-width: 412px
+                @include _1024
+                    max-width: 302px
+                @include _320
+                    max-width: 100%
+                    padding-top: 0
+        &-media
+            margin-top: 128px
+            width: 82%
+            margin-left: auto
+            display: flex
+            justify-content: space-between
+            @include _1366
+                margin-top: 96px
+            @include _1024
+                margin-top: 80px
+            @include _320
+                width: 100%
+                margin-top: 24px
+            
+        &-img
+            &:first-child
+                width: 581px
+                height: 784px
+                @include _1366
+                    width: 413px
+                    height: 554px
+                @include _1024
+                    width: 301px
+                    height: 410px
+                @include _320
+                    height: 320px
+                    width: 100%
+            &:nth-child(2)
+                margin: auto 0
+                width: 581px
+                height: 341px
+                @include _1366
+                    width: 413px
+                    height: 241px
+                @include _1024
+                    width: 301px
+                    height: 188px
+            &:not(:first-child)
+                @include _320
+                    display: none
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+    &__certificates
+        .t-subtitle
+            max-width: 1429px
+            @include _1366
+                width: 844px
+            @include _1024
+                width: 628px
+            @include _320
+                width: 100%
+        &-media
+            margin-top: 32px
+            padding-top: 64px
+            border-top: 1px solid $border-color
+            @include _1366
+                margin-top: 24px
+                padding-top: 48px
+            @include _320
+                margin-top: 16px
+                padding-top: 24px
+        &-img
+            height: 600px
+            @include _1366
+                height: 428px
+            @include _1024
+                height: 320px
+            @include _320
+                height: 200px
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+        &-content
+            display: flex
+            justify-content: space-between
+            margin-top: 64px
+            border-top: 1px solid $border-color
+            @include _1366
+                margin-top: 48px
+            @include _320
+                margin-top: 64px
+                flex-direction: column
+        &-descr, &-items
+            padding-top: 32px
+            @include _1366
+                padding-top: 24px
+        &-descr
+            width: 50%
+            padding-right: 17%
+            @include _320
+                padding: 24px 0
+                width: 100%
+                border-bottom: 1px solid $border-color
+            // p
+            //     width: 60%
+            //     @include _320
+            //         width: 100%
+        &-items
+            width: 50%
+            padding-left: 24px
+            border-left: 1px solid $border-color
+            @include _320
+                width: 100%
+                border-left: none
+                padding-left: 0
+        &-item
+            width: 60%
+            @include _320
+                width: 100%
+            &-title
+                color: $primary
+            &-text
+                margin-top: 32px
+                @include _1366
+                    margin-top: 24px
+                @include _320
+                    margin-top: 0
+            &:not(:last-child)
+                margin-bottom: 64px
+                @include _1366
+                    margin-bottom: 32px
+                @include _320
+                    margin-bottom: 40px
+                
+

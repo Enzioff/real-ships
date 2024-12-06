@@ -1,0 +1,966 @@
+.t-loaded
+    .t-page-boat-id
+        overflow: hidden
+        .t-modal
+            &-boat
+                @include _320
+                    margin: 0
+                    padding: 0
+                    height: 100vh
+            &__content
+                background-color: $bg
+                @include _320
+                    padding: 0
+            &__close
+                @include _320
+                    top: 30px
+                    right: 7px
+                &::after, &::before
+                    background-color: $primary
+                    @include _320
+                        background-color: $bg                    
+        &__form
+            .t-form
+                padding-right: 15%
+                @include _320
+                    padding-right: 0
+                    padding-bottom: 0
+                    border-bottom: none
+                &__title
+                    font-size: 56px
+                    line-height: 110%
+                    @include _1366
+                        font-size: 40px
+                    @include _1024
+                        font-size: 30px
+                    @include _320
+                        font-size: 22px
+                &__description
+                    @include _320
+                        padding-top: 0
+                &-wrapper
+                    @include _320
+                        flex-direction: column
+                        border-top: none
+                        border-bottom: none
+                        padding-bottom: 0
+                &__text
+                    @include _320
+                        padding-bottom: 16px
+                        border-bottom: 1px solid $border-color
+                &__btn
+                    margin-top: 104px   
+                    @include _1366
+                        margin-top: 84px   
+                    @include _1024
+                        margin-top: 61px   
+        &__title
+            max-width: 900px
+            overflow: hidden
+            .t-title-small
+                transform: translateY(100%)
+                animation: show 1300ms cubic-bezier(.11,.98,.01,-0.01) 0.6s forwards
+                @include _320
+                    animation: none
+                    transform: translateY(0)
+        &__subtitle
+            max-width: 1183px
+            @include _1366
+                max-width: 844px
+            @include _1024
+                max-width: 648px
+            @include _320
+                max-width: 100%
+            &-small
+                font-size: 36px
+                line-height: 100%
+                max-width: 581px
+                @include _1366
+                    font-size: 28px
+                    max-width: 410px
+                @include _1024
+                    font-size: 24px
+                    max-width: 301px
+        &__slider
+            height: 709px
+            max-width: 1920px
+            margin-left: -64px
+            @media (min-width: 1921px)
+                margin: 0 auto
+            @include _1366
+                height: 509px
+                margin-left: -40px
+            @include _1024
+                height: 429px
+                margin-right: -40px
+            @include _320
+                height: 338px
+                margin-left: 0
+                margin-right: 0
+            .swiper-wrapper
+                left: 20%
+                @include _320
+                    left: 0
+            .swiper-slide-active
+                width: auto !important
+                .t-page-boat-id__slider
+                    &-item
+                        &-img
+                            transition: height .6s ease-in-out
+                            height: 528px
+                            width: calc((100vw - 128px) *  0.68 * 0.74 - 24px)
+                            max-width: 884px
+                            @include _1366
+                                height: 374px
+                                width: calc((100vw - 80px) *  0.68 * 0.74 - 24px)
+                            @include _1024
+                                height: 320px
+                                width: calc((100vw - 80px) *  0.68 * 0.74 - 20px)
+                            @include _320
+                                transition: none
+                                height: 184px
+                                width: calc(100vw - 32px)
+                        &-title
+                            color: $primary
+            &-item
+                &-container
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-between
+                    transition: height .6s ease-in-out
+                    position: relative
+                    @include _320
+                        transition: none
+                &-img
+                    height: 341px
+                    @include _1366
+                        height: 244px
+                    @include _320
+                        height: 184px
+                    img
+                        height: 100%
+                        width: 100%
+                        object-fit: cover
+                &-title
+                    overflow: hidden
+                    display: -webkit-box
+                    -webkit-line-clamp: 2
+                    -webkit-box-orient: vertical
+                    margin-top: 32px
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $border-color
+                    max-width: 581px
+                    @include _1366
+                        font-size: 18px
+                        margin-top: 24px
+                        max-width: 410px
+                    @include _1024
+                        font-size: 14px
+                        margin-top: 22px
+                        max-width: 304px
+                    @include _320
+                        margin-top: 16px
+                        padding-bottom: 48px
+                        border-bottom: 1px solid $border-color
+                        max-width: 100%
+                        width: calc(100vw - 32px)
+                        height: 65.8px
+                &-line
+                    display: flex
+                    flex-direction: row
+                    width: 100%
+                    flex-wrap: nowrap
+                    position: absolute
+                    bottom: 0
+                    &-item
+                        flex: 0 1 100%
+                        &-active
+                            height: 2px
+                            background: $primary
+            &-button-prev
+                left: 20%
+                @include _1366
+                    left: 20%
+                @include _1024
+                    left: 20%
+                @include _320
+                    left: 0
+            &-button-next
+                left: calc( 20% + 84px )
+                right: auto
+                @include _1366
+                    left: calc( 20% + 72px )
+                @include _1024
+                    left: calc( 20% + 60px )
+                @include _320
+                    left: 48px
+            &-pagination
+                right: calc( 110% * 0.3 )
+                left: auto
+                width: max-content
+                bottom: 120px
+                @include _1366
+                    bottom: 88px
+                @include _1024
+                    bottom: 68px
+                    right: 35.5%
+                @include _320
+                    bottom: 11px
+                    right: 0
+        &__promo
+            display: flex
+            justify-content: space-between
+            position: relative
+            height: calc(784px + 144px)
+            @include _1366
+                height: calc(554px + 108px)
+            @include _1024
+                height: calc(540px + 108px)
+            @include _320
+                flex-direction: column-reverse
+                height: auto
+            &-icon
+                width: 279px
+                height: 84px
+                @include _1366
+                    width: 194px
+                    height: 58px
+                @include _1024
+                    width: 141px
+                    height: 42px
+                @include _320
+                    width: 100%
+                    height: 88px
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+            &-left
+                width: calc(67% - 12px)
+                display: flex
+                flex-direction: column
+                @include _1024
+                    width: calc(67% - 10px)
+                @include _320
+                    width: 100%
+            &-top
+                @include _320
+                    margin-top: 64px
+            &-right
+                height: 784px
+                width: calc(33% - 12px)
+                position: absolute
+                bottom: 0
+                right: 0
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 100%
+                    bottom: 0
+                    left: 0
+                    z-index: 100
+                    height: 100%
+                    background: $bg
+                    animation: showVideo 2s cubic-bezier(.08,.82,.17,1) .6s forwards
+                    @include _320
+                        animation: none
+                        height: 0%
+                .t-video
+                    pointer-events: none
+                @include _1366
+                    height: 554px
+                @include _1024
+                    width: calc(33% - 10px)
+                    height: 540px
+                @include _320
+                    height: 100vh
+                    width: 100vw
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translateX(-16px)
+                img
+                    height: 100%
+                    width: 100%
+                    object-fit: cover
+                &-bottom
+                    @include _320
+                        height: calc(100vh - 92px)
+                        position: relative
+                    .t-page-boat-id__title
+                        @include _320
+                            width: 100%
+                &-description
+
+                    @include _320
+                        display: flex
+                        max-width: 100%
+                        height: 100%
+                        flex-direction: column
+                        align-items: start
+                        justify-content: flex-end
+                        color: $bg
+                        .t-page-boat-id__title
+                            padding-bottom: 16px
+                            border-bottom: 1px solid $border-color
+                            margin-bottom: 16px
+                            color: $bg
+                            background-position: 0 100%
+            .animate-video_width-height
+                width: 100vw
+                height: 100vh
+                transform: translateX(64px)
+                transition: transform 2s .150ms, width 2s .5ms, height 2s .150ms
+                @include _1366
+                    transform: translateX(40px)
+                @include _320
+                    transform: translateX(0)
+            &-offer
+                @include _320
+                    font-weight: 500
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    // color: $bg
+                    max-width: 210px
+                    font-size: 14px
+                    padding-bottom: 29px
+            &-bottom
+                display: flex
+                justify-content: space-between
+                align-items: flex-end
+                margin-top: auto
+                @include _320
+                    flex-direction: column-reverse
+            &-description
+                margin-top: 32px
+                margin-bottom: 32px
+                display: flex
+                overflow: hidden
+                position: relative
+                &::before
+                    content: ''
+                    position: absolute
+                    border-top: 1px solid $border-color
+                    width: 100%
+                    top: 0
+                    right: -100%
+                    animation: linie 2s linear 0.7s forwards
+                    animation-timing-function: cubic-bezier(0,1,.01,-0.01)
+                    @include _320
+                        animation: none
+
+                @include _1366
+                    margin-top: 24px
+                    margin-bottom: 24px
+                @include _320
+                    margin-top: 16px
+                    margin-bottom: 40px
+                    flex-direction: column
+                &-category, &-text
+                    padding-top: 32px
+                    height: max-content
+                    transform: translateY(-100%)
+                    animation: show 1300ms cubic-bezier(.11,.98,.01,-0.01) 0.8s forwards
+                    @include _1366
+                        padding-top: 24px
+                    @include _320
+                        animation: none
+                        transform: translateY(0)
+
+                &-category
+                    width: 24%
+                    padding-right: 57px
+                    font-weight: 500
+                    font-size: 20px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $primary
+                    @include _1366
+                        padding-right: 37px
+                        font-size: 16px
+                    @include _1024
+                        padding-right: 20px
+                        font-size: 14px
+                        width: 27%
+                    @include _320
+                        padding-top: 32px
+                        width: 100%
+                        color: $border-color
+                &-text
+                    padding-left: 24px
+                    border-left: 1px solid $border-color
+                    width: 76%
+                    font-weight: 500
+                    font-size: 20px
+                    line-height: 140%
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $text-color
+                    padding-right: 25%
+                    //оганичение в 8 строк
+                    // overflow: hidden
+                    // display: -webkit-box
+                    // -webkit-line-clamp: 8
+                    // -webkit-box-orient: vertical
+                    @include _1366
+                        font-size: 16px
+                    @include _1024
+                        padding-left: 20px
+                        font-size: 14px
+                        width: 73%
+                    @include _320
+                        padding-top: 16px
+                        border-left: none
+                        padding-left: 0
+                        padding-right: 0
+                        width: 100%
+                        display: block
+
+            &-params
+                display: flex
+                flex-wrap: wrap
+                justify-content: space-between
+                max-width: 581px
+                z-index: 10
+                @include _1366
+                    max-width: 410px
+                @include _1024
+                    max-width: 323px
+                @include _320
+                    max-width: 100%
+                    width: 100%
+                    margin-top: 32px
+                &-item
+                    width: 50%
+                    display: flex
+                    flex-direction: column
+                    margin-bottom: 64px
+                    overflow-y: hidden
+                    min-width: 279px
+                    white-space: nowrap
+                    @include _1366
+                        min-width: 193px
+                    @include _1024
+                        min-width: 140px
+                    @include _320
+                        margin-bottom: 16px
+                    &:last-child, &:nth-last-child(-n+2)
+                        margin-bottom: 0
+                &-name, &-value
+                    transform: translateY(301%)
+                    animation: show 1300ms cubic-bezier(.11,.98,.01,-0.01) .6s forwards
+                    @include _320
+                        animation: none
+                        transform: translateY(0)
+                &-name
+                    font-weight: 500
+                    font-size: 20px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $border-color
+                    overflow-y: hidden
+                    @include _1366
+                        font-size: 16px
+                    @include _1024
+                        font-size: 14px
+                    @include _320
+                        font-size: 12px
+                &-value
+                    margin-top: 16px
+                    font-weight: 500
+                    font-size: 36px
+                    line-height: 120%
+                    // text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $primary
+                    overflow-y: hidden
+                    @include _1366
+                        font-size: 28px
+                    @include _1024
+                        font-size: 24px
+                    @include _320
+                        font-size: 18px
+                        margin-top: 4px
+                    
+        .height-max
+            height: 100vh
+            transition: height 2s 1s
+            .t-title
+                background: linear-gradient(to bottom, #022855, #022855 50%, #A7B5C5 50%)
+                background-clip: text
+                background-size: 1% 200%
+                background-position: 0 100%
+                transition: background-position 1.5s linear
+            .t-page-boat-id__promo-description,
+            .t-page-boat-id__promo-icon
+                display: none
+            .t-page-boat-id__promo
+                &-bottom
+                    transform: translate(64vw, -9vh)
+                    transition: transform 3s
+                    z-index: 1
+                    @include _2000
+                        transform: translate(73vw, -9vh)
+                    @include _1024
+                        transform: translate(60vw, -10vh)
+
+                &-top 
+                    transform: translateY(70vh)
+                    z-index: 1
+                    transition: transform 3s
+                    @include _2000
+                        transform: translateY(75vh)
+                        transition: transform 3.7s
+                &-params
+                    z-index: 1
+                    &-name
+                        color: $border-color
+                        transition: color 1.5s
+                    &-value
+                        color: $border-color-2
+                        transition: color 1.5s
+
+        &__interior
+            &-description
+                margin-top: 32px
+                display: flex
+                border-top: 1px solid $border-color
+                @include _1366
+                    margin-top: 24px
+                @include _320
+                    margin-top: 16px
+                    flex-direction: column-reverse
+            &-text, &-thesis
+                padding-top: 64px
+                @include _1366
+                    padding-top: 40px
+                @include _1024
+                    padding-top: 48px
+            &-text
+                width: 68%
+                padding-right: 24px
+                border-right: 1px solid $border-color
+                @include _1024
+                    padding-right: 20px
+                @include _320
+                    border-right: 0
+                    padding-right: 0
+                    width: 100%
+                    padding-top: 0
+                p
+                    max-width: 74%
+                    margin-right: 0
+                    margin-left: auto
+                    @include _320
+                        margin: 0
+                        max-width: 100%
+            ._cursor
+                cursor: pointer
+                font-size: 14px
+            ._none
+                display: none
+            &-thesis
+                padding-left: 24px
+                @include _320
+                    width: 100%
+                    padding-left: 0
+                    padding-top: 32px
+            &-slider
+                margin-top: 128px
+                @include _1366
+                    margin-top: 96px
+                @include _1024
+                    margin-top: 80px
+                @include _320
+                    margin-top: 40px
+
+        &__tour
+            &-thesis
+                max-width: 581px
+                @include _1366
+                    max-width: 410px
+                    color: $primary
+            &-link
+                display: flex
+                justify-content: center
+                align-items: center
+                margin-top: 32px
+                padding: 32px 0
+                border-bottom: 1px solid $border-color
+                border-top: 1px solid $border-color
+                @include _1366
+                    margin-top: 24px
+                    padding: 24px 0
+                @include _320
+                    margin-top: 0
+                    padding: 16px 0
+            &-icon
+                height: 288px
+                width: 288px
+                display: flex
+                align-items: center
+                justify-content: center
+                position: relative
+                @include _1366
+                    height: 200px
+                    width: 205px
+                @include _1024
+                    height: 144px
+                    width: 149px
+                svg
+                    @include _1366
+                        height: 97px
+                        width: 90px
+                    @include _1024
+                        height: 72px
+                        width: 67px
+                &-left, &-right
+                    position: absolute
+                &-right
+                    top: 4.69px
+                    left: 14.68px
+                &-left
+                    bottom: 4.69px
+                    right: 14.68px
+                &-text
+                    font-weight: 500
+                    font-size: 36px
+                    line-height: 100%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    color: $border-color
+                    @include _1366
+                        font-size: 18px
+                    @include _1024
+                        font-size: 14px
+
+        &__exterior
+            &-description
+                margin-top: 32px
+                border-top: 1px solid $border-color
+                display: flex
+                @include _1366
+                    margin-top: 24px
+                @include _320
+                    margin-top: 16px
+                    flex-direction: column
+            &-thesis, &-text
+                padding-top: 64px
+                @include _1366
+                    padding-top: 48px
+            &-thesis
+                width: 32.4%
+                // padding-right: 24px
+                @include _320
+                    width: 100%
+                    padding-top: 32px
+            &-text
+                width: 67.6%
+                border-left: 1px solid $border-color
+                @include _320
+                    width: 100%
+                    border-left: none
+                    padding-top: 0
+                p
+                    width: 50%
+                    margin-left: auto
+                    margin-right: auto
+                    @include _320
+                        width: 100%
+            &-media
+                margin-top: 128px
+                display: flex
+                justify-content: space-between
+                @include _1366
+                    margin-top: 96px
+                @include _1024
+                    margin-top: 80px
+                @include _320
+                    margin-top: 40px
+                    flex-direction: column
+                &-left
+                    width: calc( 58.5% - 163.5px )
+                    @include _1366
+                        width: calc( 58.5% - 121px )
+                    @include _1024
+                        width: calc( 58.5% - 90px )
+                    @include _320
+                        width: 100%
+                    .t-page-boat-id__exterior-media-img
+                        margin-top: 64px
+                        align-self: end
+                        width: 66%
+                        @include _1366
+                            margin-top: 48px
+                        &-item
+                            width: 100%
+                            margin-left: auto
+                            img
+                                height: 100%
+                                width: 100%
+                                object-fit: cover
+                    
+                &-right
+                    width: calc( 41.5% - 163.5px )
+                    @include _1366
+                        width: calc( 41.5% - 121px )
+                    @include _1024
+                        width: calc( 41.5% - 90px )
+                    .t-page-boat-id__exterior-media-img
+                        padding-top: 128px
+                        @include _1366
+                            padding-top: 96px
+                        @include _1024
+                            padding-top: 80px
+                        &-item
+                            height: 784px
+                            width: 100%
+                            @include _1366
+                                height: 554px
+                            @include _1024
+                                height: 410px
+                            img
+                                height: 100%
+                                width: 100%
+                                object-fit: cover
+        &__specification
+            &-wrapper
+                display: flex
+                justify-content: space-between
+                align-items: flex-end
+                @include _320
+                    flex-direction: column
+            &-title, &-tabs
+                border-bottom: 1px solid $border-color
+            &-title
+                padding-bottom: 32px
+                width: calc(66.7% - 12px)
+                @include _1366
+                    padding-bottom: 24px
+                @include _320
+                    width: 100%
+                    padding-bottom: 16px
+            &-tabs
+                width: calc(33.1% - 12px)
+                @include _320
+                    width: 100%
+                .t-tabs-original__list
+                    @include _320
+                        justify-content: space-between
+            &-content
+                margin-top: 128px
+                @include _320
+                    margin-top: 56px
+                &-top
+                    position: relative
+                &-bottom
+                    margin-top: calc(157px + 128px)
+                    display: flex
+                    justify-content: space-between
+                    @include _1366
+                        margin-top: calc(157px + 96px)
+                    @include _1024
+                        margin-top: calc(157px + 80px)
+                    @include _320
+                        flex-direction: column
+                        margin-top: 56px
+                    &-left
+                        width: calc( 33.1% - 12px )
+                        @include _1366
+                            width: calc( 33.1% - 10px )
+                    &-right
+                        width: calc( 66.9% - 12px )
+                        @include _1366
+                            width: calc( 66.9% - 10px )
+                        @include _320
+                            width: 100%
+            &-img
+                width: 100%
+                height: 356px
+                padding: 0 calc(18% - 44px)
+                @include _1366
+                    height: 274px
+                @include _1024
+                    height: 202px
+                @include _320
+                    height: 88px
+                    padding: 0
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+            &-width, &-length
+                position: absolute
+                font-weight: 500
+                font-size: 36px
+                line-height: 100%
+                text-transform: uppercase
+                font-feature-settings: 'pnum' on, 'lnum' on
+                color: $primary
+                @include _1366
+                    font-size: 28px
+                @include _1024
+                    font-size: 24px
+            &-width
+                display: flex
+                flex-direction: column
+                align-items: center
+                top: 0
+                height: 100%
+                span
+                    display: block
+                    margin: auto 0
+                    transform: rotate(-90deg)
+                .t-arrow
+                    height: 30%
+                    @include _1024
+                        height: 20%
+                    svg
+                        height: 100%
+                        
+            &-length
+                display: flex
+                align-items: center
+                bottom: -100px
+                left: 50%
+                transform: translateX(-50%)
+                width: 64%
+                span
+                    padding: 0 64px
+                    white-space: nowrap
+                .t-arrow
+                    position: relative
+                    width: 100%
+                    height: 2px
+                    background: $border-color
+                    &::after
+                        content: ''
+                        position: absolute
+                        right: 0
+                        top: calc(-100% + 1px)
+                        width: 2px
+                        height: 12px
+                        background: $border-color
+                        transform: rotate(45deg)
+                        @include _1024
+                            height: 8px
+                    &::before
+                        content: ''
+                        position: absolute
+                        right: 0
+                        bottom: calc(-100% + 1px)
+                        width: 2px
+                        height: 12px
+                        background: $border-color
+                        transform: rotate(-45deg)
+                        @include _1024
+                            height: 8px
+                    &.t-arrow-prev
+                        transform: rotate(180deg)
+
+            &-lines
+                display: flex
+                align-items: flex-end
+                // justify-content: center
+                position: absolute
+                // left: 0
+                // right: 0
+                // transform: translateX(-50%)
+                bottom: -157px
+                padding: 0 18%
+                width: 100%
+            &-line
+                width: 2px
+                height: 16px
+                background-color: $border-color
+                margin-right: auto !important
+                &:last-child
+                    margin-right: 0 !important
+                &:first-child, &:last-child, &._middle
+                    height: 24px
+                    background-color: $primary
+            &-btn
+                margin-top: 64px
+                @include _1366
+                    margin-top: 48px
+                @include _1024
+                    margin-top: 32px
+                .t-button-link
+                    width: max-content
+            &-params
+                border-top: 1px solid $border-color
+                border-bottom: 1px solid $border-color
+            &-param
+                display: flex
+                align-items: center
+                justify-content: space-between
+                padding: 32px 0
+                @include _1366
+                    padding: 24px 0
+                @include _1024
+                    padding: 20px 0
+                &:not(:last-child)
+                    border-bottom: 1px solid $border-color
+                &-name, &-value
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 120%
+                    text-transform: uppercase
+                    font-feature-settings: 'pnum' on, 'lnum' on
+                    @include _1366
+                        font-size: 18px
+                    @include _1024
+                        font-size: 14px
+                &-name
+                    color: $border-color
+                    width: calc(75.5% - 12px)
+                    @include _320
+                        width: auto
+                &-value
+                    text-align: right
+                    color: $primary
+                    width: calc(24.5% - 12px)
+                    @include _320
+                        width: auto
+            &-link
+                display: flex
+                align-items: flex-end
+                font-weight: 500
+                font-size: 20px
+                line-height: 115%
+                font-feature-settings: 'pnum' on, 'lnum' on
+                color: $primary
+                flex-direction: column
+                transition: .3s
+
+                &__content
+                    max-height: 20px
+                    overflow: hidden
+                    margin-top: 32px
+                    &:hover
+                        .t-page-boat-id__specification-link
+                            transform: translateY(-50%)
+                    &:active
+                        .t-page-boat-id__specification-link
+                            transform: scale3d(.98, .98, .98) translateY(-50%)
+
+                    @include _1366
+                        margin-top: 24px
+                        font-size: 18px
+                    @include _1024
+                        max-height: 18px
+                        margin-top: 20px
+                        font-size: 14px
+                    @include _320
+                        display: none
+
+                @include _1366
+                    font-size: 18px
+                @include _1024
+                    font-size: 14px

@@ -1,0 +1,29 @@
+<builder-slider-cmp inline-template>
+	<swiper class="t-slider-img" :options="swiperOptions">
+		{% for slide in slides %}
+			<swiper-slide class="t-slider-img__item">
+				<div class="t-slider-img__item-img">
+                    <img src="{{slide.content.img}}" alt="{{slide.content.caption}}" />
+                </div>
+                <div class="t-slider-img__item-title">{{slide.content.caption}}</div>
+			</swiper-slide>
+		{% endfor %}
+		<div class="t-slider-img__button-prev t-button-prev swiper-button-prev no-swiping" slot="button-prev">
+			<div class="t-slider-img__button-prev-icon t-button-prev__icon">
+				<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                    <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                </svg>
+			</div>
+		</div>
+		<div class="t-slider-img__button-next t-button-next swiper-button-next no-swiping" slot="button-next">
+			<div class="t-slider-img__button-next-icon t-button-next__icon">
+				<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.48633 1.51367L2.41365 7.58635C1.6326 8.3674 1.6326 9.63373 2.41365 10.4148L8.48633 16.4874" stroke="#022855" stroke-width="2"/>
+                    <path d="M1.9707 9H17.9707" stroke="#022855" stroke-width="2"/>
+                </svg>
+			</div>
+		</div>
+		<div class="t-slider-img__pagination t-pagination" slot="pagination"></div>
+	</swiper>
+</builder-slider-cmp>

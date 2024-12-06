@@ -1,0 +1,23 @@
+.t-builder-quote
+    border-top: 1px solid $border-color
+    border-bottom: 1px solid $border-color
+    padding: 96px 0
+    @include _1366
+        padding: 64px 0
+    @include _1024
+        padding: 56px 0
+    @include _320
+        padding: 24px 0
+    &__text
+        font-weight: 500
+        font-size: 36px
+        line-height: 140%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        @include _1366
+            font-size: 28px
+        @include _1024
+            font-size: 24px
+        @include _320
+            font-size: 18px

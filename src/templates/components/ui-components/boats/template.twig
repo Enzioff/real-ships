@@ -1,0 +1,14 @@
+<boats-cmp inline-template>
+    <div class="t-boats js-boat-count">
+        {% for item in boats %}
+            <a v-link href="{{item.link}}" class="t-boats__item">
+                <div class="t-boats__item-img">
+                    {% if item.icon %}
+                        <img src="{{item.icon}}" alt="{{item.title}}" />
+                    {% endif %}
+                </div>
+                <span class="t-boats__item-title">{{item.title}}</span>
+            </a>
+        {% endfor %}
+    </div>
+</boats-cmp>

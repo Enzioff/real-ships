@@ -1,0 +1,333 @@
+.t-form
+    padding: 64px 24px
+    border-left: 1px solid $border-color
+    width: 66.2%
+    @include _1366
+        padding: 48px 24px
+    @include _1024
+        padding-right: 141px
+    @include _320
+        border-left: none
+        width: 100%
+        padding: 32px 0
+        border-bottom: 1px solid $border-color
+    &-small
+        .t-form
+            &__input, &__label
+                font-size: 24px
+                line-height: 120%
+    &-wrapper
+        display: flex
+        border-top: 1px solid $border-color
+        border-bottom: 1px solid $border-color
+        @include _320
+            flex-direction: column-reverse
+            padding-bottom: 32px
+            border-bottom: none
+            justify-content: center
+            align-items: center
+    &__description
+        padding-top: 64px
+        padding-right: 24px
+        width: 33.8%
+        @include _1366
+            padding-top: 48px
+        @include _320
+            width: 100%
+            padding-top: 32px
+            padding-right: 0
+    &__inner
+        width: 66.2%
+        padding: 64px 0
+        padding-left: 24px
+        border-left: 1px solid $border-color
+        @include _1366
+            padding: 48px 0
+            padding-left: 20px
+        @include _1024
+            padding: 32px 0
+            padding-left: 20px
+        .t-form
+            border-left: none
+            padding: 0
+            width: 74.5%
+    &__tabs
+        width: 74.5%
+        margin-bottom: 96px
+        display: flex
+        justify-content: space-between
+        @include _1366
+            margin-bottom: 64px
+        @include _1024
+            margin-bottom: 56px
+        @include _320
+            margin-bottom: 32px
+        &-value
+            width: calc(50% - 12px)
+            padding-bottom: 32px
+            font-size: 20px
+            line-height: 120%
+            text-transform: uppercase
+            font-feature-settings: 'pnum' on, 'lnum' on
+            color: $border-color
+            border-bottom: 2px solid $border-color
+            pointer-events: none
+            @include _1366
+                font-size: 16px
+                padding-bottom: 24px
+            @include _1024
+                font-size: 14px
+                padding-bottom: 20px
+                width: calc(50% - 10px)
+            @include _320
+                padding-bottom: 16px
+            &.active
+                color: $primary
+                border-color: $primary
+
+    &__title
+        font-weight: 500
+        font-size: 36px
+        line-height: 100%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        @include _1366
+            font-size: 28px
+        @include _1024
+            font-size: 24px
+    &__text
+        margin-top: 32px
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $text-color
+        @include _1366
+            margin-top: 20px
+            font-size: 16px
+        @include _1024
+            margin-top: 16px
+            font-size: 14px
+        &-error
+            position: absolute
+            bottom: -40px
+            font-weight: 500
+            font-size: 20px
+            line-height: 120%
+            font-feature-settings: 'pnum' on, 'lnum' on
+            color: $error-color
+            @include _1366
+                font-size: 16px
+            @include _1024
+                font-size: 14px
+            @include _320
+                bottom: -30px
+    &__contacts
+        margin-top: 96px
+        &-not-mt
+            margin-top: 0
+        &-phone
+            &:not(:last-child)
+                margin-bottom: 64px
+                @include _1366
+                    margin-bottom: 48px
+                @include _1024
+                    margin-bottom: 32px
+                @include _320
+                    margin-bottom: 16px
+        &-icon
+            // padding-top: 6px
+            margin-left: 9px
+        &-mail, &-phone
+            display: flex
+            flex-direction: column
+        &-mail
+            margin-top: 64px
+            @include _1366
+                margin-top: 48px
+            @include _1024
+                margin-top: 32px
+            @include _320
+                margin-top: 16px
+        &-text
+            font-weight: 500
+            font-size: 20px
+            line-height: 120%
+            text-transform: uppercase
+            font-feature-settings: 'pnum' on, 'lnum' on
+            color: $border-color
+            @include _1366
+                font-size: 16px
+            @include _1024
+                font-size: 14px
+            @include _320
+                color: $primary
+                text-transform: initial
+        &-link
+            margin-top: 16px
+            font-weight: 500
+            font-size: 24px
+            line-height: 120%
+            text-transform: uppercase
+            font-feature-settings: 'pnum' on, 'lnum' on
+            color: $primary
+            @include _1366
+                margin-top: 12px
+                font-size: 18px
+            @include _1024
+                margin-top: 8px
+                font-size: 14px
+            @include _320
+                display: flex
+                align-items: center
+                justify-content: center
+                text-transform: inherit
+            &._border
+                @include _320
+                    padding: 12px 20px
+                    border: 1px solid $border-color
+                    border-radius: 72px
+                    margin-top: 0
+        &-address
+            margin-top: 64px
+            @include _1366
+                margin-top: 48px
+            @include _1024
+                margin-top: 32px
+            span
+                display: block
+            @include _320
+                .t-form__contacts-link
+                    text-transform: uppercase
+                .t-form__contacts-text
+                    color: $border-color
+                    text-transform: uppercase
+    &__block
+        position: relative
+        width: 100%
+        margin-bottom: 104px
+    ._border-bottom
+        &::after
+            content: ""
+            position: absolute
+            border-bottom: 1px solid $border-color
+            width: 100%
+            bottom: 0
+            right: 0
+            transition: all .3s ease-in-out
+        &:hover, &:focus-within
+            &::after
+                border-bottom: 2px solid $primary
+        &._valid, &._error
+            border-bottom: 2px solid $primary
+
+        @include _1366
+            margin-bottom: 79px
+        @include _1024
+            margin-bottom: 61px
+        @include _320
+            margin-bottom: 54px
+        &:last-child
+            margin-bottom: 0
+    &__input
+        position: relative
+        padding-bottom: 32px
+        width: 100%
+        font-weight: 500
+        font-size: 36px
+        line-height: 100%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        transition: all .3s ease-in-out
+        @include _1366
+            font-size: 28px
+            padding-bottom: 18px
+        @include _1024
+            font-size: 24px
+            padding-bottom: 16px
+        @include _320
+            font-size: 18px
+            padding-bottom: 12px
+    &__status-icon
+        position: absolute
+        right: 0
+        z-index: 1
+    &__label
+        position: absolute
+        left: 0
+        top: 0
+        font-weight: 500
+        font-size: 36px
+        line-height: 100%
+        text-transform: uppercase
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $border-color
+        pointer-events: none
+        transition: all .3s ease-in-out
+        @include _1366
+            font-size: 28px
+        @include _1024
+            font-size: 24px
+        @include _320
+            font-size: 18px
+        &._opacity
+            opacity: 0
+        &._star
+            &::after
+                content: '*'
+                position: absolute
+                top: 0
+                right: -13px
+    &__textarea
+        width: 100%
+        min-height: 132px
+        padding-bottom: 18px
+        font-family: 'Raleway'
+        font-weight: 500
+        font-size: 20px
+        line-height: 140%
+        font-feature-settings: 'pnum' on, 'lnum' on
+        color: $primary
+        transition: all .3s ease-in-out
+        resize: none
+        @include _1366
+            font-size: 16px
+            min-height: 104px
+        @include _1024
+            padding-bottom: 16px
+            font-size: 14px
+            min-height: 88px
+    &__btn
+        margin-top: 32px
+        @include _1366
+            margin-top: 24px
+        @include _320
+            .t-button
+                margin: 0 auto
+                width: 192px
+                height: 192px
+        &-vacancy
+            margin-top: 64px
+            @include _1366
+                margin-top: 48px
+            @include _1024
+                margin-top: 32px
+    .t-personal-data
+        margin-top: 80px
+        @include _1366
+            margin-top: 63px
+        @include _1024
+            margin-top: 61px
+        label
+            color: $border-color
+            font-size: 20px
+            @include _1366
+                font-size: 16px
+            @include _1024
+                font-size: 14px
+            &::before
+                border-radius: 0
+            svg
+                stroke: $bg

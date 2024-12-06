@@ -1,0 +1,12 @@
+<menu-cmp inline-template>
+    <ul class="t-menu _{{type}}">
+        {% for item in menuList %}
+            <li class="t-menu__item">
+                <a v-link href="{{ item.link }}" @click="closeMenu" class="t-menu__link t-active-btn">
+                    <span>{{ item.title }}</span>
+                    <span>{{ item.title }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</menu-cmp>
