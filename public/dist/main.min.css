@@ -6683,8 +6683,12 @@ a {
 .t-model:nth-child(even) {
   direction: rtl;
 }
-.t-model:nth-child(even) .t-model__info {
-  align-items: flex-end;
+@media screen and (max-width: 1160px) {
+  .t-model:nth-child(even) {
+    display: flex;
+    flex-direction: column-reverse;
+    direction: ltr;
+  }
 }
 .t-model__picture {
   display: flex;

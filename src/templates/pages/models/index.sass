@@ -359,8 +359,10 @@
   &:nth-child(even)
     direction: rtl
 
-    .t-model__info
-      align-items: flex-end
+    @include _1024
+      display: flex
+      flex-direction: column-reverse
+      direction: ltr
 
   &__picture
     display: flex
